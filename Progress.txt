@@ -1,0 +1,4 @@
+1. Tìm hiểu quy trình Scrum
+2. Chọn chức năng cho đề tài
+3. Thiết kế cơ sở dữ liệu
+4. Xây dựng trang web
