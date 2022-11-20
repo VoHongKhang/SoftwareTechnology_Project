@@ -1,0 +1,13 @@
+
+-Daily Room -
+Chọn chức năng thực thi trong 7 ngày
+Học hàng ngày liệt kê chức năng
+Hôm qua làm đc gì, mô hình triển khai hôm nay
+Chọn chức năng triển khai
+Nộp lại link tài liệu backblog
+Họp meet ghi lại lần làm việc -> Daily Srucm backblog
+Đặt ít nhất 1 câu hỏi (gồm 3 câu để triển khai)
+làm liên tục trong 7 ngày
+- Debug and Version -
+Tiêu chí chấm điểm : Contributions
+Commit
