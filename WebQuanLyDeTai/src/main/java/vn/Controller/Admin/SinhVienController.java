@@ -49,7 +49,7 @@ public class SinhVienController extends HttpServlet {
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
-		request.getRequestDispatcher("/views/admin/sinhvien/list-sinhvien.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/list-sinhvien.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -70,7 +70,7 @@ public class SinhVienController extends HttpServlet {
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
-		request.getRequestDispatcher("/views/admin/sinhvien/list-sinhvien.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/list-sinhvien.jsp").forward(request, response);
 	}
 
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
@@ -90,10 +90,10 @@ public class SinhVienController extends HttpServlet {
 	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			// khai báo biến userId
-			String categoryId = request.getParameter("masinhvien");
+			String masinhvien = request.getParameter("masinhvien");
 			// khởi tạo DAO
 			// gọi hàm insert để thêm dữ liệu
-			SinhVien sinhvien = sinhvienService.findById(Integer.parseInt(categoryId));
+			SinhVien sinhvien = sinhvienService.findById(Integer.parseInt(masinhvien));
 			// thông báo
 			request.setAttribute("sinhvien", sinhvien);
 		} catch (Exception e) {
