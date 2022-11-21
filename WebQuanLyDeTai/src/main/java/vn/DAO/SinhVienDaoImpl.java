@@ -46,4 +46,6 @@ public class SinhVienDaoImpl implements ISinhVienDao{
 		SinhVien sinhvien = enma.find(SinhVien.class, masinhvien);
 		return sinhvien;
 	}
+	
+	
 }
