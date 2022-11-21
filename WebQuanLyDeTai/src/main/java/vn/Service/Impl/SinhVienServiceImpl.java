@@ -21,4 +21,9 @@ public class SinhVienServiceImpl implements ISinhVienService{
 		sinhvienDao.update(sinhvien);
 	}
 
+	@Override
+	public SinhVien findById(int masinhvien) {
+		return sinhvienDao.findById(masinhvien);
+	}
+
 }

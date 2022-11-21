@@ -6,6 +6,8 @@ import vn.Entity.SinhVien;
 
 public interface ISinhVienService {
 	List<SinhVien> findAll();
+	
+	SinhVien findById(int masinhvien);
 
 	void update(SinhVien sinhvien);
 }

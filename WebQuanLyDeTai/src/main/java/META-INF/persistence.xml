@@ -13,7 +13,7 @@
 
 	<persistence-unit name="springDBMSSQL">
 
-		<!-- <class>vn.iotstar.Entity.SinhVien</class> -->
+		<class>vn.Entity.SinhVien</class>
 		
 
 		<properties>
@@ -33,7 +33,7 @@
 			<property name="hibernate.format_sql" value="true" />
 
 			<property name="hibernate.ddl-auto" value="update" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServer2008Dialect" />
