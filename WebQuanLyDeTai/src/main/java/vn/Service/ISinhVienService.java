@@ -10,4 +10,6 @@ public interface ISinhVienService {
 	SinhVien findById(int masinhvien);
 
 	void update(SinhVien sinhvien);
+	
+	
 }

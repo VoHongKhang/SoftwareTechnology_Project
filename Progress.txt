@@ -1,4 +1,18 @@
+-20/11/2022
 1. Tìm hiểu quy trình Scrum
 2. Chọn chức năng cho đề tài
 3. Thiết kế cơ sở dữ liệu
 4. Xây dựng trang web
+
+-21/11/2022
+1 Tạo các entity, Dao, service , controller cho 1 số  chức năng của đề tài
+2 Tạo  1 số view
+3 Tạo các layout
+4 Khó khăn: Lên ý tưởng để liên kết các view thành 1 thể thống nhất.
+
+-22/11/2022
+
+1 Hoàn thành chức năng tạo tài khoản của Admin
+2 Xem thông tin của sinh viên 
+3 Đăng nhập với tư cách của Admin
+4 Khó khăn thống nhất code của thành viên
