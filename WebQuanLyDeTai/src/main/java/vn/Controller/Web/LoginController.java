@@ -8,6 +8,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import vn.Entity.TaiKhoan;
 
 @WebServlet(urlPatterns = { "/login" })
 public class LoginController extends HttpServlet {
@@ -26,9 +29,9 @@ public class LoginController extends HttpServlet {
 		String user = req.getParameter("username");
 		String pass = req.getParameter("password");
 		
+		TaiKhoan tk = new TaiKhoan();
 		
-		
-		if (user.equals("trung") && pass.equals("123"))  {
+		if (user.equals(tk.getUsername()) && pass.equals(tk.getPassword()))  {
 			// khởi tạo cookie
 			Cookie cookie = new Cookie("username", user);
 			// thiết lập thời gian tồn tại 30s của cookie
@@ -41,6 +44,7 @@ public class LoginController extends HttpServlet {
 			// chuyển sang trang LoginServlet
 			resp.sendRedirect("home");
 		}
+		
 	}
 
 }

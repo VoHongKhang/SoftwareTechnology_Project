@@ -90,10 +90,6 @@
 															formaction="<c:url value="/admin-taikhoan/create"/>">
 															Create <i class="fa fa-plus"></i>
 														</button>
-														<button class="btn btn-warning"
-															formaction="<c:url value="/admin-taikhoan/update"/>">
-															Update <i class="fa fa-edit"></i>
-														</button>
 														<button class="btn btn-success"
 															formaction="${pageContext.request.contextPath}/admin-taikhoan/reset">
 															Reset <i class="fa fa-undo"></i>
