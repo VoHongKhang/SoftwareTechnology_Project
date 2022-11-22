@@ -38,36 +38,27 @@ public class TaiKhoan  implements Serializable{
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public int getPhanquyen() {
 		return phanquyen;
 	}
-
 	public void setPhanquyen(int phanquyen) {
 		this.phanquyen = phanquyen;
 	}
-
-	
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public TaiKhoan(int id, String username, String password, int phanquyen) {
 		super();
 		this.id = id;
@@ -75,10 +66,7 @@ public class TaiKhoan  implements Serializable{
 		this.password = password;
 		this.phanquyen = phanquyen;
 	}
-
 	public TaiKhoan() {
 		super();
 	}
-	
-	
 }
