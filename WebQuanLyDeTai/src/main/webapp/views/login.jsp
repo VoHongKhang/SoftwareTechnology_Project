@@ -29,6 +29,7 @@
 	<style>
 body {
 	padding: 50px;
+	background-color: #1b765a;
 }
 
 * {
@@ -41,7 +42,7 @@ body {
 	border-radius: 10px;
 	overflow: hidden;
 	padding: 55px 55px 37px;
-	background: #9152f8;
+	background: #58ade5;
 	background: -webkit-linear-gradient(top, #7579ff, #b224ef);
 	background: -o-linear-gradient(top, #7579ff, #b224ef);
 	background: -moz-linear-gradient(top, #7579ff, #b224ef);

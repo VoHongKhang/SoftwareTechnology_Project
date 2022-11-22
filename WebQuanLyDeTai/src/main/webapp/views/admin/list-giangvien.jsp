@@ -25,7 +25,8 @@
 
 </head>
 <body>
-	<div class="page-content-wrapper" style="margin-left: 40px; margin-right: 40px;">
+	<div class="page-content-wrapper"
+		style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
@@ -33,7 +34,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Quản lý Sinh Viên
+								<i class="fa fa-globe"></i>Quản lý Giảng Viên
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -55,45 +56,58 @@
 													<br />
 
 													<div class="form-group" hidden="hidden">
-														<label for="UserID">Mã sinh viên:</label> <input
-															type="text" name="categoryId"
-															value="${sinhvien.masinhvien}" id="categoryId"
+														<label for="magiangvien">Mã giảng viên:</label> <input
+															type="text" name="magiangvien"
+															value="${giangvien.magiangvien}" id="magiangvien"
 															class="form-control" readonly />
 													</div>
 													<div class="form-group">
 														<label for="ten">Họ và tên:</label> <input type="text"
 															class="form-control" name="ten" id="ten"
-															value="${sinhvien.ten}" />
+															value="${giangvien.ten}" />
 													</div>
 													<div class="form-group">
 														<label for="namsinh">Năm sinh:</label> <input type="text"
 															class="form-control" name="namsinh"
-															value="${sinhvien.namsinh}" id="namsinh" />
+															value="${giangvien.namsinh}" id="namsinh" />
 													</div>
 													<div class="form-group">
-														<label for="khoahoc">Khóa học:</label> <input type="text"
-															class="form-control" name="khoahoc" id="khoahoc"
-															value="${sinhvien.khoahoc}" />
+														<label for="email">Email:</label> <input type="text"
+															class="form-control" name="email" id="email"
+															value="${giangvien.email}" />
 													</div>
 													<div class="form-group">
 														<label for="chuyennganh">Chuyên ngành:</label> <input
 															type="text" class="form-control" name="chuyennganh"
-															id="chuyennganh" value="${sinhvien.chuyennganh}" />
+															id="chuyennganh" value="${giangvien.chuyennganh}" />
 													</div>
+													<div class="form-group">
+														<label for="phanquyen">Chức vụ:
+															<div>0. Giảng viên</div>
+															<div>1. Trưởng bộ môn</div>
 
+
+														</label> <input type="text" class="form-control" name="phanquyen"
+															id="phanquyen" value="${giangvien.latruongbomon}" />
+													</div>
 													<br />
 													<hr>
 													<div class="form-group">
-
+													
 														<button class="btn btn-warning"
-															formaction="<c:url value="/admin-sinhvien/update"/>">
+															formaction="<c:url value="/admin-giangvien/update"/>">
 															Create <i class="fa fa-edit"></i>
 														</button>
+														<button class="btn btn-danger"
+															formaction="<c:url value="/admin-giangvien/delete"/>">
+															Delete <i class="fa fa-trash"></i>
+														</button>
+														<br /> <br />
 														<button class="btn btn-success"
-															formaction="${pageContext.request.contextPath}/admin-sinhvien/reset">
+															formaction="${pageContext.request.contextPath}/admin-giangvien/reset">
 															Reset <i class="fa fa-undo"></i>
 														</button>
-
+														
 													</div>
 												</form>
 											</div>
@@ -109,22 +123,32 @@
 													<tr>
 														<th>Tên</th>
 														<th>Năm sinh</th>
-														<th>Khóa học</th>
+														<th>Email</th>
 														<th>Chuyên ngành</th>
+														<th>Chức vụ</th>
 														<th>Hành động</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="item" items="${sinhviens}">
+													<c:forEach var="item" items="${giangviens}">
 														<tr class="odd gradeX">
 
 															<td>${item.ten}</td>
 															<td>${item.namsinh}</td>
-															<td>${item.khoahoc}</td>
+															<td>${item.email}</td>
 															<td>${item.chuyennganh}</td>
+															<td><c:if test="${item.latruongbomon == 0}">
+																	<span class="label label-sm label-success">Giảng
+																		viên</span>
+																</c:if> <c:if test="${item.latruongbomon == 1}">
+																	<span class="label label-sm label-warning">Trưởng
+																		bộ môn</span>
+																</c:if></td>
 															<td><a
-																href="<c:url value='/admin-sinhvien/edit?masinhvien=${item.masinhvien}'/>"
-																class="center">Edit</a>
+																href="<c:url value='/admin-giangvien/edit?magiangvien=${item.magiangvien}'/>"
+																class="center">Edit</a> | <a
+																href="<c:url value='/admin-giangvien/delete?magiangvien=${item.magiangvien}'/>"
+																class="center">Delete</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>
