@@ -2,7 +2,9 @@ package vn.DAO;
 
 import java.util.List;
 
+
 import vn.Entity.GiangVien;
+
 
 public interface IGiangVienDao {
 	List<GiangVien> findAll();
@@ -12,4 +14,6 @@ public interface IGiangVienDao {
 	void update(GiangVien giangvien);
 	
 	void delete(int cateid) throws Exception;
+	
+	void insert(GiangVien giangvien);
 }

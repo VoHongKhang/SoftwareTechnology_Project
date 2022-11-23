@@ -2,6 +2,7 @@ package vn.Service.Impl;
 
 import java.util.List;
 
+
 import vn.DAO.GiangVienDaoImpl;
 import vn.DAO.IGiangVienDao;
 import vn.Entity.GiangVien;
@@ -28,6 +29,11 @@ public class GiangVienServiceImpl implements IGiangVienService{
 	@Override
 	public void delete(int cateid) throws Exception {
 		giangvienDao.delete(cateid);
+	}
+	
+	@Override
+	public void insert(GiangVien giangvien) {
+		giangvienDao.insert(giangvien);	
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -25,6 +26,25 @@ public class GiangVienDaoImpl implements IGiangVienDao{
 			trans.begin();
 			//update
 			enma.merge(giangvien);
+			trans.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.rollback();
+			throw e;
+		} finally {
+			enma.close();
+		}
+	}
+	@Override
+	public void insert(GiangVien giangvien) {
+
+		EntityManager enma = JpaConfig.getEntityManager();
+		EntityTransaction trans = enma.getTransaction();
+
+		try {
+			trans.begin();
+			//thêm
+			enma.persist(giangvien);
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

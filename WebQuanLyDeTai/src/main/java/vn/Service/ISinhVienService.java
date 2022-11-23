@@ -11,5 +11,5 @@ public interface ISinhVienService {
 
 	void update(SinhVien sinhvien);
 	
-	
+	void delete(int masinhvien) throws Exception;
 }

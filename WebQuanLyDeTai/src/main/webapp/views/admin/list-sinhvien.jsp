@@ -124,7 +124,9 @@
 															<td>${item.chuyennganh}</td>
 															<td><a
 																href="<c:url value='/admin-sinhvien/edit?masinhvien=${item.masinhvien}'/>"
-																class="center">Edit</a>
+																class="center">Edit</a>| <a
+																href="<c:url value='/admin-sinhvien/delete?masinhvien=${item.masinhvien}'/>"
+																class="center">Delete</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>
