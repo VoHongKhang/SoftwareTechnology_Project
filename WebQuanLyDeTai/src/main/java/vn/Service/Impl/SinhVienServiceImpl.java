@@ -25,5 +25,9 @@ public class SinhVienServiceImpl implements ISinhVienService{
 	public SinhVien findById(int masinhvien) {
 		return sinhvienDao.findById(masinhvien);
 	}
-
+	
+	@Override
+	public void delete(int masinhvien) throws Exception {
+		sinhvienDao.delete(masinhvien);
+	}
 }

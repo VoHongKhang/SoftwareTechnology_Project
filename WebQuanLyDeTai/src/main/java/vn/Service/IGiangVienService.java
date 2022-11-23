@@ -12,4 +12,6 @@ public interface IGiangVienService {
 	void update(GiangVien giangvien);
 	
 	void delete(int cateid) throws Exception;
+	
+	void insert(GiangVien giangvien);
 }

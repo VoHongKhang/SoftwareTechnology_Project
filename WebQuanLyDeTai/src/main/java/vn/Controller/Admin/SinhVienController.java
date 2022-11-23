@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import vn.Entity.GiangVien;
 import vn.Entity.SinhVien;
 import vn.Service.ISinhVienService;
 import vn.Service.Impl.SinhVienServiceImpl;
@@ -21,7 +22,7 @@ import vn.Service.Impl.SinhVienServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
-@WebServlet(urlPatterns = { "/admin-sinhvien","/admin-sinhvien/edit","/admin-sinhvien/update","/admin-sinhvien/reset"})
+@WebServlet(urlPatterns = { "/admin-sinhvien","/admin-sinhvien/edit","/admin-sinhvien/update","/admin-sinhvien/reset","/admin-sinhvien/delete"})
 public class SinhVienController extends HttpServlet {
 	ISinhVienService sinhvienService = new SinhVienServiceImpl();
 
@@ -110,13 +111,12 @@ public class SinhVienController extends HttpServlet {
 			// lấy dữ liệu từ jsp bằng BeanUtils
 			SinhVien sinhvien = new SinhVien();
 			BeanUtils.populate(sinhvien, request.getParameterMap());
-	
-			
+
 			// khai báo danh sách và gọi hàm update trong service
 			sinhvienService.update(sinhvien);
 			// thông báo
 			request.setAttribute("sinhvien", sinhvien);
-			request.setAttribute("message", "Cập nhật thành công!");
+			request.setAttribute("message", "Thêm thành công!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -125,7 +125,19 @@ public class SinhVienController extends HttpServlet {
 	
 	protected void delete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
+
+		try {
+			// lấy dữ liệu trong jsp
+			String masinhvien = request.getParameter("masinhvien");
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
+			sinhvienService.delete(Integer.parseInt(masinhvien));
+			// thông báo
+			request.setAttribute("message", "Đã xóa thành công");
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("error", "Eror: " + e.getMessage());
+		}
 	}
 	
 	protected void insert(HttpServletRequest request, HttpServletResponse response)

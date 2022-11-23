@@ -2,10 +2,11 @@ package vn.Controller.Admin;
 
 import java.io.IOException;
 
+
+
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -16,13 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import vn.Entity.GiangVien;
+
 import vn.Service.IGiangVienService;
 import vn.Service.Impl.GiangVienServiceImpl;
 
 
 @SuppressWarnings("serial")
 @MultipartConfig
-@WebServlet(urlPatterns = { "/admin-giangvien", "/admin-giangvien/edit", "/admin-giangvien/update",
+@WebServlet(urlPatterns = { "/admin-giangvien","/admin-giangvien/create", "/admin-giangvien/edit", "/admin-giangvien/update",
 		"/admin-giangvien/reset" ,"/admin-giangvien/delete"})
 public class GiangVienController extends HttpServlet {
 	IGiangVienService giangvienService = new GiangVienServiceImpl();
@@ -87,7 +89,26 @@ public class GiangVienController extends HttpServlet {
 			request.setAttribute("error", "Eror: " + e.getMessage());
 		}
 	}
-
+	protected void insert(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			// khỏi tạo đối tượng Model
+			GiangVien giangvien = new GiangVien();
+			// sử dụng BeanUtils để tự lấy các name Field trên form
+			// tên field phải trùng với entity
+			BeanUtils.populate(giangvien, request.getParameterMap());
+			
+			// gọi hàm insert để thêm dữ liệu
+			giangvienService.insert(giangvien);
+			// thông báo
+			request.setAttribute("message", "Đã thêm thành công");
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("error", "Eror: " + e.getMessage());
+		}
+	}
 	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			// khai báo biến userId
@@ -140,8 +161,4 @@ public class GiangVienController extends HttpServlet {
 		}
 	}
 
-	protected void insert(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-	}
 }

@@ -25,6 +25,11 @@
 <meta name="author" content="">
 <!-- bootstrap css -->
 <link rel="stylesheet" href="${URL}css/bootstrap.min.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 <!-- style css -->
 <link rel="stylesheet" href="${URL}css/style.css">
 <!-- Responsive-->
@@ -99,236 +104,130 @@
 		</div>
 		<!-- end header inner -->
 	</header>
-	<!-- about -->
-	<div class="about">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
-					<div class="about_img">
-						<figure>
-							<img src="images/about.png" alt="img" />
-						</figure>
-					</div>
-				</div>
-				<div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
-					<div class="about_box">
-						<h3>About Us</h3>
-						<span>Our Mobile Shop</span>
-						<p>Welcome to our unique and wonderful shop, why is it unique
-							you ask, here and only here we have phones you cant find anywhere
-							in this world because they're brought to you from outer space. So
-							what are you waiting for, spend your money and get your first
-							alien mobile phone today.</p>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end about -->
-
-	<!-- brand -->
-	<div class="brand">
+	<div class="contact">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="titlepage">
-						<h2>Our Brand</h2>
+						<h4
+							style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Thông
+							báo</h4>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="brand-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-						<div class="brand_box">
-							<img src="images/1.png" alt="img" />
-							<h3>
-								<strong class="red">6000</strong>DH
-							</h3>
-							<span>Samsung S10</span> <i><img src="images/star.png" /></i> <i><img
-								src="images/star.png" /></i>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-						<div class="brand_box">
-							<img src="images/2.png" alt="img" />
-							<h3>
-								<strong class="red">7000</strong>DH
-							</h3>
-							<span>Samsung S11</span> <i><img src="images/star.png" /></i> <i><img
-								src="images/star.png" /></i>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-						<div class="brand_box">
-							<img src="images/3.png" alt="img" />
-							<h3>
-								<strong class="red">8000</strong>DH
-							</h3>
-							<span>Samsung Galaxy Note10 Lite</span> <i><img
-								src="images/star.png" /></i> <i><img src="images/star.png" /></i>
-							<i><img src="images/star.png" /></i>
+					<form class="main_form">
+						<div class="row">
+							<ul class="list-unstyled">
+								<li class="article-area" style="margin: 5px 0px;border: 1px solid #e7e7e7;padding: 15px 5px 0px 5px;">
+									<p style="margin-bottom: 10px; margin-left: 30px;">
+										<span class="btn btn-primary btn-sm"> 11/11/2022
+											12:19:41 </span> Thông báo đăng ký chuyên ngành khóa 2020
 
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-						<div class="brand_box">
-							<img src="images/4.png" alt="img" />
-							<h3>
-								<strong class="red">9000</strong>DH
-							</h3>
-							<span>Samsung Galaxy A71</span> <i><img src="images/star.png" /></i>
-							<i><img src="images/star.png" /></i> <i><img
-								src="images/star.png" /></i>
+									</p>
+								</li>
+								<li class="article-area" style="margin: 5px 0px;border: 1px solid #e7e7e7;padding: 15px 5px 0px 5px;">
+									<p style="margin-bottom: 10px; margin-left: 30px;">
+										<span class="btn btn-primary btn-sm"> 12/11/2022
+											20:35:14 </span>  Đăng ký môn Tiểu luận chuyên ngành khóa 2019                     
+									</p>
+								</li>
+								<li class="article-area" style="margin: 5px 0px;border: 1px solid #e7e7e7;padding: 15px 5px 0px 5px;">
+									<p style="margin-bottom: 10px; margin-left: 30px;">
+										<span class="btn btn-primary btn-sm"> 13/11/2022
+											9:43:23 </span> Đăng ký Tiểu luận chuyên ngành khoá 2019
 
+									</p>
+								</li>
+								<li class="article-area" style="margin: 5px 0px;border: 1px solid #e7e7e7;padding: 15px 5px 0px 5px;">
+									<p style="margin-bottom: 10px; margin-left: 30px;">
+										<span class="btn btn-primary btn-sm"> 14/11/2022
+											16:25:09 </span> Đăng ký Tiểu luận chuyên ngành khoá 2020
+
+									</p>
+								</li>
+								<li class="article-area" style="margin: 5px 0px;border: 1px solid #e7e7e7;padding: 15px 5px 0px 5px;">
+									<p style="margin-bottom: 10px; margin-left: 30px;">
+										<span class="btn btn-primary btn-sm"> 13/11/2022
+											11:25:09 </span> Đăng ký chuyên ngành khóa 2021
+
+									</p>
+								</li>
+								<li class="article-area" style="margin: 5px 0px;border: 1px solid #e7e7e7;padding: 15px 5px 0px 5px;">
+									<p style="margin-bottom: 10px; margin-left: 30px;">
+										<span class="btn btn-primary btn-sm"> 15/11/2022
+											16:25:09 </span> Thông báo hủy đăng ký chuyên ngành khóa 2021
+
+									</p>
+								</li>
+							</ul>
 						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mrgn">
-						<div class="brand_box">
-							<img src="images/5.png" alt="img" />
-							<h3>
-								<strong class="red">10000</strong>DH
-							</h3>
-							<span>Samsung Galaxy S20</span> <i><img src="images/star.png" /></i>
-							<i><img src="images/star.png" /></i> <i><img
-								src="images/star.png" /></i> <i><img src="images/star.png" /></i>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mrgn">
-						<div class="brand_box">
-							<img src="images/6.png" alt="img" />
-							<h3>
-								<strong class="red">11000</strong>DH
-							</h3>
-							<span>Samsung Galaxy S21</span> <i><img src="images/star.png" /></i>
-							<i><img src="images/star.png" /></i> <i><img
-								src="images/star.png" /></i> <i><img src="images/star.png" /></i>
-							<i><img src="images/star.png" /></i>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<a class="read-more">See More</a>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<!-- end brand -->
-	<!-- clients -->
-	<div class="clients">
+	<div class="contact">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<div class="titlepage">
-						<h2>what say our clients</h2>
+				<div class="titlepage">
+					<h4 style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Các chủ nhiệm bộ môn</h4>
+				</div>
+				<div class="flex-container"
+					style="display: flex; justify-content: center;">
+
+
+					<div class="card" style="width: 300px; margin: 0 30px;">
+						<img class="card-img-top" src="${URL}images/img_avatar1.png"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Chủ nhiệm Bộ môn CÔNG NGHỆ PHẦN MỀM</h4>
+							<p class="card-text" style="margin-bottom: 20px;">Huỳnh Xuân Phụng</p>
+							<p class="card-text" style="margin-bottom: 20px;">phunghx@hcmute.edu.vn</p>
+							<a href="#" class="btn btn-primary">See Profile</a>
+						</div>
+
+					</div>
+					<div class="card" style="width: 300px; margin: 0 30px;">
+						<img class="card-img-top" src="${URL}images/img_avatar1.png"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Chủ nhiệm Bộ môn HỆ THỐNG THÔNG TIN</h4>
+							<p class="card-text" style="margin-bottom: 20px;">Nguyễn Thành Sơn</p>
+							<p class="card-text" style="margin-bottom: 20px;">sonnt@hcmute.edu.vn</p>
+							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See Profile</a>
+						</div>
+					</div>
+					<div class="card" style="width: 300px; margin: 0 30px;">
+						<img class="card-img-top" src="${URL}images/img_avatar5.png"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Chủ nhiệm Bộ môn MẠNG VÀ AN NINH MẠNG</h4>
+							<p class="card-text" style="margin-bottom: 20px;">Nguyễn Thị Thanh Vân</p>
+							<p class="card-text" style="margin-bottom: 20px;">vanntth@hcmute.edu.vn</p>
+							<a href="#" class="btn btn-primary">See Profile</a>
+						</div>
+					</div>
+					<div class="card" style="width: 300px; margin: 0 30px;">
+						<img class="card-img-top" src="${URL}images/img_avatar1.png"
+							alt="Card image">
+						<div class="card-body">
+							<h4 class="card-title">Chủ nhiệm Bộ môn TRÍ TUỆ NHÂN TẠO</h4>
+							<p class="card-text" style="margin-bottom: 20px;">Trần Tiến Đức</p>
+							<p class="card-text" style="margin-bottom: 20px;">ductt@hcmute.edu.vn</p>
+							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See Profile</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="clients_red">
-		<div class="container">
-			<div id="testimonial_slider" class="carousel slide"
-				data-ride="carousel">
-				<!-- Indicators -->
-				<ul class="carousel-indicators">
-					<li data-target="#testimonial_slider" data-slide-to="0" class=""></li>
-					<li data-target="#testimonial_slider" data-slide-to="1"
-						class="active"></li>
-					<li data-target="#testimonial_slider" data-slide-to="2" class=""></li>
-				</ul>
-				<!-- The slideshow -->
-				<div class="carousel-inner">
-					<div class="carousel-item">
-						<div class="testomonial_section">
-							<div class="full center"></div>
-							<div class="full testimonial_cont text_align_center cross_layout">
-								<div class="cross_inner">
-									<h3>
-										Due markes<br> <strong class="ornage_color">Rental</strong>
-									</h3>
-									<p>
-										Since the invention of internet it has become slowly but
-										gradually available for more and more people each day. Now
-										that the vast majority of mankind has wifi, it's time to go
-										where your customers live: online. If you pride yourself of
-										being where your customers are, why aren't you online yet?</i>
-									</p>
-									<div class="full text_align_center margin_top_30">
-										<img src="icon/testimonial_qoute.png">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 
-					<div class="carousel-item active">
-
-						<div class="testomonial_section">
-							<div class="full center"></div>
-							<div class="full testimonial_cont text_align_center cross_layout">
-								<div class="cross_inner">
-									<h3>
-										Due markes<br> <strong class="ornage_color">Rental</strong>
-									</h3>
-									<p>
-										Since the invention of internet it has become slowly but
-										gradually available for more and more people each day. Now
-										that the vast majority of mankind has wifi, it's time to go
-										where your customers live: online. If you pride yourself of
-										being where your customers are, why aren't you online yet?</i>
-									</p>
-									<div class="full text_align_center margin_top_30">
-										<img src="icon/testimonial_qoute.png">
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="carousel-item">
-
-						<div class="testomonial_section">
-							<div class="full center"></div>
-							<div class="full testimonial_cont text_align_center cross_layout">
-								<div class="cross_inner">
-									<h3>
-										Due markes<br> <strong class="ornage_color">Rental</strong>
-									</h3>
-									<p>
-										Since the invention of internet it has become slowly but
-										gradually available for more and more people each day. Now
-										that the vast majority of mankind has wifi, it's time to go
-										where your customers live: online. If you pride yourself of
-										being where your customers are, why aren't you online yet?</i>
-									</p>
-									<div class="full text_align_center margin_top_30">
-										<img src="icon/testimonial_qoute.png">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-	</div>
-	<!-- end clients -->
 	<!-- contact -->
 	<div class="contact">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="titlepage">
-						<h2>Contact us</h2>
+						<h4
+							style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Đặt câu hỏi cho Khoa</h4>
 					</div>
 					<form class="main_form">
 						<div class="row">
@@ -348,7 +247,7 @@
 								<textarea class="textarea" placeholder="Message"></textarea>
 							</div>
 							<div class=" col-md-12">
-								<button class="send">Send</button>
+								<button class="send" style="background-color: #135fab;">Send</button>
 							</div>
 						</div>
 					</form>
@@ -360,7 +259,7 @@
 
 	<!-- footer -->
 	<footer>
-		<div id="contact" class="footer">
+		<div id="contact" class="footer" style="background-color: #135fab;">
 			<div class="container">
 				<div class="row pdn-top-30">
 					<div class="col-md-12 ">
@@ -415,6 +314,10 @@
 			});
 		});
 	</script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -93,21 +93,24 @@
 													<br />
 													<hr>
 													<div class="form-group">
-													
+														<button class="btn green"
+															formaction="<c:url value="/admin-giangvien/create"/>">
+															Create <i class="fa fa-plus"></i>
+														</button>
 														<button class="btn btn-warning"
 															formaction="<c:url value="/admin-giangvien/update"/>">
-															Create <i class="fa fa-edit"></i>
+															Update <i class="fa fa-edit"></i>
 														</button>
+														<br /> <br />
 														<button class="btn btn-danger"
 															formaction="<c:url value="/admin-giangvien/delete"/>">
 															Delete <i class="fa fa-trash"></i>
 														</button>
-														<br /> <br />
 														<button class="btn btn-success"
 															formaction="${pageContext.request.contextPath}/admin-giangvien/reset">
 															Reset <i class="fa fa-undo"></i>
 														</button>
-														
+
 													</div>
 												</form>
 											</div>
