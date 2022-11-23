@@ -53,7 +53,7 @@ public class DeTaiService implements IDeTaiService{
 	}
 
 	@Override
-	public void insert(DeTai detai) {
+	public  void insert(DeTai detai) {
 		// TODO Auto-generated method stub
 		detaiDao.insert(detai);
 	}

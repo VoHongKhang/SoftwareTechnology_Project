@@ -5,6 +5,7 @@
 <c:url value="/admin-giangvien" var="giangvien" />
 <c:url value="/admin-truongbomon" var="truongbomon" />
 <c:url value="/admin-taikhoan" var="taikhoan" />
+<c:url value="/admin-detai" var="detai" />
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
 
