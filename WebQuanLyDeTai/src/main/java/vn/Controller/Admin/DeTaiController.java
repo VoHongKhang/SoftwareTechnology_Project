@@ -4,8 +4,6 @@ import java.io.IOException;
 
 
 
-
-
 import java.util.List;
 
 
@@ -24,11 +22,10 @@ import vn.Service.IDeTaiService;
 import vn.Service.Impl.DeTaiServiceImpl;
 
 
-
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = {"/admin-detai","/admin-detai/create", "/admin-detai/edit", "/admin-detai/update",
-		"/admin-detai/reset" ,"/admin-detai/delete","/admin-detai/search"})
+		"/admin-detai/reset" ,"/admin-detai/delete"})
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
 
@@ -50,10 +47,6 @@ public class DeTaiController extends HttpServlet {
 		} else if (url.contains("reset")) {
 			detai = new DeTai();
 			request.setAttribute("detai", detai);
-		}else if (url.contains("search")) {
-			
-			TimKiemDeTai(request, response);
-		
 		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
@@ -76,8 +69,6 @@ public class DeTaiController extends HttpServlet {
 			delete(request, response);
 		} else if (url.contains("reset")) {
 			request.setAttribute("detai", new DeTai());
-		} else if (url.contains("search")) {
-			TimKiemDeTai(request, response);
 		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
@@ -167,25 +158,6 @@ public class DeTaiController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
-		}
-	}
-	
-
-	private void TimKiemDeTai(HttpServletRequest req, HttpServletResponse resp) {
-
-		String tendetai = req.getParameter("tendetai");
-		List<DeTai> detais = detaiService.findByTenDeTai(tendetai);
-
-		req.setAttribute("detais", detais);
-		req.setAttribute("tendetai", tendetai);
-		try {
-			req.getRequestDispatcher("/views/detai/timkiem_detai.jsp").forward(req, resp);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 

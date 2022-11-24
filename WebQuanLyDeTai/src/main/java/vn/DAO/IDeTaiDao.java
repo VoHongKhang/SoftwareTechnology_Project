@@ -3,9 +3,7 @@ package vn.DAO;
 import java.util.List;
 
 
-
 import vn.Entity.DeTai;
-
 
 
 public interface IDeTaiDao {
@@ -18,6 +16,4 @@ public interface IDeTaiDao {
 	void delete(int cateid) throws Exception;
 	
 	void insert(DeTai detai);
-	
-	List<DeTai> findByTenDeTai(String tendetai);
 }

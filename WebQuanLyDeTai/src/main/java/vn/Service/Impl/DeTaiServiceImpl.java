@@ -3,12 +3,10 @@ package vn.Service.Impl;
 import java.util.List;
 
 
-
 import vn.DAO.DeTaiDaoImpl;
 import vn.DAO.IDeTaiDao;
 import vn.Entity.DeTai;
 import vn.Service.IDeTaiService;
-
 
 
 public class DeTaiServiceImpl implements IDeTaiService{
@@ -38,9 +36,4 @@ public class DeTaiServiceImpl implements IDeTaiService{
 		detaiDao.insert(detai);	
 	}
 	
-	@Override
-	public List<DeTai> findByTenDeTai(String tendetai) {
-		// TODO Auto-generated method stub
-		return detaiDao.findByTenDeTai(tendetai);
-	}
 }

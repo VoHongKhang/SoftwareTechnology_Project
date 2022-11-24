@@ -8,7 +8,7 @@
 <c:url value="/admin-detai" var="detai" />
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
-<c:url value="/admin-detai/search" var="search" />
+
 
 <header>
 	<!-- header inner -->
@@ -36,7 +36,6 @@
 									<li><a href="${taikhoan}">Account</a></li>
 									<li><a href="${giangvien}">Lecturer</a></li>
 									<li><a href="${detai}">Topic</a></li>
-									<li><a href="${search}">Search Topic</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Log out</a></li>
 								

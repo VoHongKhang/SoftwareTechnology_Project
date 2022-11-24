@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<c:url value="/student-detai" var="detai" />
+<c:url value="/admin-detai" var="detai" />
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
-<c:url value="/admin-detai/search" var="search" />
+
 
 <header>
 	<!-- header inner -->
@@ -27,9 +27,11 @@
 						<div class="limit-box">
 							<nav class="main-menu">
 								<ul class="menu-area-main">
-									<li class="active"><a href="${views}student/home.jsp">Home</a></li>
+									<li class="active"><a href="${views}admin/home.jsp">Home</a></li>
+									<li><a href="${sinhvien}">Student</a></li>
+									<li><a href="${taikhoan}">Account</a></li>
+									<li><a href="${giangvien}">Lecturer</a></li>
 									<li><a href="${detai}">Topic</a></li>
-									<li><a href="${search}">Search Topic</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Log out</a></li>
 								
