@@ -1,6 +1,7 @@
 package vn.Controller.Admin;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,15 +16,14 @@ import org.apache.commons.beanutils.BeanUtils;
 import vn.Entity.DeTai;
 import vn.Service.IDeTaiService;
 
-import vn.Service.Impl.DeTaiService;
+import vn.Service.Impl.DeTaiServiceImpl;
 
 
 @SuppressWarnings("serial")
 @MultipartConfig
-@WebServlet(urlPatterns = { "/admin-detai", "/admin-detai/create", "/admin-detai/update",
-		"/admin-detai/edit", "/admin-detai/delete", "/admin-detai/reset" })
+@WebServlet(urlPatterns = { "/admin-detai", "/admin-detai/create", "/admin-detai/update","/admin-detai/edit", "/admin-detai/delete", "/admin-detai/reset" })
 public class DeTaiController  extends HttpServlet{
-	IDeTaiService detaiService = new DeTaiService();
+	IDeTaiService detaiService = new DeTaiServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -98,6 +98,18 @@ public class DeTaiController  extends HttpServlet{
 	protected void delete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		try {
+			// lấy dữ liệu trong jsp
+			String magiangvien = request.getParameter("magiangvien");
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
+			detaiService.delete(Integer.parseInt(magiangvien));
+			// thông báo
+			request.setAttribute("message", "Đã xóa thành công");
+		} catch (Exception e) {
+			e.printStackTrace();
+			request.setAttribute("error", "Eror: " + e.getMessage());
+		}
 	}
 	protected void update(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -7,7 +7,7 @@ import vn.DAO.IDeTaiDao;
 import vn.Entity.DeTai;
 import vn.Service.IDeTaiService;
 
-public class DeTaiService implements IDeTaiService{
+public class DeTaiServiceImpl implements IDeTaiService{
 
 	IDeTaiDao detaiDao = new DeTaiDaoImpl();
 	@Override

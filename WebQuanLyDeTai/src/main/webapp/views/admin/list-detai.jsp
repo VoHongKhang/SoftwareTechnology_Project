@@ -81,7 +81,7 @@
 															type="text" class="form-control" name="giangvien"
 															value="${detai.giangvien}" id="giangvien" />
 													</div>
-												
+
 
 													<br />
 													<hr>
@@ -90,9 +90,9 @@
 															formaction="<c:url value="/admin-detai/create"/>">
 															Create <i class="fa fa-plus"></i>
 														</button>
-														<button class="btn btn-success"
-															formaction="${pageContext.request.contextPath}/admin-detai/reset">
-															Reset <i class="fa fa-undo"></i>
+														<button class="btn btn-danger"
+															formaction="<c:url value="/admin-detai/delete"/>">
+															Delete <i class="fa fa-trash"></i>
 														</button>
 
 													</div>
@@ -112,6 +112,7 @@
 														<th>Loại đề tài</th>
 														<th>Số lượng sinh viên</th>
 														<th>Giảng viên</th>
+														<th>Hành động</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -121,8 +122,14 @@
 															<td>${item.tendetai}</td>
 															<td>${item.loaidetai}</td>
 															<td>${item.soluongsv}</td>
-															<td>${item.giangvien}</td>									
+															<td>${item.giangvien}</td>
+															<td><a
+																href="<c:url value='/admin-detai/edit?madetai=${item.madetai}'/>"
+																class="center">Edit</a> | <a
+																href="<c:url value='/admin-detai/delete?madetai=${item.madetai}'/>"
+																class="center">Delete</a></td>
 														</tr>
+													
 													</c:forEach>
 												</tbody>
 											</table>

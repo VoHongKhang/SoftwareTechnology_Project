@@ -2,6 +2,7 @@ package vn.DAO;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -55,18 +56,18 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 		return query.getResultList();
 	}
 	@Override
-	public void delete(int madetai) throws Exception {
-		// TODO Auto-generated method stub
+	public void delete(int cateid) throws Exception {
+
 		EntityManager enma = JpaConfig.getEntityManager();
 		EntityTransaction trans = enma.getTransaction();
 
 		try {
 			trans.begin();
-			// TÌm video
-			DeTai detai = enma.find(DeTai.class, madetai);
-			if (detai != null) {
-				// delete
-				enma.remove(detai);
+			// TÌm cate
+			DeTai category = enma.find(DeTai.class, cateid);
+			if (category != null) {
+				//delete
+				enma.remove(category);
 			} else {
 				throw new Exception("Không tìm thấy");
 			}
