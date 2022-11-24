@@ -16,7 +16,7 @@
 		<class>vn.Entity.SinhVien</class>
 		<class>vn.Entity.TaiKhoan</class>
 		<class>vn.Entity.DeTai</class>
-
+		<class>vn.Entity.GiangVien</class>
 		<properties>
 
 			<property name="javax.persistence.jdbc.url"
@@ -27,14 +27,15 @@
 
 			<property name="javax.persistence.jdbc.user" value="sa" />
 
-			<property name="javax.persistence.jdbc.password" value="19052002" />
+			<property name="javax.persistence.jdbc.password"
+				value="19052002" />
 
 			<property name="hibernate.show_sql" value="true" />
 
 			<property name="hibernate.format_sql" value="true" />
 
 			<property name="hibernate.ddl-auto" value="update" />
-		<!-- 	<property name="hibernate.hbm2ddl.auto" value="create" /> -->
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServer2008Dialect" />
