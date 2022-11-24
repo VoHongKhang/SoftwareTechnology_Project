@@ -3,6 +3,7 @@
 
 import java.io.IOException;
 
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import vn.Entity.GiangVien;
+
 import vn.Entity.SinhVien;
 import vn.Service.ISinhVienService;
 import vn.Service.Impl.SinhVienServiceImpl;

@@ -2,31 +2,50 @@ package vn.DAO;
 
 import java.util.List;
 
-
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
-
+import vn.Entity.SinhVien;
 import vn.JPACongfig.JpaConfig;
 
+public class BangDiemDaoImpl   implements IBangDiemDao{
 
-
-
-public class DeTaiDaoImpl implements IDeTaiDao{
 	@Override
-	public void update(DeTai detai) {
+	public List<BangDiem> findAll() {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		TypedQuery<BangDiem> query = enma.createNamedQuery("BangDiem.findAll", BangDiem.class);
+		return query.getResultList();
+	}
 
+	@Override
+	public BangDiem findById(int madetai) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		BangDiem BangDiem = enma.find(BangDiem.class, madetai);
+		return BangDiem;
+	}
+
+	@Override
+	public BangDiem findByMaSinhVien(int masinhvien) {
+	
+		EntityManager enma = JpaConfig.getEntityManager();
+		BangDiem BangDiem = enma.find(BangDiem.class, masinhvien);
+		return BangDiem;
+	}
+
+	@Override
+	public void update(BangDiem bangdiem) {
+		// TODO Auto-generated method stub
 		EntityManager enma = JpaConfig.getEntityManager();
 		EntityTransaction trans = enma.getTransaction();
 
 		try {
 			trans.begin();
 			//update
-			enma.merge(detai);
+			enma.merge(bangdiem);
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,16 +55,17 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 			enma.close();
 		}
 	}
-	@Override
-	public void insert(DeTai detai) {
 
+	@Override
+	public void insert(BangDiem bangdiem) {
+		// TODO Auto-generated method stub
 		EntityManager enma = JpaConfig.getEntityManager();
 		EntityTransaction trans = enma.getTransaction();
 
 		try {
 			trans.begin();
 			//thêm
-			enma.persist(detai);
+			enma.persist(bangdiem);
 			trans.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,16 +75,16 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 			enma.close();
 		}
 	}
-	@Override
-	public void delete(int madetai) throws Exception {
 
+	@Override
+	public void delete(int id) throws Exception {
 		EntityManager enma = JpaConfig.getEntityManager();
 		EntityTransaction trans = enma.getTransaction();
 
 		try {
 			trans.begin();
 			// TÌm cate
-			DeTai detai = enma.find(DeTai.class, madetai);
+			BangDiem detai = enma.find(BangDiem.class, id);
 			if (detai != null) {
 				//delete
 				enma.remove(detai);
@@ -79,20 +99,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 		} finally {
 			enma.close();
 		}
-	}
-	@Override
-	public List<DeTai> findAll() {
-		EntityManager enma = JpaConfig.getEntityManager();
-		TypedQuery<DeTai> query = enma.createNamedQuery("DeTai.findAll", DeTai.class);
-		return query.getResultList();
+		
 	}
 
-	@Override
-	public DeTai findById(int madetai) {
-		EntityManager enma = JpaConfig.getEntityManager();
-		DeTai detai = enma.find(DeTai.class, madetai);
-		return detai;
-	}
-	
-	
 }

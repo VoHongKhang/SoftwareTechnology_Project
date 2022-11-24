@@ -9,12 +9,13 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Quản lý đề tài</title>
+<title>UTE</title>
 
 <!-- CSS -->
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
+
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -34,7 +35,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Quản lý đề tài
+								<i class="fa fa-globe"></i>Quản lý Đề Tài
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -56,32 +57,30 @@
 													<br />
 
 													<div class="form-group" hidden="hidden">
-														<label for="id">Mã đề tài:</label> <input type="text"
-															name="id" value="${detai.id}" id="id"
+														<label for="madetai">Mã đề tài:</label> <input type="text"
+															name="madetai" value="${detai.madetai}" id="madetai"
 															class="form-control" readonly />
 													</div>
 													<div class="form-group">
-														<label for="username">Tên đề tài:</label> <input
-															type="text" class="form-control" name="tendetai"
-															id="tendetai" value="${detai.tendetai}" />
+														<label for="tendetai">Tên đề tài:</label> <input
+															type="text" class="form-control" name="tendetai" id="tendetai"
+															value="${detai.tendetai}" />
 													</div>
 													<div class="form-group">
-														<label for="password">Loại đề tài: </label> <input
+														<label for="loaidetai">Loại đề tài:</label> <input
 															type="text" class="form-control" name="loaidetai"
 															value="${detai.loaidetai}" id="loaidetai" />
 													</div>
 													<div class="form-group">
-														<label for="password">Số lượng sinh viên </label> <input
+														<label for="soluongsv">Số lượng sinh viên:</label> <input
 															type="text" class="form-control" name="soluongsv"
-															value="${detai.soluongsv}" id="soluongsv" />
+															id="soluongsv" value="${detai.soluongsv}" />
 													</div>
-
 													<div class="form-group">
-														<label for="password">Giảng viên </label> <input
+														<label for="giangvien">Giảng viên hd:</label> <input
 															type="text" class="form-control" name="giangvien"
-															value="${detai.giangvien}" id="giangvien" />
+															id="giangvien" value="${detai.giangvien}" />
 													</div>
-												
 
 													<br />
 													<hr>
@@ -89,6 +88,15 @@
 														<button class="btn green"
 															formaction="<c:url value="/admin-detai/create"/>">
 															Create <i class="fa fa-plus"></i>
+														</button>
+														<button class="btn btn-warning"
+															formaction="<c:url value="/admin-detai/update"/>">
+															Update <i class="fa fa-edit"></i>
+														</button>
+														<br /> <br />
+														<button class="btn btn-danger"
+															formaction="<c:url value="/admin-detai/delete"/>">
+															Delete <i class="fa fa-trash"></i>
 														</button>
 														<button class="btn btn-success"
 															formaction="${pageContext.request.contextPath}/admin-detai/reset">
@@ -108,10 +116,11 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
-														<th>Tên Đề tài</th>
-														<th>Loại đề tài</th>
+														<th>Tên đề tài</th>
+														<th>Loai đề tài</th>
 														<th>Số lượng sinh viên</th>
-														<th>Giảng viên</th>
+														<th>Giảng viên hướng dẫn</th>
+														<th>Hành động</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -121,7 +130,13 @@
 															<td>${item.tendetai}</td>
 															<td>${item.loaidetai}</td>
 															<td>${item.soluongsv}</td>
-															<td>${item.giangvien}</td>									
+															<td>${item.giangvien}</td>
+
+															<td><a
+																href="<c:url value='/admin-detai/edit?madetai=${item.madetai}'/>"
+																class="center">Edit</a> | <a
+																href="<c:url value='/admin-detai/delete?madetai=${item.madetai}'/>"
+																class="center">Delete</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>
