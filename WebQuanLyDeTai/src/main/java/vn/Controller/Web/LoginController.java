@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
 		
 		
 		
-		if (user.equals("trung") && pass.equals("123"))  {
+		if (user.equals("admin") && pass.equals("123"))  {
 			// khởi tạo cookie
 			Cookie cookie = new Cookie("username", user);
 			// thiết lập thời gian tồn tại 30s của cookie
@@ -41,7 +41,7 @@ public class LoginController extends HttpServlet {
 			resp.sendRedirect("admin-taikhoan");
 		} else {
 			// chuyển sang trang LoginServlet
-			resp.sendRedirect("home");
+			resp.sendRedirect("student/home");
 		}
 	}
 

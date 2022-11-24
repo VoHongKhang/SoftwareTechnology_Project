@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url value="/templates/" var="URL"></c:url>
-<c:url value="/admin-sinhvien" var="sinhvien" />
-<c:url value="/admin-giangvien" var="giangvien" />
-<c:url value="/admin-taikhoan" var="taikhoan" />
 <c:url value="/admin-detai" var="detai" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/login" var="login" />
@@ -78,7 +75,7 @@
 						<div class="full">
 							<div class="center-desk">
 								<div class="logo">
-									<a href="${views}admin/home.jsp"><img
+									<a href="${views}student/home.jsp"><img
 										src="${URL}images/hcmute.jpg" alt="#"></a>
 								</div>
 							</div>
@@ -89,10 +86,7 @@
 							<div class="limit-box">
 								<nav class="main-menu">
 									<ul class="menu-area-main">
-										<li class="active"><a href="${views}admin/home.jsp">Home</a></li>
-										<li><a href="${sinhvien}">Student</a></li>
-										<li><a href="${taikhoan}">Account</a></li>
-										<li><a href="${giangvien}">Lecturer</a></li>
+										<li class="active"><a href="${views}student/home.jsp">Home</a></li>
 										<li><a href="${detai}">Topic</a></li>
 										<li><a href="${login}">Log out</a></li>
 									</ul>
