@@ -17,6 +17,7 @@
 		<class>vn.Entity.TaiKhoan</class>
 		<class>vn.Entity.DeTai</class>
 		<class>vn.Entity.GiangVien</class>
+		<class>vn.Entity.BangDiem</class>
 
 		<properties>
 
