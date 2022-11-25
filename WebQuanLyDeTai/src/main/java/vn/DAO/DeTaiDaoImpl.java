@@ -5,6 +5,7 @@ import java.util.List;
 
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -94,5 +95,13 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 		return detai;
 	}
 	
-	
+	@Override
+	public List<DeTai> findByTenDeTai(String tendetai) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.tendetai like :tendetai";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("tendetai","%"+tendetai+"%");
+		return query.getResultList();
+	}
+
 }
