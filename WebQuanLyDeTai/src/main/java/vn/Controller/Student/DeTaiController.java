@@ -1,4 +1,4 @@
-package vn.Controller.Admin;
+package vn.Controller.Student;
 
 import java.io.IOException;
 
@@ -27,8 +27,7 @@ import vn.Service.Impl.DeTaiServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
-@WebServlet(urlPatterns = {"/admin-detai","/admin-detai/create", "/admin-detai/edit", "/admin-detai/update",
-		"/admin-detai/reset" ,"/admin-detai/delete","/admin-detai/search"})
+@WebServlet(urlPatterns = {"/student-detai","/student-detai/search"})
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
 
@@ -40,7 +39,7 @@ public class DeTaiController extends HttpServlet {
 		DeTai detai = null;
 
 		if (url.contains("create")) {
-			request.getRequestDispatcher("/views/admin/detai/add.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/student/detai/add.jsp").forward(request, response);
 		} else if (url.contains("delete")) {
 			delete(request, response);
 			detai = new DeTai();
@@ -59,7 +58,7 @@ public class DeTaiController extends HttpServlet {
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
-		request.getRequestDispatcher("/views/admin/list-detai.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -82,7 +81,7 @@ public class DeTaiController extends HttpServlet {
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
-		request.getRequestDispatcher("/views/admin/list-detai.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
 	}
 
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
