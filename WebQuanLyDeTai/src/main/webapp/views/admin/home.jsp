@@ -9,6 +9,7 @@
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/login" var="login" />
 <c:url value="/admin-detai/search" var="search" />
+<c:url value="/admin-detai/ma" var="search_ma" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,8 +96,13 @@
 										<li><a href="${taikhoan}">Account</a></li>
 										<li><a href="${giangvien}">Lecturer</a></li>
 										<li><a href="${detai}">Topic</a></li>
-										<li><a href="${search}">Search Topic</a></li>
+										<!-- <li><button class="btn green" >Log out</button> </li> -->
 										<li><a href="${login}">Log out</a></li>
+									</ul>
+									<ul class="menu-area-main">
+
+										<li><a href="${search}">Search Topic By Name</a></li>
+										<li><a href="${search_ma}">Search Topic By Id</a></li>
 									</ul>
 								</nav>
 							</div>
@@ -123,8 +129,8 @@
 									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
 									<p style="margin-bottom: 10px; margin-left: 30px;">
 										<span class="btn btn-primary btn-sm"> 11/11/2022
-											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông báo đăng ký chuyên ngành khóa
-											2020</a>
+											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông
+											báo đăng ký chuyên ngành khóa 2020</a>
 
 									</p>
 								</li>
@@ -176,7 +182,7 @@
 		</div>
 	</div>
 
-		
+
 
 
 	<div class="contact">

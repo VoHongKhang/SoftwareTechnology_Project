@@ -25,22 +25,22 @@
 
 </head>
 <body>
-
-	<div class="page-content-wrapper" style=" margin: 0 180px;">
+	<div class="page-content-wrapper" style="margin: 0 180px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col">
 					<form action="" method="get" enctype="multipart/form-data">
 						<br />
 						<div class="form-group">
-							<label for="title" style="font-size:24px; font-weight: 600;">Tên đề tài:</label> <input type="text"
-								class="form-control" name="tendetai" id="tendetai" />
+							<label for="title" style="font-size: 24px; font-weight: 600;">Mã
+								đề tài:</label> <input type="text" class="form-control" name="madetai"
+								id="madetai" />
 						</div>
 						<br />
 						<hr>
 						<div class="form-group">
 							<button class="btn green" style="background-color: #17a65b;"
-								formaction="<c:url value="/admin-detai/search"/>">
+								formaction="<c:url value="/admin-detai/ma"/>">
 								Search <i class="fa fa-search"></i>
 							</button>
 						</div>
@@ -48,26 +48,28 @@
 				</div>
 			</div>
 			<div class="row">
-				<table class="table table-striped table-bordered table-hover" style="margin-top: 20px;" id="sample_2">
+				<table class="table table-striped table-bordered table-hover"
+					style="margin-top: 20px;" id="sample_2">
 					<thead>
 						<tr>
-						
+							<th>Mã đề tài</th>
 							<th>Tên đề tài</th>
 							<th>Loại đề tài</th>
 							<th>Số lượng sinh viên</th>
 							<th>Giảng viên hướng dẫn</th>
-						
+
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="item" items="${detais}">
+						<c:forEach var="item" items="${detaim}">
 							<tr class="odd gradeX">
-								
+
+								<td>${item.madetai}</td>
 								<td>${item.tendetai}</td>
 								<td>${item.loaidetai}</td>
 								<td>${item.soluongsv}</td>
 								<td>${item.giangvien}</td>
-							
+
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -75,5 +77,10 @@
 			</div>
 		</div>
 	</div>
+
+
 </body>
 </html>
+
+
+

@@ -103,5 +103,24 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 		query.setParameter("tendetai","%"+tendetai+"%");
 		return query.getResultList();
 	}
+	
+	@Override
+	public List<DeTai> findByTenGV(String giangvien) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.giangvien like :giangvien";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("giangvien","%"+giangvien+"%");
+		return query.getResultList();
+	}
+	
+	
+	@Override
+	public List<DeTai> findByMaDeTai(int madetai) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.madetai like :madetai";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("madetai","%"+madetai+"%");
+		return query.getResultList();
+	}
 
 }
