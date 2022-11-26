@@ -3,6 +3,7 @@ package vn.Entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,7 +11,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
-
+@Entity
 @Table(name = "BangDiem")
 @NamedQuery(name = "BangDiem.findAll", query = "SELECT c FROM BangDiem c")
 public class BangDiem implements Serializable {

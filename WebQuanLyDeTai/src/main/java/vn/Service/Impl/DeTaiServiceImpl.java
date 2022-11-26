@@ -40,7 +40,16 @@ public class DeTaiServiceImpl implements IDeTaiService{
 	
 	@Override
 	public List<DeTai> findByTenDeTai(String tendetai) {
-		// TODO Auto-generated method stub
 		return detaiDao.findByTenDeTai(tendetai);
+	}
+	
+	@Override
+	public List<DeTai> findByMaDeTai(int madetai) {
+		return detaiDao.findByMaDeTai(madetai);
+	}
+	
+	@Override
+	public List<DeTai> findByTenGV (String giangvien) {
+		return detaiDao.findByTenGV(giangvien);
 	}
 }
