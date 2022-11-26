@@ -36,16 +36,13 @@ public class LoginController extends HttpServlet {
 		TaiKhoan takhoan = new TaiKhoan();
 
 		for (TaiKhoan i : taikhoan) {
-			if (i.getUsername() == user && i.getPassword() == pass) {
+			if (i.getUsername().equals(user) && i.getPassword().equals(pass)) {
 				takhoan.setPassword(pass);
 				takhoan.setUsername(user);
 				takhoan.setPhanquyen(i.getPhanquyen());
 			}
-
-		}
-		if (takhoan != null) 
-		{
-			if (takhoan.getPhanquyen() == 0 || takhoan.getPhanquyen() == 1 || takhoan.getPhanquyen() == 2) 
+		}		
+			if (takhoan.getPhanquyen()==0 )//|| takhoan.getPhanquyen() == 1 || takhoan.getPhanquyen() == 2) 
 			{
 				// khởi tạo cookie
 				Cookie cookie = new Cookie("username", user);
@@ -54,10 +51,12 @@ public class LoginController extends HttpServlet {
 				// thêm cookie vào response
 				resp.addCookie(cookie);
 				// chuyển sang trang HelloServlet
-				req.setAttribute("message", takhoan.getPhanquyen());
-				resp.sendRedirect("admin-taikhoan");
+				
+				resp.sendRedirect("admin/home");
+							
+				
 			}
-			else 
+			if(takhoan.getPhanquyen() == 3) 
 			{
 				// khởi tạo cookie
 				Cookie cookie = new Cookie("username", user);
@@ -65,10 +64,8 @@ public class LoginController extends HttpServlet {
 				cookie.setMaxAge(30);
 				// thêm cookie vào response
 				resp.addCookie(cookie);
-				// chuyển sang trang LoginServlet
-				resp.sendRedirect("student/home");
-			}
-		} 
-	
+				// chuyển sang trang LoginServlet			
+			resp.sendRedirect("student/home");
+			}		
 	}
 }
