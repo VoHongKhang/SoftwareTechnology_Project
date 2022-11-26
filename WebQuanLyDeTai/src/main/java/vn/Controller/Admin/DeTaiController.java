@@ -1,10 +1,7 @@
 package vn.Controller.Admin;
 
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 
->>>>>>> f2c46bc425df13ed8915b1de08e7592ffb7fd334
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -120,13 +117,6 @@ public class DeTaiController extends HttpServlet {
 			// sá»­ dá»¥ng BeanUtils Ä‘á»ƒ tá»± láº¥y cÃ¡c name Field trÃªn form
 			// tÃªn field pháº£i trÃ¹ng vá»›i entity
 			BeanUtils.populate(detai, request.getParameterMap());
-<<<<<<< HEAD
-			
-			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
-=======
-
-			// gọi hàm insert để thêm dữ liệu
->>>>>>> f2c46bc425df13ed8915b1de08e7592ffb7fd334
 			detaiService.insert(detai);
 			// thÃ´ng bÃ¡o
 			request.setAttribute("message", "Ä�Ã£ thÃªm thÃ nh cÃ´ng");
