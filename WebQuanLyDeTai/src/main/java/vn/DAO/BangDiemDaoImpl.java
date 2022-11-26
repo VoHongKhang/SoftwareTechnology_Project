@@ -7,8 +7,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import vn.Entity.BangDiem;
-import vn.Entity.DeTai;
-import vn.Entity.SinhVien;
 import vn.JPACongfig.JpaConfig;
 
 public class BangDiemDaoImpl   implements IBangDiemDao{

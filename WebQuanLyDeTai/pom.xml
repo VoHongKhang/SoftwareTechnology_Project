@@ -170,18 +170,6 @@
 			<version>2.4.2</version>
 		</dependency>
 
-		<!-- Thư viện sitemesh dùng để làm layout -->
-
-		<dependency>
-
-			<groupId>opensymphony</groupId>
-
-			<artifactId>sitemesh</artifactId>
-
-			<version>${sitemesh.version}</version>
-
-		</dependency>
-
 		<!-- Email -->
 
 		<dependency>
