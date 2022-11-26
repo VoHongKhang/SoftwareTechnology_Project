@@ -9,6 +9,8 @@
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/admin-detai/search" var="search" />
+<c:url value="/admin-detai/ma" var="search_ma" />
+
 
 <header>
 	<!-- header inner -->
@@ -30,16 +32,20 @@
 					<div class="menu-area">
 						<div class="limit-box">
 							<nav class="main-menu">
-								<ul class="menu-area-main">
+								<ul class="menu-area-main" >
 									<li class="active"><a href="${views}admin/home.jsp">Home</a></li>
 									<li><a href="${sinhvien}">Student</a></li>
 									<li><a href="${taikhoan}">Account</a></li>
 									<li><a href="${giangvien}">Lecturer</a></li>
 									<li><a href="${detai}">Topic</a></li>
-									<li><a href="${search}">Search Topic</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Log out</a></li>
-								
+								</ul>
+								<ul class="menu-area-main" >
+						
+									<li><a href="${search}">Search Topic By Name</a></li>
+									<li><a href="${search_ma}">Search Topic By Id</a></li>
+							
 								</ul>
 							</nav>
 						</div>

@@ -20,4 +20,8 @@ public interface IDeTaiDao {
 	void insert(DeTai detai);
 	
 	List<DeTai> findByTenDeTai(String tendetai);
+	
+	List<DeTai> findByMaDeTai(int madetai);
+	
+	List<DeTai> findByTenGV(String giangvien);
 }

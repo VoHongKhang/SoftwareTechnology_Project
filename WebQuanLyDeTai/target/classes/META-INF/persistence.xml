@@ -15,10 +15,14 @@
 
 		<class>vn.Entity.SinhVien</class>
 		<class>vn.Entity.TaiKhoan</class>
+<<<<<<< HEAD
 		<class>vn.Entity.DeTai</class>
 		<class>vn.Entity.GiangVien</class>
 		<class>vn.Entity.BangDiem</class>
 
+=======
+		
+>>>>>>> 31b32015752f69b6475bb5d0a360560c1b969373
 
 		<properties>
 
