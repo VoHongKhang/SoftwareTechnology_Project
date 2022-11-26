@@ -123,8 +123,8 @@
 									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
 									<p style="margin-bottom: 10px; margin-left: 30px;">
 										<span class="btn btn-primary btn-sm"> 11/11/2022
-											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông báo đăng ký chuyên ngành khóa
-											2020</a>
+											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông
+											báo đăng ký chuyên ngành khóa 2020</a>
 
 									</p>
 								</li>
@@ -176,7 +176,7 @@
 		</div>
 	</div>
 
-		
+
 
 
 	<div class="contact">

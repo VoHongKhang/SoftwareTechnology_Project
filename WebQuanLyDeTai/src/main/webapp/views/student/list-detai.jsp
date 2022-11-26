@@ -49,46 +49,56 @@
 								<!-- Hiển thị thông báo -->
 								<%@include file="/common/info.jsp"%>
 								<!-- Kết thúc hiển thị thông báo -->
-								
 
-									<div class="col-md-9" style="padding-right: 25px">
-										<div class="row">
-											<table class="table table-striped table-bordered table-hover"
-												id="sample_2">
-												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
-												<thead>
-													<tr>
-														<th>Tên đề tài</th>
-														<th>Loai đề tài</th>
-														<th>Số lượng sinh viên</th>
-														<th>Giảng viên hướng dẫn</th>
-													
+
+								<div class="col-md-9" style="padding-right: 25px">
+									<div class="row">
+										<table class="table table-striped table-bordered table-hover"
+											id="sample_2">
+											<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+											<thead>
+												<tr>
+													<th>Tên đề tài</th>
+													<th>Loai đề tài</th>
+													<th>Số lượng sinh viên</th>
+													<th>Giảng viên hướng dẫn</th>
+													<th></th>
+
+
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="item" items="${detais}">
+													<tr class="odd gradeX">
+
+														<td>${item.tendetai}</td>
+														<td>${item.loaidetai}</td>
+														<td>${item.soluongsv}</td>
+														<td>${item.giangvien}</td>
+														<td><button class="btn green"
+																style="background-color: #17a65b;"
+																formaction="<c:url value=""/>">
+																Đăng ký<i class="fa fa-search"></i>
+															</button>
+														</td>
+
+
+
+
 													</tr>
-												</thead>
-												<tbody>
-													<c:forEach var="item" items="${detais}">
-														<tr class="odd gradeX">
-
-															<td>${item.tendetai}</td>
-															<td>${item.loaidetai}</td>
-															<td>${item.soluongsv}</td>
-															<td>${item.giangvien}</td>
-
-														
-														</tr>
-													</c:forEach>
-												</tbody>
-											</table>
-										</div>
+												</c:forEach>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
+				<!-- END EXAMPLE TABLE PORTLET-->
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
