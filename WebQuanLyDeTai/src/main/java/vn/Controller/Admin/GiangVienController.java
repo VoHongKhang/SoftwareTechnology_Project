@@ -32,8 +32,8 @@ public class GiangVienController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
-		// láº¥y url
+		// kiểm tra url rồi chuyển đến hàm tương ứng
+		// lấy url
 		String url = request.getRequestURL().toString();
 		GiangVien giangvien = null;
 
@@ -52,7 +52,7 @@ public class GiangVienController extends HttpServlet {
 			TimKiemGiangVienBangTen(request, response);
 		}
 
-		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
+		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
 		request.getRequestDispatcher("/views/admin/list-giangvien.jsp").forward(request, response);
@@ -60,9 +60,9 @@ public class GiangVienController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// láº¥y url
+		// lấy url
 		String url = request.getRequestURL().toString();
-		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
+		// kiểm tra url rồi chuyển đến hàm tương ứng
 
 		if (url.contains("create")) {
 			insert(request, response);
@@ -75,7 +75,7 @@ public class GiangVienController extends HttpServlet {
 		} else if (url.contains("searchten")){
 			TimKiemGiangVienBangTen(request, response);
 		}
-		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
+		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.getRequestDispatcher("/views/admin/list-giangvien.jsp").forward(request, response);
 	}
@@ -83,10 +83,10 @@ public class GiangVienController extends HttpServlet {
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// khá»Ÿi táº¡o DAO
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
 			List<GiangVien> list = giangvienService.findAll();
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("giangviens", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,15 +98,15 @@ public class GiangVienController extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			// khá»�i táº¡o Ä‘á»‘i tÆ°á»£ng Model
+			// khỏi tạo đối tượng Model
 			GiangVien giangvien = new GiangVien();
-			// sá»­ dá»¥ng BeanUtils Ä‘á»ƒ tá»± láº¥y cÃ¡c name Field trÃªn form
-			// tÃªn field pháº£i trÃ¹ng vá»›i entity
+			// sử dụng BeanUtils để tự lấy các name Field trên form
+			// tên field phải trùng với entity
 			BeanUtils.populate(giangvien, request.getParameterMap());
 			
-			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
+			// gọi hàm insert để thêm dữ liệu
 			giangvienService.insert(giangvien);
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("message", "Đã Thêm Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -115,12 +115,12 @@ public class GiangVienController extends HttpServlet {
 	}
 	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			// khai bÃ¡o biáº¿n userId
+			// khai báo biến userId
 			String magiangvien = request.getParameter("magiangvien");
-			// khá»Ÿi táº¡o DAO
-			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
+			// khởi tạo DAO
+			// gọi hàm insert để thêm dữ liệu
 			GiangVien giangvien = giangvienService.findById(Integer.parseInt(magiangvien));
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("giangvien", giangvien);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -133,13 +133,13 @@ public class GiangVienController extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			// láº¥y dá»¯ liá»‡u tá»« jsp báº±ng BeanUtils
+			// lấy dữ liệu từ jsp bằng BeanUtils
 			GiangVien giangvien = new GiangVien();
 			BeanUtils.populate(giangvien, request.getParameterMap());
 
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m update trong service
+			// khai báo danh sách và gọi hàm update trong service
 			giangvienService.update(giangvien);
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("giangvien", giangvien);
 			request.setAttribute("message", "Cập Nhật Thành Công!");
 		} catch (Exception e) {
@@ -152,12 +152,12 @@ public class GiangVienController extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			// láº¥y dá»¯ liá»‡u trong jsp
+			// lấy dữ liệu trong jsp
 			String magiangvien = request.getParameter("magiangvien");
-			// khá»Ÿi táº¡o DAO
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
 			giangvienService.delete(Integer.parseInt(magiangvien));
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("message", "Đã Xóa Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();

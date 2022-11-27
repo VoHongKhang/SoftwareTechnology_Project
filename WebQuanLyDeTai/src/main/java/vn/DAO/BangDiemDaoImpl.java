@@ -62,7 +62,7 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 
 		try {
 			trans.begin();
-			//thÃªm
+			//thêm
 			enma.persist(bangdiem);
 			trans.commit();
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 
 		try {
 			trans.begin();
-			// TÃŒm cate
+			// tìm cate
 			BangDiem detai = enma.find(BangDiem.class, id);
 			if (detai != null) {
 				//delete

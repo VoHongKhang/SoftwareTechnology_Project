@@ -28,8 +28,8 @@ public class DeTaiController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
-		// láº¥y url
+		// kiểm tra url rồi chuyển đến hàm tương ứng
+		// lấy url
 		String url = request.getRequestURL().toString();
 		DeTai detai = null;
 
@@ -60,7 +60,7 @@ public class DeTaiController extends HttpServlet {
 
 		}
 
-		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
+		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
 		request.getRequestDispatcher("/views/admin/list-detai.jsp").forward(request, response);
@@ -68,9 +68,9 @@ public class DeTaiController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// láº¥y url
+		// lấy url
 		String url = request.getRequestURL().toString();
-		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
+		// kiểm tra url rồi chuyển đến hàm tương ứng
 
 		if (url.contains("create")) {
 			insert(request, response);
@@ -88,7 +88,7 @@ public class DeTaiController extends HttpServlet {
 			TimKiemDeTaiBangTengv(request, response);
 		}
 
-		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
+		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.getRequestDispatcher("/views/admin/list-detai.jsp").forward(request, response);
 	}
@@ -96,10 +96,10 @@ public class DeTaiController extends HttpServlet {
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// khá»Ÿi táº¡o DAO
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
 			List<DeTai> list = detaiService.findAll();
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("detais", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -112,13 +112,14 @@ public class DeTaiController extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			// khá»�i táº¡o Ä‘á»‘i tÆ°á»£ng Model
+			// khỏi tạo đối tượng Model
 			DeTai detai = new DeTai();
-			// sá»­ dá»¥ng BeanUtils Ä‘á»ƒ tá»± láº¥y cÃ¡c name Field trÃªn form
-			// tÃªn field pháº£i trÃ¹ng vá»›i entity
+			// sử dụng BeanUtils để tự lấy các name Field trên form
+			// tên field phải trùng với entity
 			BeanUtils.populate(detai, request.getParameterMap());
+			// gọi hàm insert để thêm dữ liệu
 			detaiService.insert(detai);
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("message", "Đã Thêm Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -128,12 +129,12 @@ public class DeTaiController extends HttpServlet {
 
 	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			// khai bÃ¡o biáº¿n userId
+			// khai báo biến userId
 			String madetai = request.getParameter("madetai");
-			// khá»Ÿi táº¡o DAO
-			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
+			// khởi tạo DAO
+			// gọi hàm insert để thêm dữ liệu
 			DeTai detai = detaiService.findById(Integer.parseInt(madetai));
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("detai", detai);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -146,13 +147,13 @@ public class DeTaiController extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			// láº¥y dá»¯ liá»‡u tá»« jsp báº±ng BeanUtils
+			// lấy dữ liệu từ jsp bằng BeanUtils
 			DeTai detai = new DeTai();
 			BeanUtils.populate(detai, request.getParameterMap());
 
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m update trong service
+			// khai báo danh sách và gọi hàm update trong service
 			detaiService.update(detai);
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("detai", detai);
 			request.setAttribute("message", "Cập Nhật Thành Công");
 		} catch (Exception e) {
@@ -165,12 +166,12 @@ public class DeTaiController extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			// láº¥y dá»¯ liá»‡u trong jsp
+			// lấy dữ liệu trong jsp
 			String madetai = request.getParameter("madetai");
-			// khá»Ÿi táº¡o DAO
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
 			detaiService.delete(Integer.parseInt(madetai));
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("message", "Đã Xóa Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();

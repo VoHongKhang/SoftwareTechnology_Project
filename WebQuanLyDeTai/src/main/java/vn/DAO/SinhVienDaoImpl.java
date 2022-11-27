@@ -40,7 +40,7 @@ public class SinhVienDaoImpl implements ISinhVienDao{
 
 		try {
 			trans.begin();
-			// TÃŒm cate
+			// tìm cate
 			SinhVien category = enma.find(SinhVien.class, cateid);
 			if (category != null) {
 				//delete
