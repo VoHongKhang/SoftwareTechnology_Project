@@ -31,8 +31,8 @@ public class TaiKhoanController extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// kiểm tra url rồi chuyển đến hàm tương ứng
-		// lấy url
+		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
+		// láº¥y url
 		String url = request.getRequestURL().toString();
 		TaiKhoan taikhoan = null;
 		if (url.contains("create")) {
@@ -48,7 +48,7 @@ public class TaiKhoanController extends HttpServlet{
 			request.setAttribute("taikhoan", taikhoan);
 		}
 
-		// gọi hàm findAll để lấy thông tin từ entity
+		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
 		request.getRequestDispatcher("/views/admin/list-taikhoan.jsp").forward(request, response);
@@ -56,9 +56,9 @@ public class TaiKhoanController extends HttpServlet{
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// lấy url
+		// láº¥y url
 		String url = request.getRequestURL().toString();
-		// kiểm tra url rồi chuyển đến hàm tương ứng
+		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
 		if (url.contains("create")) {
 			insert(request, response);
 		} else if (url.contains("update")) {
@@ -69,7 +69,7 @@ public class TaiKhoanController extends HttpServlet{
 			request.setAttribute("taikhoan", new TaiKhoan());
 		}
 
-		// gọi hàm findAll để lấy thông tin từ entity
+		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
 		findAll(request, response);
 		request.getRequestDispatcher("/views/admin/list-taikhoan.jsp").forward(request, response);
 	}
@@ -78,16 +78,16 @@ public class TaiKhoanController extends HttpServlet{
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			// khỏi tạo đối tượng Model
+			// khá»�i táº¡o Ä‘á»‘i tÆ°á»£ng Model
 			TaiKhoan taikhoan = new TaiKhoan();
-			// sử dụng BeanUtils để tự lấy các name Field trên form
-			// tên field phải trùng với entity
+			// sá»­ dá»¥ng BeanUtils Ä‘á»ƒ tá»± láº¥y cÃ¡c name Field trÃªn form
+			// tÃªn field pháº£i trÃ¹ng vá»›i entity
 			BeanUtils.populate(taikhoan, request.getParameterMap());
 			
-			// gọi hàm insert để thêm dữ liệu
+			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
 			taikhoanService.insert(taikhoan);
-			// thông báo
-			request.setAttribute("message", "Đã thêm thành công");
+			// thÃ´ng bÃ¡o
+			request.setAttribute("message", "Đã Thêm Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -108,10 +108,10 @@ public class TaiKhoanController extends HttpServlet{
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// khởi tạo DAO
-			// khai báo danh sách và gọi hàm findAll() trong dao
+			// khá»Ÿi táº¡o DAO
+			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
 			List<TaiKhoan> list = taikhoanService.findAll();
-			// thông báo
+			// thÃ´ng bÃ¡o
 			request.setAttribute("taikhoans", list);
 		} catch (Exception e) {
 			e.printStackTrace();

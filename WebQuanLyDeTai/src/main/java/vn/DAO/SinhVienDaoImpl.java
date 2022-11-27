@@ -40,13 +40,13 @@ public class SinhVienDaoImpl implements ISinhVienDao{
 
 		try {
 			trans.begin();
-			// TÌm cate
+			// TÃŒm cate
 			SinhVien category = enma.find(SinhVien.class, cateid);
 			if (category != null) {
 				//delete
 				enma.remove(category);
 			} else {
-				throw new Exception("Không tìm thấy");
+				throw new Exception("Không tìm thấy!");
 			}
 			trans.commit();
 		} catch (Exception e) {

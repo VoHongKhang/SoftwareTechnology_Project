@@ -119,7 +119,7 @@ public class DeTaiController extends HttpServlet {
 			BeanUtils.populate(detai, request.getParameterMap());
 			detaiService.insert(detai);
 			// thÃ´ng bÃ¡o
-			request.setAttribute("message", "Ä�Ã£ thÃªm thÃ nh cÃ´ng");
+			request.setAttribute("message", "Đã Thêm Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -154,7 +154,7 @@ public class DeTaiController extends HttpServlet {
 			detaiService.update(detai);
 			// thÃ´ng bÃ¡o
 			request.setAttribute("detai", detai);
-			request.setAttribute("message", "Cáº­p nháº­t thÃ nh cÃ´ng!");
+			request.setAttribute("message", "Cập Nhật Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -171,7 +171,7 @@ public class DeTaiController extends HttpServlet {
 			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
 			detaiService.delete(Integer.parseInt(madetai));
 			// thÃ´ng bÃ¡o
-			request.setAttribute("message", "Ä�Ã£ xÃ³a thÃ nh cÃ´ng");
+			request.setAttribute("message", "Đã Xóa Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

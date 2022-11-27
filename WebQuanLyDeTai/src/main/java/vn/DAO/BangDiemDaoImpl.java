@@ -62,7 +62,7 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 
 		try {
 			trans.begin();
-			//thêm
+			//thÃªm
 			enma.persist(bangdiem);
 			trans.commit();
 		} catch (Exception e) {
@@ -81,13 +81,13 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 
 		try {
 			trans.begin();
-			// TÌm cate
+			// TÃŒm cate
 			BangDiem detai = enma.find(BangDiem.class, id);
 			if (detai != null) {
 				//delete
 				enma.remove(detai);
 			} else {
-				throw new Exception("Không tìm thấy");
+				throw new Exception("Không tìm thấy!");
 			}
 			trans.commit();
 		} catch (Exception e) {
