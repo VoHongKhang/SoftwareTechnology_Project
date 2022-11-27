@@ -5,7 +5,7 @@
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/admin-detai/search" var="search" />
-
+<c:url value="/admin-giangvien/searchten" var="search_ten" />
 <header>
 	<!-- header inner -->
 	<div class="header">
@@ -30,6 +30,7 @@
 									<li class="active"><a href="${views}student/home.jsp">Home</a></li>
 									<li><a href="${detai}">Topic</a></li>
 									<li><a href="${search}">Search Topic</a></li>
+									<li><a href="${search_ten}">Search Lecturer</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Log out</a></li>
 								

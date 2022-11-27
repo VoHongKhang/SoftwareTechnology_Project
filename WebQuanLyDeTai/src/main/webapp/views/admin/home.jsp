@@ -105,6 +105,7 @@
 										<li><a href="${search}">Search Topic By Name</a></li>
 										<li><a href="${search_ma}">Search Topic By Id</a></li>
 										<li><a href="${search_ten}">Search Lecturer</a></li>
+
 									</ul>
 								</nav>
 							</div>
