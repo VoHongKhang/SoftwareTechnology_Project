@@ -16,4 +16,6 @@ public interface IGiangVienDao {
 	void delete(int cateid) throws Exception;
 	
 	void insert(GiangVien giangvien);
+	
+	List<GiangVien> findByTenGV(String tengv);
 }

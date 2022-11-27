@@ -199,9 +199,9 @@ public class DeTaiController extends HttpServlet {
 	private void TimKiemDeTaiBangMa(HttpServletRequest req, HttpServletResponse resp) {
 
 		String madetai = req.getParameter("madetai");
-		List<DeTai> detais = detaiService.findByTenDeTai(madetai);
+		List<DeTai> detaii = detaiService.findByTenDeTai(madetai);
 
-		req.setAttribute("detais", detais);
+		req.setAttribute("detaii", detaii);
 		req.setAttribute("madetai", madetai);
 		try {
 			req.getRequestDispatcher("/views/detai/timkiem-detai-ma.jsp").forward(req, resp);

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+
 import vn.Entity.GiangVien;
 
 import vn.Service.IGiangVienService;
@@ -25,7 +26,7 @@ import vn.Service.Impl.GiangVienServiceImpl;
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/admin-giangvien","/admin-giangvien/create", "/admin-giangvien/edit", "/admin-giangvien/update",
-		"/admin-giangvien/reset" ,"/admin-giangvien/delete"})
+		"/admin-giangvien/reset" ,"/admin-giangvien/delete","/admin-giangvien/searchten"})
 public class GiangVienController extends HttpServlet {
 	IGiangVienService giangvienService = new GiangVienServiceImpl();
 
@@ -47,6 +48,8 @@ public class GiangVienController extends HttpServlet {
 		} else if (url.contains("reset")) {
 			giangvien = new GiangVien();
 			request.setAttribute("giangvien", giangvien);
+		} else if (url.contains("searchten")){
+			TimKiemGiangVienBangTen(request, response);
 		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
@@ -69,8 +72,9 @@ public class GiangVienController extends HttpServlet {
 			delete(request, response);
 		} else if (url.contains("reset")) {
 			request.setAttribute("giangvien", new GiangVien());
+		} else if (url.contains("searchten")){
+			TimKiemGiangVienBangTen(request, response);
 		}
-
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.getRequestDispatcher("/views/admin/list-giangvien.jsp").forward(request, response);
@@ -158,6 +162,24 @@ public class GiangVienController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
+		}
+	}
+	
+	private void TimKiemGiangVienBangTen(HttpServletRequest req, HttpServletResponse resp) {
+
+		String ten = req.getParameter("ten");
+		List<GiangVien> giangviens = giangvienService.findByTenGV(ten);
+
+		req.setAttribute("giangviens", giangviens);
+		req.setAttribute("ten", ten);
+		try {
+			req.getRequestDispatcher("/views/giangvien/timkiem-giangvien-ten.jsp").forward(req, resp);
+		} catch (ServletException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+
+			e.printStackTrace();
 		}
 	}
 
