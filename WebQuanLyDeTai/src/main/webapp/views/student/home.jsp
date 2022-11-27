@@ -5,7 +5,8 @@
 <c:url value="/student-detai" var="detai" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/login" var="login" />
-<c:url value="/admin-detai/search" var="search" /> 
+<c:url value="/admin-detai/search" var="search" />
+<c:url value="/admin-giangvien/searchten" var="search_ten" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +76,7 @@
 						<div class="full">
 							<div class="center-desk">
 								<div class="logo">
-									<a href="${views}student/home.jsp"><img
+									<a href="${views}admin/home.jsp"><img
 										src="${URL}images/hcmute.jpg" alt="#"></a>
 								</div>
 							</div>
@@ -89,7 +90,10 @@
 										<li class="active"><a href="${views}student/home.jsp">Home</a></li>
 										<li><a href="${detai}">Topic</a></li>
 										<li><a href="${search}">Search Topic</a></li>
+										<li><a href="${search_ten}">Search Lecturer</a></li>
+										<!-- <li><button class="btn green" >Log out</button> </li> -->
 										<li><a href="${login}">Log out</a></li>
+
 									</ul>
 								</nav>
 							</div>
@@ -116,8 +120,8 @@
 									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
 									<p style="margin-bottom: 10px; margin-left: 30px;">
 										<span class="btn btn-primary btn-sm"> 11/11/2022
-											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông báo đăng ký chuyên ngành khóa
-											2020</a>
+											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông
+											báo đăng ký chuyên ngành khóa 2020</a>
 
 									</p>
 								</li>
@@ -169,7 +173,7 @@
 		</div>
 	</div>
 
-		
+
 
 
 	<div class="contact">

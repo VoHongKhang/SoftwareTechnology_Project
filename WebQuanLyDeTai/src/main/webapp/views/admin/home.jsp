@@ -10,6 +10,7 @@
 <c:url value="/login" var="login" />
 <c:url value="/admin-detai/search" var="search" />
 <c:url value="/admin-detai/ma" var="search_ma" />
+<c:url value="/admin-giangvien/searchten" var="search_ten" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +104,8 @@
 
 										<li><a href="${search}">Search Topic By Name</a></li>
 										<li><a href="${search_ma}">Search Topic By Id</a></li>
+										<li><a href="${search_ten}">Search Lecturer</a></li>
+
 									</ul>
 								</nav>
 							</div>

@@ -3,6 +3,7 @@ package vn.Service.Impl;
 import java.util.List;
 
 
+
 import vn.DAO.GiangVienDaoImpl;
 import vn.DAO.IGiangVienDao;
 import vn.Entity.GiangVien;
@@ -34,6 +35,11 @@ public class GiangVienServiceImpl implements IGiangVienService{
 	@Override
 	public void insert(GiangVien giangvien) {
 		giangvienDao.insert(giangvien);	
+	}
+	
+	@Override
+	public List<GiangVien> findByTenGV(String tengv) {
+		return giangvienDao.findByTenGV(tengv);
 	}
 	
 }

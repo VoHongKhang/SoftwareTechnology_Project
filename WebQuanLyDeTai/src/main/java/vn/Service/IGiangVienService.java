@@ -2,6 +2,7 @@ package vn.Service;
 
 import java.util.List;
 
+
 import vn.Entity.GiangVien;
 
 public interface IGiangVienService {
@@ -14,4 +15,6 @@ public interface IGiangVienService {
 	void delete(int cateid) throws Exception;
 	
 	void insert(GiangVien giangvien);
+	
+	List<GiangVien> findByTenGV(String tengv);
 }

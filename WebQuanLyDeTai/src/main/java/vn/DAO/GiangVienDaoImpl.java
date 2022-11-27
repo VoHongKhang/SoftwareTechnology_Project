@@ -5,9 +5,11 @@ import java.util.List;
 
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
+
 
 import vn.Entity.GiangVien;
 import vn.JPACongfig.JpaConfig;
@@ -93,5 +95,12 @@ public class GiangVienDaoImpl implements IGiangVienDao{
 		return giangvien;
 	}
 	
-	
+	@Override
+	public List<GiangVien> findByTenGV(String ten) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM GiangVien c WHERE c.ten like :ten";
+		TypedQuery<GiangVien> query = enma.createQuery(jpql, GiangVien.class);
+		query.setParameter("ten","%"+ten+"%");
+		return query.getResultList();
+	}
 }

@@ -33,14 +33,14 @@
 					<form action="" method="get" enctype="multipart/form-data">
 						<br />
 						<div class="form-group">
-							<label for="title" style="font-size:24px; font-weight: 600;">Tên đề tài:</label> <input type="text"
-								class="form-control" name="tendetai" id="tendetai" />
+							<label for="title" style="font-size:24px; font-weight: 600;">Tên giảng viên:</label> <input type="text"
+								class="form-control" name="ten" id="ten" />
 						</div>
 						<br />
 						<hr>
 						<div class="form-group">
 							<button class="btn green" style="background-color: #17a65b;"
-								formaction="<c:url value="/admin-detai/search"/>">
+								formaction="<c:url value="/admin-giangvien/searchten"/>">
 								Search <i class="fa fa-search"></i>
 							</button>
 						</div>
@@ -52,21 +52,21 @@
 					<thead>
 						<tr>
 						
-							<th>Tên đề tài</th>
-							<th>Loại đề tài</th>
-							<th>Số lượng sinh viên</th>
-							<th>Giảng viên hướng dẫn</th>
+							<th>Tên giảng viên</th>
+							<th>Năm sinh</th>
+							<th>Email</th>
+							<th>Chuyên ngành</th>
 						
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="item" items="${detais}">
+						<c:forEach var="item" items="${giangviens}">
 							<tr class="odd gradeX">
 								
-								<td>${item.tendetai}</td>
-								<td>${item.loaidetai}</td>
-								<td>${item.soluongsv}</td>
-								<td>${item.giangvien}</td>
+								<td>${item.ten}</td>
+								<td>${item.namsinh}</td>
+								<td>${item.email}</td>
+								<td>${item.chuyennganh}</td>
 							
 							</tr>
 						</c:forEach>

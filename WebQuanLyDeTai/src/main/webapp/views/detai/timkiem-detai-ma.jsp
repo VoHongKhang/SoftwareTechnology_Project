@@ -61,7 +61,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="item" items="${detaim}">
+						<c:forEach var="item" items="${detaii}">
 							<tr class="odd gradeX">
 
 								<td>${item.madetai}</td>
