@@ -87,7 +87,7 @@ public class TaiKhoanController extends HttpServlet{
 			// gọi hàm insert để thêm dữ liệu
 			taikhoanService.insert(taikhoan);
 			// thông báo
-			request.setAttribute("message", "Đã thêm thành công");
+			request.setAttribute("message", "Đã Thêm Thành Công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

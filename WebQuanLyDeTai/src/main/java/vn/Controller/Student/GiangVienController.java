@@ -1,4 +1,4 @@
-package vn.Controller.Admin;
+package vn.Controller.Student;
 
 import java.io.IOException;
 
@@ -25,8 +25,7 @@ import vn.Service.Impl.GiangVienServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
-@WebServlet(urlPatterns = { "/admin-giangvien","/admin-giangvien/create", "/admin-giangvien/edit", "/admin-giangvien/update",
-		"/admin-giangvien/reset" ,"/admin-giangvien/delete","/admin-giangvien/searchten"})
+@WebServlet(urlPatterns = { "/student-giangvien","/student-giangvien/search"})
 public class GiangVienController extends HttpServlet {
 	IGiangVienService giangvienService = new GiangVienServiceImpl();
 
@@ -38,7 +37,7 @@ public class GiangVienController extends HttpServlet {
 		GiangVien giangvien = null;
 
 		if (url.contains("create")) {
-			request.getRequestDispatcher("/views/admin/giangvien/add.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/student/giangvien/add.jsp").forward(request, response);
 		} else if (url.contains("delete")) {
 			delete(request, response);
 			giangvien = new GiangVien();
@@ -48,14 +47,14 @@ public class GiangVienController extends HttpServlet {
 		} else if (url.contains("reset")) {
 			giangvien = new GiangVien();
 			request.setAttribute("giangvien", giangvien);
-		} else if (url.contains("searchten")){
+		} else if (url.contains("search")){
 			TimKiemGiangVienBangTen(request, response);
 		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
-		request.getRequestDispatcher("/views/admin/list-giangvien.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/student/list-giangvien.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -72,12 +71,12 @@ public class GiangVienController extends HttpServlet {
 			delete(request, response);
 		} else if (url.contains("reset")) {
 			request.setAttribute("giangvien", new GiangVien());
-		} else if (url.contains("searchten")){
+		} else if (url.contains("search")){
 			TimKiemGiangVienBangTen(request, response);
 		}
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
-		request.getRequestDispatcher("/views/admin/list-giangvien.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/student/list-giangvien.jsp").forward(request, response);
 	}
 
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
@@ -173,7 +172,7 @@ public class GiangVienController extends HttpServlet {
 		req.setAttribute("giangviens", giangviens);
 		req.setAttribute("ten", ten);
 		try {
-			req.getRequestDispatcher("/views/giangvien/timkiem-giangvien-ten.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/giangvien/sinhvien-timkiem-giangvien-ten.jsp").forward(req, resp);
 		} catch (ServletException e) {
 
 			e.printStackTrace();

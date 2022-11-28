@@ -81,7 +81,7 @@ public class SinhVienController extends HttpServlet {
 			// khởi tạo DAO
 			// khai báo danh sách và gọi hàm findAll() trong dao
 			List<SinhVien> list = sinhvienService.findAll();
-			// thông báo
+			// Thông báo
 			request.setAttribute("sinhviens", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -96,7 +96,7 @@ public class SinhVienController extends HttpServlet {
 			// khởi tạo DAO
 			// gọi hàm insert để thêm dữ liệu
 			SinhVien sinhvien = sinhvienService.findById(Integer.parseInt(masinhvien));
-			// thông báo
+			// Thông báo
 			request.setAttribute("sinhvien", sinhvien);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -115,9 +115,9 @@ public class SinhVienController extends HttpServlet {
 
 			// khai báo danh sách và gọi hàm update trong service
 			sinhvienService.update(sinhvien);
-			// thông báo
+			// Thông báo
 			request.setAttribute("sinhvien", sinhvien);
-			request.setAttribute("message", "Thêm thành công!");
+			request.setAttribute("message", "thành công!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

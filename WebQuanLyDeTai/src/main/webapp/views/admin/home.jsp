@@ -34,6 +34,7 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+	
 <!-- style css -->
 <link rel="stylesheet" href="${URL}css/style.css">
 <!-- Responsive-->
@@ -313,7 +314,7 @@
 	<!-- end contact -->
 
 	<!-- footer -->
-	<footer>
+	<!-- <footer>
 		<div id="contact" class="footer" style="background-color: #135fab;">
 			<div class="container">
 				<div class="row pdn-top-30">
@@ -338,7 +339,7 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 	<!-- end footer -->
 	<!-- Javascript files-->
 	<script src="js/jquery.min.js"></script>

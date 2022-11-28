@@ -31,4 +31,10 @@ public class TaiKhoanServiceImpl implements ITaiKhoanService{
 		taikhoanDao.insert(taikhoan);	
 	}
 
+	@Override
+	public TaiKhoan findByUser_pass(String user,String pass) {
+		// TODO Auto-generated method stub
+		return taikhoanDao.findByUser_pass(user,pass);
+	}
+
 }
