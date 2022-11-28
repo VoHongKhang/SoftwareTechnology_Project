@@ -23,7 +23,7 @@
 		<properties>
 
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:sqlserver://localhost;databaseName=QLDT" />
+				value="jdbc:sqlserver://MSI;databaseName=QLDT" />
 
 			<property name="javax.persistence.jdbc.driver"
 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
