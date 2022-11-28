@@ -117,7 +117,7 @@ public class SinhVienController extends HttpServlet {
 			sinhvienService.update(sinhvien);
 			// Thông báo
 			request.setAttribute("sinhvien", sinhvien);
-			request.setAttribute("message", "ThÃªm thÃ nh cÃ´ng!");
+			request.setAttribute("message", "thành công!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -134,7 +134,7 @@ public class SinhVienController extends HttpServlet {
 			// khai báo danh sách và gọi hàm findAll() trong dao
 			sinhvienService.delete(Integer.parseInt(masinhvien));
 			// thông báo
-			request.setAttribute("message", "Ä�Ã£ xÃ³a thÃ nh cÃ´ng");
+			request.setAttribute("message", "Đã xóa thành công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
