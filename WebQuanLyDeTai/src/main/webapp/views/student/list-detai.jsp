@@ -47,8 +47,19 @@
 						<div class="portlet-body">
 							<div class="table-toolbar">
 								<!-- Hiển thị thông báo -->
-								<%@include file="/common/info.jsp"%>
+								<%-- <%@include file="/common/info.jsp"%> --%>
 								<!-- Kết thúc hiển thị thông báo -->
+
+								<c:if test="${message != null}">
+
+									<div class="alert alert-primary" role="alert">
+
+										<i>${message}</i>
+
+									</div>
+
+								</c:if>
+
 
 
 								<div class="col-md-9" style="padding-right: 25px">
@@ -75,20 +86,15 @@
 														<td>${item.loaidetai}</td>
 														<td>${item.soluongsv}</td>
 														<td>${item.giangvien}</td>
-														<td><button class="btn green"
-																style="background-color: #17a65b;"
-																formaction="<c:url value=""/>">
-																Đăng ký<i class="fa fa-search"></i>
-															</button>
-														</td>
-
-
-
-
+														<td><a
+															href="<c:url value='/student-detai/register?madetai=${item.madetai}'/>"
+															class="center">Đăng ký</a></td>
 													</tr>
 												</c:forEach>
 											</tbody>
 										</table>
+
+
 									</div>
 								</div>
 							</div>
@@ -99,6 +105,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
+
 </body>
 </html>

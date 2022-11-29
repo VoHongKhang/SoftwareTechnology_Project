@@ -2,60 +2,46 @@ package vn.Controller.Student;
 
 import java.io.IOException;
 
-
-
-
-
 import java.util.List;
 
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.beanutils.BeanUtils;
 
+import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
-
+import vn.Service.IBangDiemService;
 import vn.Service.IDeTaiService;
+import vn.Service.Impl.BangDiemServiceImpl;
 import vn.Service.Impl.DeTaiServiceImpl;
 
 
 
 @SuppressWarnings("serial")
 @MultipartConfig
-@WebServlet(urlPatterns = {"/student-detai","/student-detai/search"})
+@WebServlet(urlPatterns = {"/student-detai","/student-detai/search","/student-detai/register"})
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
-
+	IBangDiemService bangdiemservice = new BangDiemServiceImpl();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
-		// láº¥y url
+		// kiểm tra url rồi chuyển đến hàm tương ứng
+		// lấy url
 		String url = request.getRequestURL().toString();
-		DeTai detai = null;
 
-		if (url.contains("create")) {
-			request.getRequestDispatcher("/views/student/detai/add.jsp").forward(request, response);
-		} else if (url.contains("delete")) {
-			delete(request, response);
-			detai = new DeTai();
-			request.setAttribute("detai", detai);
-		} else if (url.contains("edit")) {
-			edit(request, response);
-		} else if (url.contains("reset")) {
-			detai = new DeTai();
-			request.setAttribute("detai", detai);
-		}else if (url.contains("search")) {
-			
-			TimKiemDeTai(request, response);
-		
+		if (url.contains("register")) {
+			insert(request, response);
+			findAll(request, response);
+			request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
 		}
-
-		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
+			
+		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
 		request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
@@ -63,34 +49,24 @@ public class DeTaiController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// láº¥y url
+		// lấy url
 		String url = request.getRequestURL().toString();
-		// kiá»ƒm tra url rá»“i chuyá»ƒn Ä‘áº¿n hÃ m tÆ°Æ¡ng á»©ng
-
-		if (url.contains("create")) {
+		
+		// kiểm tra url rồi chuyển đến hàm tương ứng
+		if (url.contains("register")) {
 			insert(request, response);
-		} else if (url.contains("update")) {
-			update(request, response);
-		} else if (url.contains("delete")) {
-			delete(request, response);
-		} else if (url.contains("reset")) {
-			request.setAttribute("detai", new DeTai());
-		} else if (url.contains("search")) {
-			TimKiemDeTai(request, response);
-		}
-
-		// gá»�i hÃ m findAll Ä‘á»ƒ láº¥y thÃ´ng tin tá»« entity
-		findAll(request, response);
+		} 
+		// gọi hàm findAll để lấy thông tin từ entity
+		findAll(request, response);		
 		request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
 	}
-
 	protected void findAll(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// khá»Ÿi táº¡o DAO
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
 			List<DeTai> list = detaiService.findAll();
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("detais", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,66 +78,41 @@ public class DeTaiController extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			// khá»�i táº¡o Ä‘á»‘i tÆ°á»£ng Model
-			DeTai detai = new DeTai();
-			// sá»­ dá»¥ng BeanUtils Ä‘á»ƒ tá»± láº¥y cÃ¡c name Field trÃªn form
-			// tÃªn field pháº£i trÃ¹ng vá»›i entity
-			BeanUtils.populate(detai, request.getParameterMap());
 			
-			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
-			detaiService.insert(detai);
-			// thÃ´ng bÃ¡o
-			request.setAttribute("message", "Đã thêm thành công!");
+			String MaDT= request.getParameter("madetai");
+			
+			int dt=Integer.parseInt(MaDT);
+
+			
+			BangDiem bangdiem = new BangDiem();
+			bangdiem.setMadetai(dt);
+			bangdiem.setMasinhvien("123456");	
+			bangdiem.setDiem(0);
+			bangdiem.setNamhoc(2022);
+			//BeanUtils.populate(bangdiem, map);
+			bangdiemservice.insert(bangdiem);
+			//detaiService.delete(dt);
+			
+			// thông báo
+			request.setAttribute("message", "Đăng ký thành công");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
 		}
 	}
-	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			// khai bÃ¡o biáº¿n userId
-			String madetai = request.getParameter("madetai");
-			// khá»Ÿi táº¡o DAO
-			// gá»�i hÃ m insert Ä‘á»ƒ thÃªm dá»¯ liá»‡u
-			DeTai detai = detaiService.findById(Integer.parseInt(madetai));
-			// thÃ´ng bÃ¡o
-			request.setAttribute("detai", detai);
-		} catch (Exception e) {
-			e.printStackTrace();
-			request.setAttribute("error", "Eror: " + e.getMessage());
-		}
-	}
+	
 
-	protected void update(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
-			request.setCharacterEncoding("UTF-8");
-			response.setCharacterEncoding("UTF-8");
-			// láº¥y dá»¯ liá»‡u tá»« jsp báº±ng BeanUtils
-			DeTai detai = new DeTai();
-			BeanUtils.populate(detai, request.getParameterMap());
-
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m update trong service
-			detaiService.update(detai);
-			// thÃ´ng bÃ¡o
-			request.setAttribute("detai", detai);
-			request.setAttribute("message", "Cập nhật thành công!");
-		} catch (Exception e) {
-			e.printStackTrace();
-			request.setAttribute("error", "Eror: " + e.getMessage());
-		}
-	}
-
+	
 	protected void delete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
-			// láº¥y dá»¯ liá»‡u trong jsp
+			// lấy dữ liệu trong jsp
 			String madetai = request.getParameter("madetai");
-			// khá»Ÿi táº¡o DAO
-			// khai bÃ¡o danh sÃ¡ch vÃ  gá»�i hÃ m findAll() trong dao
+			// khởi tạo DAO
+			// khai báo danh sách và gọi hàm findAll() trong dao
 			detaiService.delete(Integer.parseInt(madetai));
-			// thÃ´ng bÃ¡o
+			// thông báo
 			request.setAttribute("message", "Đã xóa thành công");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -170,7 +121,7 @@ public class DeTaiController extends HttpServlet {
 	}
 	
 
-	private void TimKiemDeTai(HttpServletRequest req, HttpServletResponse resp) {
+	/*private void TimKiemDeTai(HttpServletRequest req, HttpServletResponse resp) {
 
 		String tendetai = req.getParameter("tendetai");
 		List<DeTai> detais = detaiService.findByTenDeTai(tendetai);
@@ -186,6 +137,6 @@ public class DeTaiController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 }

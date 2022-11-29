@@ -3,13 +3,16 @@ package vn.DAO;
 import java.util.List;
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 
 import vn.Entity.TaiKhoan;
 import vn.JPACongfig.JpaConfig;
+
 
 
 public class TaiKhoanDaoImpl implements ITaiKhoanDao{
@@ -63,6 +66,21 @@ public class TaiKhoanDaoImpl implements ITaiKhoanDao{
 		EntityManager enma = JpaConfig.getEntityManager();
 		TaiKhoan taikhoan = enma.find(TaiKhoan.class, id);
 		return taikhoan;
+	}
+	@Override
+	public TaiKhoan findByUser_pass(String userna,String pass) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		TypedQuery<TaiKhoan> query=enma.createQuery("SELECT c from TaiKhoan c where c.username = :user and c.password = :pass",TaiKhoan.class);
+			
+		query.setParameter("user",userna);
+		query.setParameter("pass",pass);
+		TaiKhoan taikhoan=(TaiKhoan) query.getSingleResult();
+		return taikhoan;
+		//TaiKhoan taikhoan = enma.find(TaiKhoan.class, user);
+		
+		//return taikhoan;
+		
 	}
 	
 }

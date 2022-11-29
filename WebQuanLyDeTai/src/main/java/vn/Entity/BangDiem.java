@@ -23,7 +23,7 @@ public class BangDiem implements Serializable {
 	private int id;
 
 	@Column(name = "Madetai")
-	private String madetai;
+	private int madetai;
 	
 	@Column(name = "MaSinhVien")
 	private String masinhvien;
@@ -34,7 +34,7 @@ public class BangDiem implements Serializable {
 	@Column(name = "NamHoc")
 	private int namhoc;
 
-	public BangDiem(int id, String madetai, String masinhvien, int diem, int namhoc) {
+	public BangDiem(int id, int madetai, String masinhvien, int diem, int namhoc) {
 		super();
 		this.id = id;
 		this.madetai = madetai;
@@ -55,12 +55,12 @@ public class BangDiem implements Serializable {
 		this.id = id;
 	}
 
-	public String getMadetai() {
+	public int getMadetai() {
 		return madetai;
 	}
 
-	public void setMadetai(String madetai) {
-		this.madetai = madetai;
+	public void setMadetai(int dt) {
+		this.madetai = dt;
 	}
 
 	public String getMasinhvien() {

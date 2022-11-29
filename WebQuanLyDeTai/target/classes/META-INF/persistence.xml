@@ -30,7 +30,7 @@
 
 			<property name="javax.persistence.jdbc.user" value="sa" />
 
-			<property name="javax.persistence.jdbc.password" value="123" />
+			<property name="javax.persistence.jdbc.password" value="19052002" />
 
 			<property name="hibernate.show_sql" value="true" />
 

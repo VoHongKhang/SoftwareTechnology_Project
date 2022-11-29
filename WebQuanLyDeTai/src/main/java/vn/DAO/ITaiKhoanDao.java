@@ -9,6 +9,7 @@ public interface ITaiKhoanDao {
 	List<TaiKhoan> findAll();
 
 	TaiKhoan findById(int id);
+	TaiKhoan findByUser_pass(String userna,String pass);
 
 	void update(TaiKhoan taikhoan);
 	

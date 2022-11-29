@@ -4,8 +4,8 @@
 <c:url value="/student-detai" var="detai" />
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
-<c:url value="/admin-detai/search" var="search" />
-<c:url value="/admin-giangvien/searchten" var="search_ten" />
+<c:url value="/student-detai/search" var="search" />
+<c:url value="/student-giangvien/search" var="search_ten" />
 <header>
 	<!-- header inner -->
 	<div class="header">
