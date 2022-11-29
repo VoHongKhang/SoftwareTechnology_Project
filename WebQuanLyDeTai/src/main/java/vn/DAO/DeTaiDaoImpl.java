@@ -45,7 +45,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 
 		try {
 			trans.begin();
-			//thêm
+			//Thêm
 			enma.persist(detai);
 			trans.commit();
 		} catch (Exception e) {
@@ -64,7 +64,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 
 		try {
 			trans.begin();
-			// TÌm cate
+			// kiếm đề tài
 			DeTai detai = enma.find(DeTai.class, madetai);
 			if (detai != null) {
 				//delete
