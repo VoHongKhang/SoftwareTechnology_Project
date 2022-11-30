@@ -1,9 +1,7 @@
 package vn.Controller.Web;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.enterprise.context.SessionScoped;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -46,7 +44,7 @@ public class LoginController extends HttpServlet {
 		session.setAttribute("acc", takhoan);
 		
 		
-		if (takhoan.getPhanquyen() == 0 || takhoan.getPhanquyen() == 2 || takhoan.getPhanquyen() == 1) {
+		if (takhoan.getPhanquyen() == 0) {
 			// khởi tạo cookie
 			Cookie cookie = new Cookie("username", username);
 			// thiết lập thời gian tồn tại 30s của cookie
@@ -67,6 +65,16 @@ public class LoginController extends HttpServlet {
 			resp.addCookie(cookie);
 			// chuyển sang trang LoginServlet
 				resp.sendRedirect("student/home");
+		}
+		else if (takhoan.getPhanquyen() == 2  || takhoan.getPhanquyen() == 1) {
+			// khởi tạo cookie
+			Cookie cookie = new Cookie("username", username);
+			// thiết lập thời gian tồn tại 30s của cookie
+			cookie.setMaxAge(30);
+			// thêm cookie vào response
+			resp.addCookie(cookie);
+			// chuyển sang trang LoginServlet
+				resp.sendRedirect("giangvien/home");
 		}
 		
 	}

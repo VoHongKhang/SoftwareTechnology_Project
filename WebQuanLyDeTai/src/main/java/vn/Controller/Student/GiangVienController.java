@@ -62,7 +62,7 @@ public class GiangVienController extends HttpServlet {
 		// lấy url
 		String url = request.getRequestURL().toString();
 		// kiểm tra url rồi chuyển đến hàm tương ứng
-
+		
 		if (url.contains("create")) {
 			insert(request, response);
 		} else if (url.contains("update")) {
@@ -106,7 +106,7 @@ public class GiangVienController extends HttpServlet {
 			// gọi hàm insert để thêm dữ liệu
 			giangvienService.insert(giangvien);
 			// thông báo
-			request.setAttribute("message", "Đã Thêm Thành Công");
+			request.setAttribute("message", "Ä�Ã£ ThÃªm ThÃ nh CÃ´ng");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -140,7 +140,7 @@ public class GiangVienController extends HttpServlet {
 			giangvienService.update(giangvien);
 			// thông báo
 			request.setAttribute("giangvien", giangvien);
-			request.setAttribute("message", "Cập Nhật Thành Công!");
+			request.setAttribute("message", "Cáº­p Nháº­t ThÃ nh CÃ´ng!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -157,7 +157,7 @@ public class GiangVienController extends HttpServlet {
 			// khai báo danh sách và gọi hàm findAll() trong dao
 			giangvienService.delete(Integer.parseInt(magiangvien));
 			// thông báo
-			request.setAttribute("message", "Đã Xóa Thành Công");
+			request.setAttribute("message", "Ä�Ã£ XÃ³a ThÃ nh CÃ´ng");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

@@ -76,7 +76,7 @@
 						<div class="full">
 							<div class="center-desk">
 								<div class="logo">
-									<a href="${views}admin/home.jsp"><img
+									<a href="${views}student/home.jsp"><img
 										src="${URL}images/hcmute.jpg" alt="#"></a>
 								</div>
 							</div>

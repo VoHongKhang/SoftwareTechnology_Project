@@ -5,8 +5,8 @@
 <c:url value="/student-detai" var="detai" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/login" var="login" />
-<c:url value="/student-detai/search" var="search" />
-<c:url value="/student-giangvien/search" var="search_ten" />
+<c:url value="/giangvien-detai/search" var="search" />
+<c:url value="/giangvien-sinhvien/search" var="search_ten" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +76,7 @@
 						<div class="full">
 							<div class="center-desk">
 								<div class="logo">
-									<a href="${views}admin/home.jsp"><img
+									<a href="${views}giangvien/home.jsp"><img
 										src="${URL}images/hcmute.jpg" alt="#"></a>
 								</div>
 							</div>
@@ -87,10 +87,10 @@
 							<div class="limit-box">
 								<nav class="main-menu">
 									<ul class="menu-area-main">
-										<li class="active"><a href="${views}student/home.jsp">Home</a></li>
+										<li class="active"><a href="${views}giangvien/home.jsp">Home</a></li>
 										<li><a href="${detai}">Topic</a></li>
 										<li><a href="${search}">Search Topic</a></li>
-										<li><a href="${search_ten}">Search Lecturer</a></li>
+										<li><a href="${search_ten}">Search Student</a></li>
 										<!-- <li><button class="btn green" >Log out</button> </li> -->
 										<li><a href="${login}">Log out</a></li>
 
