@@ -32,7 +32,7 @@ public class GiangVienController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// kiểm tra url rồi chuyển đến hàm tương ứng
-		// lấy url
+		// lấy url 
 		String url = request.getRequestURL().toString();
 		GiangVien giangvien = null;
 
