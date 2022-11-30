@@ -5,8 +5,8 @@
 <c:url value="/student-detai" var="detai" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/login" var="login" />
-<c:url value="/student-detai/search" var="search" />
-<c:url value="/student-giangvien/search" var="search_ten" />
+<c:url value="/giangvien-detai/search" var="search" />
+<c:url value="/giangvien-sinhvien/search" var="search_ten" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,44 +66,7 @@
 
 <body class="main-layout ">
 
-	<header>
-		<!-- header inner -->
-		<div class="header">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-						<div class="full">
-							<div class="center-desk">
-								<div class="logo">
-									<a href="${views}admin/home.jsp"><img
-										src="${URL}images/hcmute.jpg" alt="#"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-						<div class="menu-area">
-							<div class="limit-box">
-								<nav class="main-menu">
-									<ul class="menu-area-main">
-										<li class="active"><a href="${views}student/home.jsp">Home</a></li>
-										<li><a href="${detai}">Topic</a></li>
-										<li><a href="${search}">Search Topic</a></li>
-										<li><a href="${search_ten}">Search Lecturer</a></li>
-										<!-- <li><button class="btn green" >Log out</button> </li> -->
-										<li><a href="${login}">Log out</a></li>
-
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end header inner -->
-	</header>
+	
 	<div class="contact">
 		<div class="container">
 			<div class="row">
@@ -113,61 +76,31 @@
 							style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Thông
 							báo</h4>
 					</div>
-					<form class="main_form">
+									<div class="col-md-9" style="padding-right: 25px">
 						<div class="row">
-							<ul class="list-unstyled">
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 11/11/2022
-											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông
-											báo đăng ký chuyên ngành khóa 2020</a>
+							<table class="table table-striped table-bordered table-hover"
+								id="sample_2">
+								<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+								<thead>
+									<tr>
 
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 12/11/2022
-											20:35:14 </span> Đăng ký môn Tiểu luận chuyên ngành khóa 2019
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 13/11/2022
-											9:43:23 </span> Đăng ký Tiểu luận chuyên ngành khoá 2019
+										<th>Thong bao</th>
 
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 14/11/2022
-											16:25:09 </span> Đăng ký Tiểu luận chuyên ngành khoá 2020
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="item" items="${thongbaos}">
+										<tr class="odd gradeX">
 
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 13/11/2022
-											11:25:09 </span> Đăng ký chuyên ngành khóa 2021
-
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 15/11/2022
-											16:25:09 </span> Thông báo hủy đăng ký chuyên ngành khóa 2021
-
-									</p>
-								</li>
-
-							</ul>
+											<td>${item.tenthongbao}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
-					</form>
+					</div>
+					
+									
 				</div>
 			</div>
 		</div>

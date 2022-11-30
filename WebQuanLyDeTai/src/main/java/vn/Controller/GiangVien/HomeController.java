@@ -1,4 +1,4 @@
-package vn.Controller.Admin;
+package vn.Controller.GiangVien;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,18 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vn.DAO.IThongBaoDao;
-import vn.Entity.SinhVien;
+import vn.Entity.GiangVien;
 import vn.Entity.ThongBao;
-import vn.Service.ISinhVienService;
-import vn.Service.IThongBaoService;
-import vn.Service.Impl.SinhVienServiceImpl;
+import vn.Service.IGiangVienService;
+import vn.Service.Impl.GiangVienServiceImpl;
 import vn.Service.Impl.ThongBaoServiceImpl;
 
 
-@WebServlet(urlPatterns = { "/admin/home" })
+@WebServlet(urlPatterns = { "/giangvien/home" })
 public class HomeController extends HttpServlet {
-	ISinhVienService sinhvienService = new SinhVienServiceImpl();
+	IGiangVienService giangvienService = new GiangVienServiceImpl();
 	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
 
 	private static final long serialVersionUID = 1L;
@@ -29,11 +27,12 @@ public class HomeController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		List<SinhVien> list = sinhvienService.findAll();
-		req.setAttribute("sinhviens", list);
+		List<GiangVien> list = giangvienService.findAll();
+		req.setAttribute("giangviens", list);
+		
 		List<ThongBao> listhongbao=thongbaoservice.findAll();
 		req.setAttribute("thongbaos", listhongbao);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/home.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/giangvien/home.jsp");
 		dispatcher.forward(req, resp);
 	}
 

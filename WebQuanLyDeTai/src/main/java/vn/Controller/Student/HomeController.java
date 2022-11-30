@@ -11,14 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vn.Entity.SinhVien;
+import vn.Entity.ThongBao;
 import vn.Service.ISinhVienService;
 import vn.Service.Impl.SinhVienServiceImpl;
+import vn.Service.Impl.ThongBaoServiceImpl;
 
 
 @WebServlet(urlPatterns = { "/student/home" })
 public class HomeController extends HttpServlet {
 	ISinhVienService sinhvienService = new SinhVienServiceImpl();
-
+	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
 
 	private static final long serialVersionUID = 1L;
 
@@ -27,6 +29,8 @@ public class HomeController extends HttpServlet {
 	
 		List<SinhVien> list = sinhvienService.findAll();
 		req.setAttribute("sinhviens", list);
+		List<ThongBao> listhongbao=thongbaoservice.findAll();
+		req.setAttribute("thongbaos", listhongbao);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/student/home.jsp");
 		dispatcher.forward(req, resp);
