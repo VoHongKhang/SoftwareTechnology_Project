@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <c:url value="/templates/" var="URL"></c:url>
-<c:url value="/student-detai" var="detai" />
+<c:url value="/giangvien-detai" var="detai" />
 <c:url value="/login" var="login" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/giangvien-detai/search" var="search" />
-<c:url value="/giangvien-sinhvien/search" var="search_ten" />
+<c:url value="/giangvien/home" var="home" />
+
 <header>
 	<!-- header inner -->
 	<div class="header">
@@ -17,7 +18,7 @@
 					<div class="full">
 						<div class="center-desk">
 							<div class="logo">
-								<a href="${views}admin/home.jsp"><img
+								<a href="${home}"><img
 									src="${URL}images/hcmute.jpg" alt="#"></a>
 							</div>
 						</div>
@@ -28,10 +29,10 @@
 						<div class="limit-box">
 							<nav class="main-menu">
 								<ul class="menu-area-main">
-									<li class="active"><a href="${views}student/home.jsp">Home</a></li>
+									<li class="active"><a href="${home}">Home</a></li>
 									<li><a href="${detai}">Topic</a></li>
 									<li><a href="${search}">Search Topic</a></li>
-									<li><a href="${search_ten}">Search Lecturer</a></li>
+									<li><a href="#">Group</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Log out</a></li>
 								

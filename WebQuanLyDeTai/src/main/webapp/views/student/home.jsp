@@ -66,48 +66,7 @@
 
 <body class="main-layout ">
 
-<<<<<<< HEAD
 	
-=======
-	<header>
-		<!-- header inner -->
-		<div class="header">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-						<div class="full">
-							<div class="center-desk">
-								<div class="logo">
-									<a href="${views}student/home.jsp"><img
-										src="${URL}images/hcmute.jpg" alt="#"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-						<div class="menu-area">
-							<div class="limit-box">
-								<nav class="main-menu">
-									<ul class="menu-area-main">
-										<li class="active"><a href="${views}student/home.jsp">Home</a></li>
-										<li><a href="${detai}">Topic</a></li>
-										<li><a href="${search}">Search Topic</a></li>
-										<li><a href="${search_ten}">Search Lecturer</a></li>
-										<!-- <li><button class="btn green" >Log out</button> </li> -->
-										<li><a href="${login}">Log out</a></li>
-
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end header inner -->
-	</header>
->>>>>>> c83c10fe95543fbc20c7c7c3cef755db2a4f532b
 	<div class="contact">
 		<div class="container">
 			<div class="row">
@@ -150,9 +109,9 @@
 
 
 
-	<div class="contact">
+<div class="contact">
 		<div class="container">
-			<div class="row">
+			<div class="row" style="display: flex;justify-content: center;">
 				<div class="titlepage">
 					<h4
 						style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Các
@@ -182,7 +141,7 @@
 							<p class="card-text" style="margin-bottom: 20px;">Nguyễn
 								Thành Sơn</p>
 							<p class="card-text" style="margin-bottom: 20px;">sonnt@hcmute.edu.vn</p>
-							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See
+							<a href="#" class="btn btn-primary">See
 								Profile</a>
 						</div>
 					</div>
@@ -205,7 +164,7 @@
 							<p class="card-text" style="margin-bottom: 20px;">Trần Tiến
 								Đức</p>
 							<p class="card-text" style="margin-bottom: 20px;">ductt@hcmute.edu.vn</p>
-							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See
+							<a href="#" class="btn btn-primary">See
 								Profile</a>
 						</div>
 					</div>
@@ -274,34 +233,7 @@
 	</div>
 	<!-- end contact -->
 
-	<!-- footer -->
-	<footer>
-		<div id="contact" class="footer" style="background-color: #135fab;">
-			<div class="container">
-				<div class="row pdn-top-30">
-					<div class="col-md-12 ">
-						<div class="footer-box">
-							<div class="headinga">
-								<h3>Address</h3>
-								<span>1, Võ Văn Ngân, Việt Nam</span>
-								<p>
-									Trường đại học SPKT thành phố Hồ Chí Minh <br>hcmute.online.edu.vn
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="copyright">
-				<div class="container">
-					<p>Khoa Công nghệ Thông tin-Đại học Sư phạm Kỹ thuật TP. Hồ Chí
-						Minh</p>
-					<p>Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- end footer -->
+
 	<!-- Javascript files-->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>

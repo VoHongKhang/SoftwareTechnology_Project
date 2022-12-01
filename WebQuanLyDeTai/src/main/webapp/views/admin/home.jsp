@@ -116,7 +116,7 @@
 
 	<div class="contact">
 		<div class="container">
-			<div class="row">
+			<div class="row" style="display: flex;justify-content: center;">
 				<div class="titlepage">
 					<h4
 						style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Các
@@ -146,7 +146,7 @@
 							<p class="card-text" style="margin-bottom: 20px;">Nguyễn
 								Thành Sơn</p>
 							<p class="card-text" style="margin-bottom: 20px;">sonnt@hcmute.edu.vn</p>
-							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See
+							<a href="#" class="btn btn-primary">See
 								Profile</a>
 						</div>
 					</div>
@@ -169,7 +169,7 @@
 							<p class="card-text" style="margin-bottom: 20px;">Trần Tiến
 								Đức</p>
 							<p class="card-text" style="margin-bottom: 20px;">ductt@hcmute.edu.vn</p>
-							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See
+							<a href="#" class="btn btn-primary">See
 								Profile</a>
 						</div>
 					</div>
@@ -238,34 +238,7 @@
 	</div>
 	<!-- end contact -->
 
-	<!-- footer -->
-	<!-- <footer>
-		<div id="contact" class="footer" style="background-color: #135fab;">
-			<div class="container">
-				<div class="row pdn-top-30">
-					<div class="col-md-12 ">
-						<div class="footer-box">
-							<div class="headinga">
-								<h3>Address</h3>
-								<span>1, Võ Văn Ngân, Việt Nam</span>
-								<p>
-									Trường đại học SPKT thành phố Hồ Chí Minh <br>hcmute.online.edu.vn
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="copyright">
-				<div class="container">
-					<p>Khoa Công nghệ Thông tin-Đại học Sư phạm Kỹ thuật TP. Hồ Chí
-						Minh</p>
-					<p>Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</p>
-				</div>
-			</div>
-		</div>
-	</footer> -->
-	<!-- end footer -->
+
 	<!-- Javascript files-->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js"></script>

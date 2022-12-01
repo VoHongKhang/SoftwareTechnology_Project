@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Free Bootstrap 4 Ecommerce Template</title>
+<title>QLDT</title>
 
 <!-- CSS -->
 <link
@@ -29,8 +29,10 @@
 	<%@ include file="/common/admin/header.jsp"%>
 
 	<!-- body -->
+	
 	<dec:body />
 	<!-- body -->
+
 
 	<!--=== Footer v4 ===-->
 	<jsp:include page="/common/admin/footer.jsp"></jsp:include>
