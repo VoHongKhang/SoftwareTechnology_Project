@@ -28,11 +28,17 @@ public class DeTai implements Serializable {
 	@Column(name = "LoaiDt")
 	private String loaidetai;
 	
+	@Column(name = "ChuyenNganh")
+	private String chuyennganh;
+	
 	@Column(name = "Soluongsv")
 	private int soluongsv;
 	
 	@Column(name = "Giangvien")
 	private String giangvien;
+	
+	@Column(name = "TinhTrang")
+	private int tinhtrang;
 
 	public DeTai(int madetai, String tendetai, String loaidetai, int soluongsv, String giangvien) {
 		super();
@@ -42,10 +48,45 @@ public class DeTai implements Serializable {
 		this.soluongsv = soluongsv;
 		this.giangvien = giangvien;
 	}
+	
 
 	public DeTai() {
 		super();
 	}
+	
+
+	public String getChuyennganh() {
+		return chuyennganh;
+	}
+
+
+	public void setChuyennganh(String chuyennganh) {
+		this.chuyennganh = chuyennganh;
+	}
+
+
+	public int getTinhtrang() {
+		return tinhtrang;
+	}
+
+
+	public void setTinhtrang(int tinhtrang) {
+		this.tinhtrang = tinhtrang;
+	}
+
+
+	public DeTai(int madetai, String tendetai, String loaidetai, String chuyennganh, int soluongsv, String giangvien,
+			int tinhtrang) {
+		super();
+		this.madetai = madetai;
+		this.tendetai = tendetai;
+		this.loaidetai = loaidetai;
+		this.chuyennganh = chuyennganh;
+		this.soluongsv = soluongsv;
+		this.giangvien = giangvien;
+		this.tinhtrang = tinhtrang;
+	}
+
 
 	public int getMadetai() {
 		return madetai;

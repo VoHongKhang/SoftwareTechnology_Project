@@ -15,7 +15,7 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
-	
+
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Quản lý Giảng Viên
+								<i class="fa fa-globe"></i>Quản lý Đề Tài
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -57,58 +57,72 @@
 													<br />
 
 													<div class="form-group" hidden="hidden">
-														<label for="magiangvien">Mã giảng viên:</label> <input
-															type="text" name="magiangvien"
-															value="${giangvien.magiangvien}" id="magiangvien"
+														<label for="madetai">Mã đề tài:</label> <input type="text"
+															name="madetai" value="${madetai}" id="madetai"
 															class="form-control" readonly />
 													</div>
-													<div class="form-group">
-														<label for="ten">Họ và tên:</label> <input type="text"
-															class="form-control" name="ten" id="ten"
-															value="${giangvien.ten}" />
+
+													<div class="form-group" hidden="hidden">
+														<label for="madetai">GiangVien:</label> <input type="text"
+															name="madetai"
+															value="${giangvien = sessionScope.acc.username}"
+															id="madetai" class="form-control" readonly />
 													</div>
-													<div class="form-group">
-														<label for="namsinh">Năm sinh:</label> <input type="text"
-															class="form-control" name="namsinh"
-															value="${giangvien.namsinh}" id="namsinh" />
-													</div>
-													<div class="form-group">
-														<label for="email">Email:</label> <input type="text"
-															class="form-control" name="email" id="email"
-															value="${giangvien.email}" />
-													</div>
-													<div class="form-group">
-														<label for="chuyennganh">Chuyên ngành:</label> <input
-															type="text" class="form-control" name="chuyennganh"
-															id="chuyennganh" value="${giangvien.chuyennganh}" />
-													</div>
-													<div class="form-group">
-														<label for="phanquyen">Chức vụ:
-															<div>0. Giảng viên</div>
-															<div>1. Trưởng bộ môn</div>
 
 
-														</label> <input type="text" class="form-control" name="phanquyen"
-															id="phanquyen" value="${giangvien.latruongbomon}" />
+													<div class="form-group">
+														<label for="tendetai">Tên đề tài:</label> <input
+															type="text" class="form-control" name="tendetai"
+															id="tendetai" value="${tendetai}" />
 													</div>
+													<div class="form-group">
+														<label for="loaidetai">Loại đề tài:</label> <input
+															type="text" class="form-control" name="loaidetai"
+															value="${loaidetai}" id="loaidetai" />
+													</div>
+
+													<div class="dropdown">
+														
+															<label class="dropdown-menu">Chuyên ngành: </label> <select
+																id="dropdownMenuButton1">
+																<option class="dropdown-item" value="${chuyennganh}">Công
+																	nghệ phần mềm</option>
+																<option class="dropdown-item" value="${chuyennganh}">Hệ
+																	thống thông tin</option>
+																<option class="dropdown-item"
+																	value="${chuyennganh}">Mạng và an ninh
+																	mạng</option>
+																<option class="dropdown-item" value="${chuyennganh}">Trí
+																	tuệ nhân tạo</option>
+															</select> <br>
+															<br> 
+														
+													</div>
+													<div class="form-group">
+														<label for="soluongsv">Số lượng sinh viên:</label> <input
+															type="text" class="form-control" name="soluongsv"
+															id="soluongsv" value="${soluongsv}" />
+													</div>
+
+
 													<br />
 													<hr>
 													<div class="form-group">
 														<button class="btn green"
-															formaction="<c:url value="/admin-giangvien/create"/>">
+															formaction="<c:url value="/giangvien-detai/create"/>">
 															Create <i class="fa fa-plus"></i>
 														</button>
 														<button class="btn btn-warning"
-															formaction="<c:url value="/admin-giangvien/update"/>">
+															formaction="<c:url value="/giangvien-detai/update"/>">
 															Update <i class="fa fa-edit"></i>
 														</button>
 														<br /> <br />
 														<button class="btn btn-danger"
-															formaction="<c:url value="/admin-giangvien/delete"/>">
+															formaction="<c:url value="/giangvien-detai/delete"/>">
 															Delete <i class="fa fa-trash"></i>
 														</button>
 														<button class="btn btn-success"
-															formaction="${pageContext.request.contextPath}/admin-giangvien/reset">
+															formaction="${pageContext.request.contextPath}/giangvien-detai/reset">
 															Reset <i class="fa fa-undo"></i>
 														</button>
 
@@ -125,35 +139,38 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
-														<th>Tên</th>
-														<th>Năm sinh</th>
-														<th>Email</th>
+														<th>Tên đề tài</th>
+														<th>Loai đề tài</th>
 														<th>Chuyên ngành</th>
-														<th>Chức vụ</th>
+														<th>Số lượng sinh viên</th>
+														<th>Giảng viên hướng dẫn</th>
 														<th>Hành động</th>
+														<th>Tình trạng</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="item" items="${giangviens}">
+													<c:forEach var="item" items="${detais}">
 														<tr class="odd gradeX">
 
-															<td>${item.ten}</td>
-															<td>${item.namsinh}</td>
-															<td>${item.email}</td>
+															<td>${item.tendetai}</td>
+															<td>${item.loaidetai}</td>
 															<td>${item.chuyennganh}</td>
-															<td><c:if test="${item.latruongbomon == 0}">
-																	<span class="label label-sm label-success">Giảng
-																		viên</span>
-																</c:if> <c:if test="${item.latruongbomon == 1}">
-																	<span class="label label-sm label-warning">Trưởng
-																		bộ môn</span>
-																</c:if></td>
+															<td>${item.soluongsv}</td>
+															<td>${item.giangvien}</td>
+
 															<td><a
-																href="<c:url value='/admin-giangvien/edit?magiangvien=${item.magiangvien}'/>"
+																href="<c:url value='/giangvien-detai/edit?madetai=${item.madetai}'/>"
 																class="center">Edit</a> | <a
-																href="<c:url value='/admin-giangvien/delete?magiangvien=${item.magiangvien}'/>"
+																href="<c:url value='/giangvien-detai/delete?madetai=${item.madetai}'/>"
 																class="center">Delete</a></td>
+
+															<td><c:if test="${item.tinhtrang==0}">
+																Chưa duyệt
+																</c:if> <c:if test="${item.tinhtrang==1}">
+																Đã duyệt
+																</c:if></td>
 														</tr>
+
 													</c:forEach>
 												</tbody>
 											</table>

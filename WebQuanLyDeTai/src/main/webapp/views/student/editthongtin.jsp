@@ -15,7 +15,6 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
-
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -26,8 +25,7 @@
 
 </head>
 <body>
-	<div class="page-content-wrapper"
-		style="margin-left: 40px; margin-right: 40px;">
+	<div class="page-content-wrapper" style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
@@ -35,7 +33,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Danh Sách Đề Tài
+								<i class="fa fa-globe"></i> Tài khoản
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -47,64 +45,50 @@
 						<div class="portlet-body">
 							<div class="table-toolbar">
 								<!-- Hiển thị thông báo -->
-								<%-- <%@include file="/common/info.jsp"%> --%>
+								<%@include file="/common/info.jsp"%>
 								<!-- Kết thúc hiển thị thông báo -->
+								<div class="row">
+									<div class="col-md-3">
+										<div class="row">
+											<div class="col-md-9">
+												
+													<br />
+													</div>
+														<div class="form-group">
+														<label for="loaidetai"> Mật Khẩu cũ:</label> <input
+															type="text" class="form-control" name="loaidetai"
+															value="${matkhaucu}" id="loaidetai" />
+													</div>
+													
+													
+													<	<div class="form-group">
+														<label for="loaidetai">Mật khẩu mới:</label> <input
+															type="text" class="form-control" name="loaidetai"
+															value="${matkhaumoi}" id="loaidetai" />
+													</div>
+													<br />
+													<hr>
+													<div class="form-group">
 
-								<c:if test="${message != null}">
+														<a
+																href="<c:url value='/student/thongtin/update'/>"
+																class="center">update</a>
+														
 
-									<div class="alert alert-primary" role="alert">
-
-										<i>${message}</i>
-
+													</div>
+												
+											</div>
+										</div>
 									</div>
 
-								</c:if>
-
-
-
-								<div class="col-md-9" style="padding-right: 25px">
-									<div class="row">
-										<table class="table table-striped table-bordered table-hover"
-											id="sample_2">
-											<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
-											<thead>
-												<tr>
-													<th>Tên đề tài</th>
-													<th>Loai đề tài</th>
-													<th>Số lượng sinh viên</th>
-													<th>Giảng viên hướng dẫn</th>
-													<th></th>
-
-
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="item" items="${detais}">
-													<tr class="odd gradeX">
-
-														<td>${item.tendetai}</td>
-														<td>${item.loaidetai}</td>
-														<td>${item.soluongsv}</td>
-														<td>${item.giangvien}</td>
-														<td><a
-															href="<c:url value='/student-detai/register?madetai=${item.madetai}'/>"
-															class="center">Đăng ký</a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-
-
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
-				<!-- END EXAMPLE TABLE PORTLET-->
 			</div>
 		</div>
-	</div>
 
 </body>
 </html>
