@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -28,12 +29,27 @@ public class ThongTinController extends HttpServlet {
 	ISinhVienService sinhvienService = new SinhVienServiceImpl();
 	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
 	ITaiKhoanService taikhoanservice= new TaiKhoanServiceImpl();
+=======
+
+import vn.Entity.SinhVien;
+import vn.Entity.ThongBao;
+import vn.Service.ISinhVienService;
+import vn.Service.Impl.SinhVienServiceImpl;
+import vn.Service.Impl.ThongBaoServiceImpl;
+
+
+@WebServlet(urlPatterns = { "/student/thongtin" })
+public class ThongTinController extends HttpServlet {
+	ISinhVienService sinhvienService = new SinhVienServiceImpl();
+	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
+>>>>>>> 59dee0d588e2e7e0a8549a81dad835171fdaa1b6
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
+<<<<<<< HEAD
 		String url = req.getRequestURL().toString();
 
 			
@@ -83,4 +99,15 @@ public class ThongTinController extends HttpServlet {
 			req.setAttribute("error", "Eror: " + e.getMessage());
 		}
 	}
+=======
+		List<SinhVien> list = sinhvienService.findAll();
+		req.setAttribute("sinhviens", list);
+		List<ThongBao> listhongbao=thongbaoservice.findAll();
+		req.setAttribute("thongbaos", listhongbao);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/student/my-account.jsp");
+		dispatcher.forward(req, resp);
+	}
+
+>>>>>>> 59dee0d588e2e7e0a8549a81dad835171fdaa1b6
 }

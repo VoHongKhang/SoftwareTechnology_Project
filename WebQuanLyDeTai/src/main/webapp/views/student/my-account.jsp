@@ -26,6 +26,7 @@
 
 				<div class="card-body">
 					<h4 class="card-title" style="color: red;font-weight: 800;">Thông tin tài khoản</h4>
+<<<<<<< HEAD
 					<!-- <p class="card-text" style="margin-bottom: 20px;" >Tên đăng nhập</p> -->
 					
 					<p class="card-text" style="margin-bottom: 20px;" >Tên Đăng nhập: ${tendangnhap}</p>
@@ -34,6 +35,11 @@
 					<p class="card-text" style="margin-bottom: 20px;" >Mật Khẩu: ${matkhau}</p>
 					
 					<a href=<c:url value="/student/thongtin/edit"/> class="btn btn-primary" style="margin-top: 87px;">Đổi mật khẩu</a>
+=======
+					<p class="card-text" style="margin-bottom: 20px;">Tên đăng nhập</p>
+					<p class="card-text" style="margin-bottom: 20px;">Mật khẩu</p>
+					<a href="#" class="btn btn-primary" style="margin-top: 87px;">Đổi mật khẩu</a>
+>>>>>>> 59dee0d588e2e7e0a8549a81dad835171fdaa1b6
 				</div>
 			</div>
 			<div class="card" style="width: 300px; margin: 0 30px;">

@@ -35,7 +35,11 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
+<<<<<<< HEAD
 								<i class="fa fa-globe"></i>Quản lý Đề Tài
+=======
+								<i class="fa fa-globe"></i>Danh Sách Đề Tài
+>>>>>>> 59dee0d588e2e7e0a8549a81dad835171fdaa1b6
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -47,6 +51,7 @@
 						<div class="portlet-body">
 							<div class="table-toolbar">
 								<!-- Hiển thị thông báo -->
+<<<<<<< HEAD
 								<%@include file="/common/info.jsp"%>
 								<!-- Kết thúc hiển thị thông báo -->
 								<div class="row">
@@ -175,15 +180,74 @@
 												</tbody>
 											</table>
 										</div>
+=======
+								<%-- <%@include file="/common/info.jsp"%> --%>
+								<!-- Kết thúc hiển thị thông báo -->
+
+								<c:if test="${message != null}">
+
+									<div class="alert alert-primary" role="alert">
+
+										<i>${message}</i>
+
+									</div>
+
+								</c:if>
+
+
+
+								<div class="col-md-9" style="padding-right: 25px">
+									<div class="row">
+										<table class="table table-striped table-bordered table-hover"
+											id="sample_2">
+											<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+											<thead>
+												<tr>
+													<th>Tên đề tài</th>
+													<th>Loai đề tài</th>
+													<th>Số lượng sinh viên</th>
+													<th>Giảng viên hướng dẫn</th>
+													<th></th>
+
+
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="item" items="${detais}">
+													<tr class="odd gradeX">
+
+														<td>${item.tendetai}</td>
+														<td>${item.loaidetai}</td>
+														<td>${item.soluongsv}</td>
+														<td>${item.giangvien}</td>
+														<td><a
+															href="<c:url value='/student-detai/register?madetai=${item.madetai}'/>"
+															class="center">Đăng ký</a></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+
+
+>>>>>>> 59dee0d588e2e7e0a8549a81dad835171fdaa1b6
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
 					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
 			</div>
 		</div>
 	</div>
+=======
+				</div>
+				<!-- END EXAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+	</div>
+
+>>>>>>> 59dee0d588e2e7e0a8549a81dad835171fdaa1b6
 </body>
 </html>
