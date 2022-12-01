@@ -1,6 +1,7 @@
 package vn.Entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +27,51 @@ public class ThongBao implements Serializable {
 	
 	@Column(name = "MoTa")
 	private String mota;
+	
+	@Column(name = "LoaiDeTai")
+	private String loaidetai;
+	
+	@Column(name = "NgayBD")
+	private Date ngaybatdau;
+	
+	@Column(name = "NgayKT")
+	private String ngayketthuc;
+	
+	
+
+	public String getLoaidetai() {
+		return loaidetai;
+	}
+
+	public void setLoaidetai(String loaidetai) {
+		this.loaidetai = loaidetai;
+	}
+
+	public Date getNgaybatdau() {
+		return ngaybatdau;
+	}
+
+	public void setNgaybatdau(Date ngaybatdau) {
+		this.ngaybatdau = ngaybatdau;
+	}
+
+	public String getNgayketthuc() {
+		return ngayketthuc;
+	}
+
+	public void setNgayketthuc(String ngayketthuc) {
+		this.ngayketthuc = ngayketthuc;
+	}
+
+	public ThongBao(int id, String tenthongbao, String mota, String loaidetai, Date ngaybatdau, String ngayketthuc) {
+		super();
+		this.id = id;
+		this.tenthongbao = tenthongbao;
+		this.mota = mota;
+		this.loaidetai = loaidetai;
+		this.ngaybatdau = ngaybatdau;
+		this.ngayketthuc = ngayketthuc;
+	}
 
 	public ThongBao(int id, String tenthongbao, String mota) {
 		super();

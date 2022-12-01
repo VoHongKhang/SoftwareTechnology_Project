@@ -26,14 +26,14 @@
 </head>
 <body>
 
-	<%@ include file="/common/student/header.jsp"%>
+	<%@ include file="/common/giangvien/header.jsp"%>
 
 	<!-- body -->
 	<dec:body />
 	<!-- body -->
 
 	<!--=== Footer v4 ===-->
-	<jsp:include page="/common/student/footer.jsp"></jsp:include>
+	<jsp:include page="/common/giangvien/footer.jsp"></jsp:include>
 	<!--=== End Footer v4 ===-->
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"

@@ -13,9 +13,8 @@
 <c:url value="/admin-detai/ma" var="search_ma" />
 <c:url value="/admin-giangvien/searchten" var="search_ten" />
 <c:url value="/admin-thongbao" var="thongbao" />
-
-
 <c:url value="/admin/home" var="home" />
+
 <header>
 	<!-- header inner -->
 	<div class="header">

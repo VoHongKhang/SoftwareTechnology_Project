@@ -23,22 +23,21 @@
 		<properties>
 
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:sqlserver://localhost;databaseName=QLDT" />
+				value="jdbc:sqlserver://THIENPRO;databaseName=QLDT" />
 
 			<property name="javax.persistence.jdbc.driver"
 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 
 			<property name="javax.persistence.jdbc.user" value="sa" />
 
-			<property name="javax.persistence.jdbc.password"
-				value="19052002" />
+			<property name="javax.persistence.jdbc.password" value="123" />
 
 			<property name="hibernate.show_sql" value="true" />
 
 			<property name="hibernate.format_sql" value="true" />
 
 			<property name="hibernate.ddl-auto" value="update" />
-			<!--  <property name="hibernate.hbm2ddl.auto" value="create" />  -->
+		<!-- 	 <property name="hibernate.hbm2ddl.auto" value="create" />  -->
 
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServer2012Dialect" />

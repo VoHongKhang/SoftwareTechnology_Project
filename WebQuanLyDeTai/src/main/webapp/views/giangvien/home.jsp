@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url value="/templates/" var="URL"></c:url>
-<c:url value="/student-detai" var="detai" />
+<c:url value="/giangvien-detai" var="detai" />
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/login" var="login" />
 <c:url value="/giangvien-detai/search" var="search" />
 <c:url value="/giangvien-sinhvien/search" var="search_ten" />
+<c:url value="/giangvien/home" var="home" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>UTE</title>
+<title>QLDT</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -66,44 +67,212 @@
 
 <body class="main-layout ">
 
-	<header>
-		<!-- header inner -->
-		<div class="header">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-						<div class="full">
-							<div class="center-desk">
-								<div class="logo">
-									<a href="${views}giangvien/home.jsp"><img
-										src="${URL}images/hcmute.jpg" alt="#"></a>
-								</div>
-							</div>
+	<div class="row" style="margin: 50px 140px;">
+		<div id="left-content">
+			<div class="col-md-3">
+			<!-- Menu desktop -->
+				<div id="desktop-menu" style="width: 240px;">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 id="mobile_home">Danh Mục</h4>
 						</div>
-					</div>
-					<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-						<div class="menu-area">
-							<div class="limit-box">
-								<nav class="main-menu">
-									<ul class="menu-area-main">
-										<li class="active"><a href="${views}giangvien/home.jsp">Home</a></li>
-										<li><a href="${detai}">Topic</a></li>
-										<li><a href="${search}">Search Topic</a></li>
-										<li><a href="${search_ten}">Search Student</a></li>
-										<!-- <li><button class="btn green" >Log out</button> </li> -->
-										<li><a href="${login}">Log out</a></li>
 
-									</ul>
-								</nav>
+						<a href="${home}" class="list-group-item"><img
+							src="http://dkdt.fit.hcmute.edu.vn/Content/public/images/house-icon.png" width="24"
+							height="24"><span class="pull-right"><i
+								class="icon-chevron-right"></i></span> Trang Chủ</a> 
+							<a href="${detai}" class="list-group-item "><img
+							src="http://dkdt.fit.hcmute.edu.vn/Content/public/images/Actions-view-calendar-list-icon.png"
+							width="24" height="24"><span class="pull-right"><i
+								class="icon-chevron-right"></i></span> Danh sách đề tài</a> <a
+							href="/Home/ThongTinGiangVien" class="list-group-item "><img
+							src="http://dkdt.fit.hcmute.edu.vn/Content/public/images/Teacher-icon.png" width="24"
+							height="24"><span class="pull-right"><i
+								class="icon-chevron-right"></i></span> Thông tin giảng viên</a> <a
+							href="/Home/ThongTinSinhVien" class="list-group-item "><img
+							src="http://dkdt.fit.hcmute.edu.vn/Content/public/images/Student-3-icon.png" width="24"
+							height="24"><span class="pull-right"><i
+								class="icon-chevron-right"></i></span> Thông tin sinh viên</a> <a
+							href="/	Home/HuongDanDangKy" class="list-group-item "><img
+							src="http://dkdt.fit.hcmute.edu.vn/Content/public/images/Actions-help-contents-icon.png"
+							width="24" height="24"><span class="pull-right"><i
+								class="icon-chevron-right"></i></span> Hướng dẫn đăng ký</a>
+							 <a data-toggle="modal"
+							href="#seach_box" class="list-group-item"><img
+							src="http://dkdt.fit.hcmute.edu.vn/Content/public/images/Search-icon.png" width="24"
+							height="24"><span class="pull-right"><i
+								class="icon-chevron-right"></i></span> Tìm kiếm</a>
+					</div>
+					<!-- /panel-default -->
+
+
+
+
+
+					<!--============================Bench==================-->
+				
+				</div>
+				<!-- Modal Who online -->
+				<div class="modal fade" id="who_online" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">×</button>
+								<h4 class="modal-title" id="myModalLabel">Online Users</h4>
+							</div>
+							<div class="modal-body">
+								<table class="table table-striped footable-loaded footable">
+									<thead>
+										<tr>
+											<td>STT</td>
+											<td>Tên SV</td>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- ########################### Form ###########################-->
+				<!-- =========================Tìm kiếm box================================ -->
+				<div class="modal fade" id="seach_box" style="display: none;"
+					aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">×</button>
+								<h4 class="modal-title">Tìm kiếm</h4>
+							</div>
+							<form action="/Home/TimKiem" method="get" id="cpa-form">
+								<div class="modal-body">
+									<div id="err_tk"></div>
+									<select class="form-control text-center" name="param_option"
+										id="tim_kiem_tong_hop">
+										<option value="timkiemgiangvien">Tìm kiếm giảng viên</option>
+										<option value="timkiemsinhvien">Tìm kiếm sinh viên</option>
+										<option value="timkiemdetai">Tìm kiếm đề tài</option>
+									</select> <br> <label>Nhập từ khoá :</label> <input type="text"
+										class="form-control" id="parameter1" name="param_textbox"
+										value="" placeholder="Mọi thứ...">
+									<div class="clear"></div>
+									<div id="search_advance">
+										<br>
+										<div id="type_detai" style="display: none;">
+
+											<fieldset>
+												<legend>Chọn loại đề tài</legend>
+												<input type="radio" name="group_loaidt" value="1"> <span>Tiểu
+													luận chuyên ngành | K 14 <br>
+												</span> <input type="radio" name="group_loaidt" value="3">
+												<span>Đề tài tốt nghiệp | K 14 <br></span> <input
+													type="radio" name="group_loaidt" value="4"> <span>Tiểu
+													luận chuyên ngành | K 17 <br>
+												</span> <input type="radio" name="group_loaidt" value="8">
+												<span>Tiểu luận chuyên ngành | K 19 <br></span>
+
+											</fieldset>
+											;
+										</div>
+										<!-- End #search_advance -->
+									</div>
+									<!--End body -->
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-primary" id="timkiem_btn">Tìm
+											kiếm</button>
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</form>
+
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<!-- /.modal -->
+				</div>
+				<!-- ===================================Ajax========================= -->
+				<script>
+					$(document)
+							.ready(
+									function() {
+										$("#cpa-form")
+												.submit(
+														function(e) {
+															if ($("#parameter1")
+																	.val() == '') {
+																$('#err_tk')
+																		.html(
+																				'<div class="alert alert-danger">Vui lòng nhập từ khoá tìm kiếm</div>');
+																$("#parameter1")
+																		.focus();
+																return false;
+															}
+															if ($(
+																	'#tim_kiem_tong_hop')
+																	.val() == "timkiemdetai") {
+																//$('*[name=group_loaidt]').is(":not(:checked)") kiểm tra radio chưa check
+
+																if ($(
+																		"*[name=group_loaidt]")
+																		.is(
+																				":checked")) {
+																	return true;
+																} else //radio chưa check
+																{
+																	$('#err_tk')
+																			.html(
+																					'<div class="alert alert-danger">Vui lòng chọn loại đề tài</div>');
+																	return false;
+																}
+															}
+														});
+									})
+				</script>
+
 			</div>
 		</div>
-		<!-- end header inner -->
-	</header>
+		<div class="col-md-9">
+			<ol class="breadcrumb">
+				<li><a href="/Home/Index">Home</a></li>
+
+			</ol>
+			<div class="well-sm">
+				<span> <span id="random_tin"> <i class="icon-bullhorn"></i>&nbsp;
+						<img src="/Content/public/images/bullet-blue-icon.png"> <small>
+							<a href="/Home/TinTuGiaoVu?id=9"> Thông báo đăng ký chuyên
+								ngành khóa 2018 <small style="color: rgb(87, 87, 87);">(30/11/2020
+									10:15:04)</small>
+						</a>
+					</small>
+
+
+				</span> <span id="time_bar"> <span id="time"
+						class="label label-primary pull-right"><i class="icon-time"></i>
+							16 giờ 17 phút, ngày 1 tháng 12, 2022</span><br>
+				</span>
+				</span>
+			</div>
+
+			<div class="panel panel-default" style="margin-top: 30px;">
+				<div style="color: rgb(7, 132, 163);" class="panel-heading">
+					<h4 style="font-family: verdana; color: rgb(87, 87, 87);">Thông
+						báo</h4>
+				</div>
+				
+			</div>
+
+		
+			
+		</div>
+	</div>
 	<div class="contact">
 		<div class="container">
 			<div class="row">
@@ -113,61 +282,31 @@
 							style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Thông
 							báo</h4>
 					</div>
-					<form class="main_form">
+					<div class="col-md-9" style="padding-right: 25px">
 						<div class="row">
-							<ul class="list-unstyled">
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 11/11/2022
-											12:19:41 </span> <a href="${views}admin/detai-detail.jsp">Thông
-											báo đăng ký chuyên ngành khóa 2020</a>
+							<table class="table table-striped table-bordered table-hover"
+								id="sample_2">
+								<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+								<thead>
+									<tr>
 
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 12/11/2022
-											20:35:14 </span> Đăng ký môn Tiểu luận chuyên ngành khóa 2019
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 13/11/2022
-											9:43:23 </span> Đăng ký Tiểu luận chuyên ngành khoá 2019
+										<th>Thong bao</th>
 
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 14/11/2022
-											16:25:09 </span> Đăng ký Tiểu luận chuyên ngành khoá 2020
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="item" items="${thongbaos}">
+										<tr class="odd gradeX">
 
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 13/11/2022
-											11:25:09 </span> Đăng ký chuyên ngành khóa 2021
-
-									</p>
-								</li>
-								<li class="article-area"
-									style="margin: 5px 0px; border: 1px solid #e7e7e7; padding: 15px 5px 0px 5px;">
-									<p style="margin-bottom: 10px; margin-left: 30px;">
-										<span class="btn btn-primary btn-sm"> 15/11/2022
-											16:25:09 </span> Thông báo hủy đăng ký chuyên ngành khóa 2021
-
-									</p>
-								</li>
-
-							</ul>
+											<td>${item.tenthongbao}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
-					</form>
+					</div>
+
+
 				</div>
 			</div>
 		</div>
@@ -178,7 +317,7 @@
 
 	<div class="contact">
 		<div class="container">
-			<div class="row">
+			<div class="row" style="display: flex;justify-content: center;">
 				<div class="titlepage">
 					<h4
 						style="font-size: 30px; line-height: 40px; font-weight: bold; padding: 0;">Các
@@ -208,7 +347,7 @@
 							<p class="card-text" style="margin-bottom: 20px;">Nguyễn
 								Thành Sơn</p>
 							<p class="card-text" style="margin-bottom: 20px;">sonnt@hcmute.edu.vn</p>
-							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See
+							<a href="#" class="btn btn-primary">See
 								Profile</a>
 						</div>
 					</div>
@@ -231,7 +370,7 @@
 							<p class="card-text" style="margin-bottom: 20px;">Trần Tiến
 								Đức</p>
 							<p class="card-text" style="margin-bottom: 20px;">ductt@hcmute.edu.vn</p>
-							<a href="#" class="btn btn-primary" style="margin-top: 48px;">See
+							<a href="#" class="btn btn-primary">See
 								Profile</a>
 						</div>
 					</div>
@@ -239,7 +378,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- contact -->
 	<div class="contact">
 		<div class="container">
@@ -300,33 +438,7 @@
 	</div>
 	<!-- end contact -->
 
-	<!-- footer -->
-	<footer>
-		<div id="contact" class="footer" style="background-color: #135fab;">
-			<div class="container">
-				<div class="row pdn-top-30">
-					<div class="col-md-12 ">
-						<div class="footer-box">
-							<div class="headinga">
-								<h3>Address</h3>
-								<span>1, Võ Văn Ngân, Việt Nam</span>
-								<p>
-									Trường đại học SPKT thành phố Hồ Chí Minh <br>hcmute.online.edu.vn
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="copyright">
-				<div class="container">
-					<p>Khoa Công nghệ Thông tin-Đại học Sư phạm Kỹ thuật TP. Hồ Chí
-						Minh</p>
-					<p>Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+
 	<!-- end footer -->
 	<!-- Javascript files-->
 	<script src="js/jquery.min.js"></script>
