@@ -48,16 +48,10 @@
 								</ul>
 						
 								<ul class="menu-area-main">
-<<<<<<< HEAD
 								
 									<li><a href="${hoidong}">Hội đồng</a></li>
 									<li><a href="${search}">Tìm kiếm đề tài</a></li>
 									<%-- <li><a href="${search_ma}">Tìm kiếm đề tài</a></li> --%>
-=======
-
-									<li><a href="${search}">Tìm kiếm đề tài</a></li>
-									<li><a href="${search_ma}">Tìm kiếm đề tài</a></li>
->>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 									<li><a href="${search_ten}">Tìm kiếm giảng viên</a></li>
 
 								</ul>
