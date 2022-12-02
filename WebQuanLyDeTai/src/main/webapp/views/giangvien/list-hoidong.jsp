@@ -15,7 +15,6 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
-
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -26,11 +25,7 @@
 
 </head>
 <body>
-	<c:url value="/giangvien/thongtin/update" var="update"></c:url>
-
-
-	<div class="page-content-wrapper"
-		style="margin-left: 40px; margin-right: 40px;">
+	<div class="page-content-wrapper" style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
@@ -38,7 +33,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Quản lý Đề Tài
+								<i class="fa fa-globe"></i>
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -52,27 +47,32 @@
 								<!-- Hiển thị thông báo -->
 								<%@include file="/common/info.jsp"%>
 								<!-- Kết thúc hiển thị thông báo -->
-								<div class="row">
-									<div class="col-md-3">
+								
+
+									<div class="col-md-9" style="padding-right: 25px">
 										<div class="row">
-											<div class="col-md-9">
+											<table class="table table-striped table-bordered table-hover"
+												id="sample_2">
+												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+												<thead>
+													<tr>
+														<th>Mã hội đồng</th>
+														<th>Tên hội đồng</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach var="item" items="${hoidongs}">
+														<tr class="odd gradeX">
 
-
-												<div class="form-tt">
-													<h2>Đổi mật khẩu</h2>
-													<form action="update" method="Post">
-														<input type="text" name="matkhaucu"
-															placeholder="Nhap mat khau cu" /> <input type="text"
-															name="matkhaumoi" placeholder="Nhập mật moi" /> <input
-															type="submit" name="submit" value="update" />
-													</form>
-												</div>
-
-											</div>
+															<td>${item.mahoidong}</td>
+															<td>${item.tenhoidong}</td>
+															
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
 										</div>
 									</div>
-
-
 								</div>
 							</div>
 						</div>
@@ -82,7 +82,5 @@
 			</div>
 		</div>
 	</div>
-
-	
 </body>
 </html>

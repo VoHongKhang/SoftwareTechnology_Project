@@ -17,9 +17,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import vn.Entity.DeTai;
 import vn.Entity.TaiKhoan;
 import vn.Service.IDeTaiService;
-import vn.Service.IGiangVienService;
 import vn.Service.Impl.DeTaiServiceImpl;
-import vn.Service.Impl.GiangVienServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
@@ -28,7 +26,6 @@ import vn.Service.Impl.GiangVienServiceImpl;
 		"/giangvien-detai/search-tengv" })
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
-	IGiangVienService giagvienservice = new GiangVienServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -126,13 +123,9 @@ public class DeTaiController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.getAttribute("acc");
 			TaiKhoan taikhoan=(TaiKhoan) session.getAttribute("acc");
-			
 			detai.setGiangvien(taikhoan.getUsername());
 			detai.setLoaidetai(request.getParameter("loaidetai"));
 			
-			String giangvien=( giagvienservice.findById(1002)).getTen();
-			
-			detai.setGiangvien(giangvien);
 			detai.setSoluongsv(Integer.parseInt(request.getParameter("soluongsv")));
 			detai.setTendetai(request.getParameter("tendetai"));
 			detai.setTinhtrang(0);
@@ -207,7 +200,7 @@ public class DeTaiController extends HttpServlet {
 		req.setAttribute("detais", detais);
 		req.setAttribute("tendetai", tendetai);
 		try {
-			req.getRequestDispatcher("/views/detai/timkiem-detai-ten.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/giangvien/timkiem-detai.jsp").forward(req, resp);
 		} catch (ServletException e) {
 
 			e.printStackTrace();
@@ -225,7 +218,7 @@ public class DeTaiController extends HttpServlet {
 		req.setAttribute("detaii", detaii);
 		req.setAttribute("madetai", madetai);
 		try {
-			req.getRequestDispatcher("/views/detai/timkiem-detai-ma.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/giangvien/timkiem-detai.jsp").forward(req, resp);
 		} catch (ServletException e) {
 
 			e.printStackTrace();
