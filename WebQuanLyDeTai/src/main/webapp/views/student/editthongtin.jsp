@@ -15,6 +15,7 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
+
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -25,7 +26,8 @@
 
 </head>
 <body>
-	<div class="page-content-wrapper" style="margin-left: 40px; margin-right: 40px;">
+	<div class="page-content-wrapper"
+		style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
@@ -33,7 +35,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i> Tài khoản
+								<i class="fa fa-globe"></i>Quản lý Đề Tài
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -51,36 +53,36 @@
 									<div class="col-md-3">
 										<div class="row">
 											<div class="col-md-9">
-												
+												<form action="#" method="post" enctype="multipart/form-data">
 													<br />
+												
+													<div class="form-group">
+														<label for="matkhaucu">Nhập lại mật khẩu cũ:</label> <input
+															type="text" class="form-control" name="matkhaucu" id="matkhaucu"
+															value="${matkhaucu}" />
 													</div>
-														<div class="form-group">
-														<label for="loaidetai"> Mật Khẩu cũ:</label> <input
-															type="text" class="form-control" name="loaidetai"
-															value="${matkhaucu}" id="loaidetai" />
+													<div class="form-group">
+														<label for="matkhaumoi">Mật khẩu mới:</label> <input
+															type="text" class="form-control" name="matkhaumoi"
+															value="${matkhaumoi}" id="matkhaumoi" />
 													</div>
 													
-													
-													<	<div class="form-group">
-														<label for="loaidetai">Mật khẩu mới:</label> <input
-															type="text" class="form-control" name="loaidetai"
-															value="${matkhaumoi}" id="loaidetai" />
-													</div>
+
 													<br />
 													<hr>
 													<div class="form-group">
-
-														<a
-																href="<c:url value='/student/thongtin/update'/>"
-																class="center">update</a>
+														<button class="btn green"
+															formaction="<c:url value="/student/thongtin/update"/>">
+															Update <i class="fa fa-plus"></i>
+														</button>
 														
-
 													</div>
-												
+												</form>
 											</div>
 										</div>
 									</div>
 
+									
 								</div>
 							</div>
 						</div>
@@ -89,6 +91,6 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
 </body>
 </html>

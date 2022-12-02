@@ -7,6 +7,7 @@
 <c:url value="/views/" var="views"></c:url>
 <c:url value="/giangvien-detai/search" var="search" />
 <c:url value="/giangvien/home" var="home" />
+<c:url value="/giangvien/thongtin" var="thongtin" />
 
 <header>
 	<!-- header inner -->
@@ -18,8 +19,7 @@
 					<div class="full">
 						<div class="center-desk">
 							<div class="logo">
-								<a href="${home}"><img
-									src="${URL}images/hcmute.jpg" alt="#"></a>
+								<a href="${home}"><img src="${URL}images/hcmute.jpg" alt="#"></a>
 							</div>
 						</div>
 					</div>
@@ -29,13 +29,15 @@
 						<div class="limit-box">
 							<nav class="main-menu">
 								<ul class="menu-area-main">
-									<li class="active"><a href="${home}">Home</a></li>
-									<li><a href="${detai}">Topic</a></li>
-									<li><a href="${search}">Search Topic</a></li>
-									<li><a href="#">Group</a></li>
+									<li class="active"><a href="${home}">Trang chủ</a></li>
+									<li><a href="${detai}">Đề tài</a></li>
+									<li><a href="${search}">Tìm kiếm đề tài</a></li>
+									<li><a href="#">Hội đồng</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
-									<li><a href="${login}">Log out</a></li>
-								
+									<li><a href="${login}">Đăng xuất</a></li>
+								</ul>
+								<ul class="menu-area-main">
+									<li><a href="${thongtin}">Thông tin cá nhân</a></li>
 								</ul>
 							</nav>
 						</div>

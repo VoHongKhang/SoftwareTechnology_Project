@@ -2,6 +2,7 @@ package vn.Entity;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,17 +29,21 @@ public class BangDiem implements Serializable {
 	@Column(name = "MaSinhVien")
 	private String masinhvien;
 	
+	@Column(name = "MaHoiDong")
+	private String mahoidong;
+	
 	@Column(name = "Diem")
 	private int diem;
 	
 	@Column(name = "NamHoc")
 	private int namhoc;
 
-	public BangDiem(int id, int madetai, String masinhvien, int diem, int namhoc) {
+	public BangDiem(int id, int madetai, String masinhvien, String mahoidong, int diem, int namhoc) {
 		super();
 		this.id = id;
 		this.madetai = madetai;
 		this.masinhvien = masinhvien;
+		this.mahoidong = mahoidong;
 		this.diem = diem;
 		this.namhoc = namhoc;
 	}
@@ -59,8 +64,8 @@ public class BangDiem implements Serializable {
 		return madetai;
 	}
 
-	public void setMadetai(int dt) {
-		this.madetai = dt;
+	public void setMadetai(int madetai) {
+		this.madetai = madetai;
 	}
 
 	public String getMasinhvien() {
@@ -69,6 +74,14 @@ public class BangDiem implements Serializable {
 
 	public void setMasinhvien(String masinhvien) {
 		this.masinhvien = masinhvien;
+	}
+
+	public String getMahoidong() {
+		return mahoidong;
+	}
+
+	public void setMahoidong(String mahoidong) {
+		this.mahoidong = mahoidong;
 	}
 
 	public int getDiem() {
@@ -87,5 +100,5 @@ public class BangDiem implements Serializable {
 		this.namhoc = namhoc;
 	}
 
-
+	
 }

@@ -19,11 +19,13 @@
 		<class>vn.Entity.GiangVien</class>
 		<class>vn.Entity.BangDiem</class>
 		<class>vn.Entity.ThongBao</class>
+		<class>vn.Entity.HoiDong</class>
+		
 
 		<properties>
 
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:sqlserver://MSI;databaseName=QLDT" />
+				value="jdbc:sqlserver://localhost;databaseName=QLDT" />
 
 			<property name="javax.persistence.jdbc.driver"
 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />

@@ -15,10 +15,10 @@
 
 				<div class="card-body">
 					<h4 class="card-title" style="color: blue;font-weight: 800;">Thông tin cá nhân</h4>
-					<p class="card-text" style="margin-bottom: 20px;">Tên</p>
-					<p class="card-text" style="margin-bottom: 20px;">Chuyên ngành</p>
-					<p class="card-text" style="margin-bottom: 20px;">Khóa học</p>
-					<p class="card-text" style="margin-bottom: 20px;">Email</p>
+					<p class="card-text" style="margin-bottom: 20px;">Tên: ${ten}</p>
+					<p class="card-text" style="margin-bottom: 20px;">Chuyên ngành: ${chuyennganh}</p>
+					<p class="card-text" style="margin-bottom: 20px;">Email: ${email}</p>
+					<p class="card-text" style="margin-bottom: 20px;">Năm sinh: ${namsinh}</p>
 					<a href="#" class="btn btn-primary">Cập nhật</a>
 				</div>
 			</div>
@@ -26,9 +26,14 @@
 
 				<div class="card-body">
 					<h4 class="card-title" style="color: red;font-weight: 800;">Thông tin tài khoản</h4>
-					<p class="card-text" style="margin-bottom: 20px;">Tên đăng nhập</p>
-					<p class="card-text" style="margin-bottom: 20px;">Mật khẩu</p>
-					<a href="#" class="btn btn-primary" style="margin-top: 87px;">Đổi mật khẩu</a>
+					<!-- <p class="card-text" style="margin-bottom: 20px;" >Tên đăng nhập</p> -->
+					
+					<p class="card-text" style="margin-bottom: 20px;" >Tên Đăng nhập: ${tendangnhap}</p>
+					<!-- <p class="card-text" style="margin-bottom: 20px;" >Mật khẩu</p> -->
+					
+					<p class="card-text" style="margin-bottom: 20px;" >Mật Khẩu: ${matkhau}</p>
+					
+					<a href=<c:url value="/student/thongtin/edit"/> class="btn btn-primary" style="margin-top: 87px;">Đổi mật khẩu</a>
 				</div>
 			</div>
 			<div class="card" style="width: 300px; margin: 0 30px;">

@@ -19,27 +19,21 @@
 		<class>vn.Entity.GiangVien</class>
 		<class>vn.Entity.BangDiem</class>
 		<class>vn.Entity.ThongBao</class>
+		<class>vn.Entity.HoiDong</class>
+		
 
 		<properties>
 
 			<property name="javax.persistence.jdbc.url"
-<<<<<<< HEAD
-				value="jdbc:sqlserver://THIENPRO;databaseName=QLDT" />
-=======
-				value="jdbc:sqlserver://MSI;databaseName=QLDT" />
->>>>>>> 347bd203c261e73a616d65c67cd5959327f479b5
+				value="jdbc:sqlserver://localhost;databaseName=QLDT" />
 
 			<property name="javax.persistence.jdbc.driver"
 				value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 
 			<property name="javax.persistence.jdbc.user" value="sa" />
 
-<<<<<<< HEAD
-			<property name="javax.persistence.jdbc.password" value="123" />
-=======
 			<property name="javax.persistence.jdbc.password"
 				value="123" />
->>>>>>> 347bd203c261e73a616d65c67cd5959327f479b5
 
 			<property name="hibernate.show_sql" value="true" />
 

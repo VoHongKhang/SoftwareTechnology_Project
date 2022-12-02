@@ -34,22 +34,23 @@
 				<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
 					<div class="menu-area">
 						<div class="limit-box">
-							<nav class="main-menu">
+							<nav class="main-menu" style="margin-right: -118px; width:1000px">
 								<ul class="menu-area-main">
-									<li class="active"><a href="${home}">Home</a></li>
-									<li><a href="${sinhvien}">Student</a></li>
-									<li><a href="${taikhoan}">Account</a></li>
-									<li><a href="${giangvien}">Lecturer</a></li>
-									<li><a href="${detai}">Topic</a></li>
-									<li><a href="${thongbao}">Thong bao</a></li>
-									<li><a href="${login}">Log out</a></li>
+									<li class="active"><a href="${home}">Trang chủ</a></li>
+									<li><a href="${sinhvien}">Sinh Viên</a></li>
+									<li><a href="${taikhoan}">Tài Khoản</a></li>
+									<li><a href="${giangvien}">Giảng Viên</a></li>
+									<li><a href="${detai}">Đề Tài</a></li>
+									<li><a href="${thongbao}">Thông báo</a></li>
+									<li><a href="${login}">Đăng xuất</a></li>
 
 								</ul>
+						
 								<ul class="menu-area-main">
 
-									<li><a href="${search}">Search Topic By Name</a></li>
-									<li><a href="${search_ma}">Search Topic By Id</a></li>
-									<li><a href="${search_ten}">Search Lecturer</a></li>
+									<li><a href="${search}">Tìm kiếm đề tài</a></li>
+									<li><a href="${search_ma}">Tìm kiếm đề tài</a></li>
+									<li><a href="${search_ten}">Tìm kiếm giảng viên</a></li>
 
 								</ul>
 							</nav>
