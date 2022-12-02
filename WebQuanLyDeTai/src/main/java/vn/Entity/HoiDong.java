@@ -20,9 +20,15 @@ public class HoiDong implements Serializable{
 	private int mahoidong;
 	
 	@Column(name = "TenHoiDong")
+<<<<<<< HEAD
 	private String tenhoidong;
 
 	public HoiDong(int mahoidong, String tenhoidong) {
+=======
+	private int tenhoidong;
+
+	public HoiDong(int mahoidong, int tenhoidong) {
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 		super();
 		this.mahoidong = mahoidong;
 		this.tenhoidong = tenhoidong;
@@ -40,11 +46,19 @@ public class HoiDong implements Serializable{
 		this.mahoidong = mahoidong;
 	}
 
+<<<<<<< HEAD
 	public String getTenhoidong() {
 		return tenhoidong;
 	}
 
 	public void setTenhoidong(String tenhoidong) {
+=======
+	public int getTenhoidong() {
+		return tenhoidong;
+	}
+
+	public void setTenhoidong(int tenhoidong) {
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 		this.tenhoidong = tenhoidong;
 	}
 	

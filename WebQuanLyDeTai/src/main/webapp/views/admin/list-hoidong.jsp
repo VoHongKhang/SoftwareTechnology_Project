@@ -61,9 +61,15 @@
 															class="form-control"/>
 													</div>
 													<div class="form-group">
+<<<<<<< HEAD
 														<label for="tenhoidong">Tên hội đồng:</label> <input type="text"
 															class="form-control" name="tenhoidong" id="tenhoidong"
 															value="${hoidong.tenhoidong}" />
+=======
+														<label for="username">Tên tài khoản:</label> <input type="text"
+															class="form-control" name="username" id="username"
+															value="${taikhoan.username}" />
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 													</div>
 													
 
@@ -71,11 +77,19 @@
 													<hr>
 													<div class="form-group">
 														<button class="btn green"
+<<<<<<< HEAD
 															formaction="<c:url value="/admin-hoidong/create"/>">
 															Create <i class="fa fa-plus"></i>
 														</button>
 														<button class="btn btn-success"
 															formaction="${pageContext.request.contextPath}/admin-hoidong/reset">
+=======
+															formaction="<c:url value="/admin-taikhoan/create"/>">
+															Create <i class="fa fa-plus"></i>
+														</button>
+														<button class="btn btn-success"
+															formaction="${pageContext.request.contextPath}/admin-taikhoan/reset">
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 															Reset <i class="fa fa-undo"></i>
 														</button>
 
@@ -92,6 +106,7 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
+<<<<<<< HEAD
 														<th>Mã hội đồng</th>
 														<th>Tên hội đồng</th>
 													</tr>
@@ -103,6 +118,36 @@
 															<td>${item.mahoidong}</td>
 															<td>${item.tenhoidong}</td>
 															
+=======
+														<th>Tên tài khoản</th>
+														<th>Mật khẩu</th>
+														<th>Quyền</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach var="item" items="${taikhoans}">
+														<tr class="odd gradeX">
+
+															<td>${item.username}</td>
+															<td>${item.password}</td>
+															
+															<td>
+															<c:if test="${item.phanquyen == 0}">
+																<span class="label label-sm label-success">Admin </span>
+															</c:if> 
+															<c:if test="${item.phanquyen == 1}">
+																<span class="label label-sm label-warning">Trưởng bộ môn</span>
+															</c:if>
+															<c:if test="${item.phanquyen == 2}">
+																<span class="label label-sm label-warning">Giảng viên</span>
+															</c:if>
+															<c:if test="${item.phanquyen == 3}">
+																<span class="label label-sm label-warning">Sinh viên</span>
+															</c:if>
+															</td>
+															
+														<td>
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 														</tr>
 													</c:forEach>
 												</tbody>

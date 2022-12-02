@@ -19,7 +19,11 @@
 		<class>vn.Entity.BangDiem</class>
 		<class>vn.Entity.ThongBao</class>
 		<class>vn.Entity.HoiDong</class>
+<<<<<<< HEAD
 		<class>vn.Entity.ThamGiaHoiDong</class>
+=======
+		
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 
 		<properties>
 
@@ -32,7 +36,11 @@
 			<property name="javax.persistence.jdbc.user" value="sa" />
 
 			<property name="javax.persistence.jdbc.password"
+<<<<<<< HEAD
 				value="19052002" />
+=======
+				value="123" />
+>>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 
 			<property name="hibernate.show_sql" value="true" />
 
