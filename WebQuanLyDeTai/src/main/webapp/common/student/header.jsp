@@ -29,16 +29,18 @@
 				<div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
 					<div class="menu-area">
 						<div class="limit-box">
-							<nav class="main-menu">
+							<nav class="main-menu" style="margin-right: -118px; width:1000px">
 								<ul class="menu-area-main">
-									<li class="active"><a href="${home}">Home</a></li>
-									<li><a href="${thongtin}">My account</a></li>
-									<li><a href="${detai}">Topic</a></li>
-									<li><a href="${search}">Search Topic</a></li>
-									<li><a href="${search_ten}">Search Lecturer</a></li>
+									<li class="active"><a href="${home}">Trang chủ</a></li>
+									<li><a href="${detai}">Đề tài</a></li>
+									<li><a href="${search}">Tìm kiếm đề tài</a></li>
+									<li><a href="${search_ten}">Tìm kiếm giảng viên</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
-									<li><a href="${login}">Log out</a></li>
+									<li><a href="${login}">Đăng xuất</a></li>
 								
+								</ul>
+								<ul class="menu-area-main">
+									<li><a href="${thongtin}">Thông tin cá nhân</a></li>
 								</ul>
 							</nav>
 						</div>

@@ -12,10 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
+import vn.Entity.TaiKhoan;
 import vn.Service.IBangDiemService;
 import vn.Service.IDeTaiService;
 import vn.Service.Impl.BangDiemServiceImpl;
@@ -39,8 +40,7 @@ public class DeTaiController extends HttpServlet {
 			insert(request, response);
 			findAll(request, response);
 			request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
-		}
-			
+		}					
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
@@ -65,7 +65,7 @@ public class DeTaiController extends HttpServlet {
 		try {
 			// khởi tạo DAO
 			// khai báo danh sách và gọi hàm findAll() trong dao
-			List<DeTai> list = detaiService.findAll();
+			List<DeTai> list = detaiService.findAllDaDuyet();
 			// thông báo
 			request.setAttribute("detais", list);
 		} catch (Exception e) {
@@ -83,10 +83,13 @@ public class DeTaiController extends HttpServlet {
 			
 			int dt=Integer.parseInt(MaDT);
 
+			HttpSession session = request.getSession();
+			session.getAttribute("acc");
+			TaiKhoan taikhoan=(TaiKhoan) session.getAttribute("acc");	
 			
 			BangDiem bangdiem = new BangDiem();
 			bangdiem.setMadetai(dt);
-			bangdiem.setMasinhvien("123456");	
+			bangdiem.setMasinhvien(taikhoan.getUsername());	
 			bangdiem.setDiem(0);
 			bangdiem.setNamhoc(2022);
 			//BeanUtils.populate(bangdiem, map);
@@ -121,7 +124,7 @@ public class DeTaiController extends HttpServlet {
 	}
 	
 
-	/*private void TimKiemDeTai(HttpServletRequest req, HttpServletResponse resp) {
+	private void TimKiemDeTai(HttpServletRequest req, HttpServletResponse resp) {
 
 		String tendetai = req.getParameter("tendetai");
 		List<DeTai> detais = detaiService.findByTenDeTai(tendetai);
@@ -137,6 +140,6 @@ public class DeTaiController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 
 }

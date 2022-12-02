@@ -117,7 +117,7 @@ public class SinhVienController extends HttpServlet {
 			sinhvienService.update(sinhvien);
 			// Thông báo
 			request.setAttribute("sinhvien", sinhvien);
-			request.setAttribute("message", "thành công!");
+			request.setAttribute("message", "Thành công!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

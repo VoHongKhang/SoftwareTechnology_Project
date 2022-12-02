@@ -9,31 +9,104 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import vn.Entity.SinhVien;
+import org.apache.commons.beanutils.BeanUtils;
+
+import vn.Entity.GiangVien;
+import vn.Entity.TaiKhoan;
 import vn.Entity.ThongBao;
-import vn.Service.ISinhVienService;
-import vn.Service.Impl.SinhVienServiceImpl;
+import vn.Service.IGiangVienService;
+import vn.Service.ITaiKhoanService;
+import vn.Service.Impl.GiangVienServiceImpl;
+import vn.Service.Impl.TaiKhoanServiceImpl;
 import vn.Service.Impl.ThongBaoServiceImpl;
 
 
-@WebServlet(urlPatterns = { "/giangvien/thongtin" })
+@WebServlet(urlPatterns = { "/giangvien/thongtin" ,"/giangvien/thongtin/edit","/giangvien/thongtin/update"})
 public class ThongTinController extends HttpServlet {
-	ISinhVienService sinhvienService = new SinhVienServiceImpl();
+	IGiangVienService giangvienService = new GiangVienServiceImpl();
 	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
+	ITaiKhoanService taikhoanservice= new TaiKhoanServiceImpl();
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		List<SinhVien> list = sinhvienService.findAll();
-		req.setAttribute("sinhviens", list);
-		List<ThongBao> listhongbao=thongbaoservice.findAll();
-		req.setAttribute("thongbaos", listhongbao);
+		String url = req.getRequestURL().toString();
+
+			
+		HttpSession session = req.getSession();
+		session.getAttribute("acc");
+		TaiKhoan taikhoan=(TaiKhoan) session.getAttribute("acc");		
+		req.setAttribute("tendangnhap", taikhoan.getUsername());
+		req.setAttribute("matkhau", taikhoan.getPassword());
+		GiangVien giangvien= new GiangVien();
+		giangvien=giangvienService.findById(Integer.parseInt(taikhoan.getUsername()));
 		
+		
+		req.setAttribute("ten", giangvien.getTen());
+		req.setAttribute("chuyennganh", giangvien.getChuyennganh());
+		req.setAttribute("email", giangvien.getEmail());
+		req.setAttribute("namsinh", giangvien.getNamsinh());
+		
+		
+		if (url.contains("edit")) {			
+			req.getRequestDispatcher("/views/giangvien/editthongtin.jsp").forward(req, resp);			
+		}
+		else if(url.contains("update"))
+		{
+				
+			req.getRequestDispatcher("/views/giangvien/my-account.jsp").forward(req, resp);
+		}
+		else
+		{
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/giangvien/my-account.jsp");
 		dispatcher.forward(req, resp);
+		}
+	}	
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		//String url = req.getRequestURL().toString();
+		try {
+			resp.setContentType("text/html");
+			req.setCharacterEncoding("UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+			// lấy dữ liệu từ jsp bằng BeanUtils
+			HttpSession session = req.getSession();
+			session.getAttribute("acc");
+			TaiKhoan taikhoan=(TaiKhoan) session.getAttribute("acc");	
+			
+			
+		//	req.setAttribute("matkhaucu", taikhoan.getPassword());
+			String mkc=req.getParameter("matkhaucu");
+			
+		
+			if(taikhoan.getPassword().equals(mkc))
+			{
+				taikhoan.setPassword(req.getParameter("matkhaumoi"));	
+				taikhoanservice.update(taikhoan);
+				session.setAttribute("acc", taikhoan);
+				req.setAttribute("message", "thành công!");
+			
+			}
+			
+			else 
+			{
+				req.setAttribute("message", "Sai mật khẩu cũ");
+				req.getRequestDispatcher("/views/giangvien/editthongtin.jsp").forward(req, resp);
+			}					
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("error", "Eror: " + e.getMessage());
+		}
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/giangvien/my-account.jsp");
+		dispatcher.forward(req, resp);
+		
 	}
-
+	
+	
+	
 }

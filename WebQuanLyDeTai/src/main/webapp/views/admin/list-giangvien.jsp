@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+   <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url value="/templates/" var="URL"></c:url>
@@ -56,11 +56,11 @@
 												<form action="#" method="post" enctype="multipart/form-data">
 													<br />
 
-													<div class="form-group" hidden="hidden">
+													<div class="form-group">
 														<label for="magiangvien">Mã giảng viên:</label> <input
 															type="text" name="magiangvien"
 															value="${giangvien.magiangvien}" id="magiangvien"
-															class="form-control" readonly />
+															class="form-control"/>
 													</div>
 													<div class="form-group">
 														<label for="ten">Họ và tên:</label> <input type="text"
@@ -125,6 +125,7 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
+														<th>Mã giảng viên</th>
 														<th>Tên</th>
 														<th>Năm sinh</th>
 														<th>Email</th>
@@ -136,7 +137,8 @@
 												<tbody>
 													<c:forEach var="item" items="${giangviens}">
 														<tr class="odd gradeX">
-
+	
+															<td>${item.magiangvien}</td>
 															<td>${item.ten}</td>
 															<td>${item.namsinh}</td>
 															<td>${item.email}</td>

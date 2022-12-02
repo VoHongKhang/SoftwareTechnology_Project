@@ -52,59 +52,7 @@
 								<div class="row">
 									<div class="col-md-3">
 										<div class="row">
-											<div class="col-md-9">
-												<form action="#" method="post" enctype="multipart/form-data">
-													<br />
-
-													<div class="form-group" hidden="hidden">
-														<label for="madetai">Mã đề tài:</label> <input type="text"
-															name="madetai" value="${detai.madetai}" id="madetai"
-															class="form-control" readonly />
-													</div>
-													<div class="form-group">
-														<label for="tendetai">Tên đề tài:</label> <input
-															type="text" class="form-control" name="tendetai" id="tendetai"
-															value="${detai.tendetai}" />
-													</div>
-													<div class="form-group">
-														<label for="loaidetai">Loại đề tài:</label> <input
-															type="text" class="form-control" name="loaidetai"
-															value="${detai.loaidetai}" id="loaidetai" />
-													</div>
-													<div class="form-group">
-														<label for="soluongsv">Số lượng sinh viên:</label> <input
-															type="text" class="form-control" name="soluongsv"
-															id="soluongsv" value="${detai.soluongsv}" />
-													</div>
-													<div class="form-group">
-														<label for="giangvien">Giảng viên hd:</label> <input
-															type="text" class="form-control" name="giangvien"
-															id="giangvien" value="${detai.giangvien}" />
-													</div>
-
-													<br />
-													<hr>
-													<div class="form-group">
-														<button class="btn green"
-															formaction="<c:url value="/admin-detai/create"/>">
-															Create <i class="fa fa-plus"></i>
-														</button>
-														<button class="btn btn-warning"
-															formaction="<c:url value="/admin-detai/update"/>">
-															Update <i class="fa fa-edit"></i>
-														</button>
-														<br /> <br />
-														<button class="btn btn-danger"
-															formaction="<c:url value="/admin-detai/delete"/>">
-															Delete <i class="fa fa-trash"></i>
-														</button>
-														<button class="btn btn-success"
-															formaction="${pageContext.request.contextPath}/admin-detai/reset">
-															Reset <i class="fa fa-undo"></i>
-														</button>
-
-													</div>
-												</form>
+											<div class="col-md-9">								
 											</div>
 										</div>
 									</div>
@@ -116,11 +64,13 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
-														<th>Tên đề tài</th>
+													<th>Tên đề tài</th>
 														<th>Loai đề tài</th>
+														<th>Chuyên ngành</th>
 														<th>Số lượng sinh viên</th>
 														<th>Giảng viên hướng dẫn</th>
 														<th>Hành động</th>
+														<th>Tình trạng</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -129,14 +79,21 @@
 
 															<td>${item.tendetai}</td>
 															<td>${item.loaidetai}</td>
+															<td>${item.chuyennganh}</td>
 															<td>${item.soluongsv}</td>
 															<td>${item.giangvien}</td>
 
 															<td><a
-																href="<c:url value='/admin-detai/edit?madetai=${item.madetai}'/>"
-																class="center">Edit</a> | <a
+																href="<c:url value='/admin-detai/update?madetai=${item.madetai}'/>"
+																class="center">Duyệt</a> | <a
 																href="<c:url value='/admin-detai/delete?madetai=${item.madetai}'/>"
 																class="center">Delete</a></td>
+
+															<td><c:if test="${item.tinhtrang==0}">
+																Chưa duyệt
+																</c:if> <c:if test="${item.tinhtrang==1}">
+																Đã duyệt
+																</c:if></td>
 														</tr>
 													</c:forEach>
 												</tbody>

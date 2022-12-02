@@ -22,4 +22,7 @@ public interface IDeTaiService {
 	List<DeTai> findByMaDeTai(int tendetai);
 	
 	List<DeTai> findByTenGV(String giangvien);
+	
+	List<DeTai> findAllDaDuyet();
+
 }

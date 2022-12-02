@@ -52,4 +52,10 @@ public class DeTaiServiceImpl implements IDeTaiService{
 	public List<DeTai> findByTenGV (String giangvien) {
 		return detaiDao.findByTenGV(giangvien);
 	}
+
+	@Override
+	public List<DeTai> findAllDaDuyet() {
+		// TODO Auto-generated method stub
+		return detaiDao.findAllDaDuyet();
+	}
 }

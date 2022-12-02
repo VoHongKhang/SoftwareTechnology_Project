@@ -24,7 +24,6 @@ public class SinhVien implements Serializable{
 	
 
 	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "MaSinhVien")
 	private int masinhvien;
 

@@ -59,6 +59,11 @@ public class DeTaiController extends HttpServlet {
 			TimKiemDeTaiBangTengv(request, response);
 
 		}
+		else if (url.contains("update")) {
+
+			update(request, response);
+
+		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
@@ -148,14 +153,15 @@ public class DeTaiController extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
 			// lấy dữ liệu từ jsp bằng BeanUtils
-			DeTai detai = new DeTai();
-			BeanUtils.populate(detai, request.getParameterMap());
+			String madetai = request.getParameter("madetai");
+			DeTai detai = detaiService.findById(Integer.parseInt(madetai));
+			detai.setTinhtrang(1);
 
 			// khai báo danh sách và gọi hàm update trong service
 			detaiService.update(detai);
 			// thông báo
 			request.setAttribute("detai", detai);
-			request.setAttribute("message", "Cập Nhật Thành Công");
+			request.setAttribute("message", "Đã duyệt đề tài");
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

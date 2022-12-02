@@ -25,7 +25,8 @@
 
 </head>
 <body>
-	<div class="page-content-wrapper" style="margin-left: 40px; margin-right: 40px;">
+	<div class="page-content-wrapper"
+		style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
@@ -54,11 +55,11 @@
 												<form action="#" method="post" enctype="multipart/form-data">
 													<br />
 
-													<div class="form-group" hidden="hidden">
-														<label for="UserID">Mã sinh viên:</label> <input
-															type="text" name="categoryId"
-															value="${sinhvien.masinhvien}" id="categoryId"
-															class="form-control" readonly />
+													<div class="form-group">
+														<label for="masinhvien">Mã sinh viên:</label> <input
+															type="text" name="masinhvien"
+															value="${sinhvien.masinhvien}" id="masinhvien"
+															class="form-control" />
 													</div>
 													<div class="form-group">
 														<label for="ten">Họ và tên:</label> <input type="text"
@@ -85,10 +86,15 @@
 													<hr>
 													<div class="form-group">
 
-														<button class="btn btn-warning"
+														<button class="btn green"
 															formaction="<c:url value="/admin-sinhvien/update"/>">
 															Create <i class="fa fa-edit"></i>
 														</button>
+															<button class="btn btn-warning"
+															formaction="<c:url value="/admin-sinhvien/update"/>">
+															Update <i class="fa fa-edit"></i>
+														</button>
+														<br /> <br />
 														<button class="btn btn-success"
 															formaction="${pageContext.request.contextPath}/admin-sinhvien/reset">
 															Reset <i class="fa fa-undo"></i>
@@ -107,6 +113,7 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
+														<th>Mã sinh viên</th>
 														<th>Tên</th>
 														<th>Năm sinh</th>
 														<th>Khóa học</th>
@@ -118,6 +125,7 @@
 													<c:forEach var="item" items="${sinhviens}">
 														<tr class="odd gradeX">
 
+															<td>${item.masinhvien}</td>
 															<td>${item.ten}</td>
 															<td>${item.namsinh}</td>
 															<td>${item.khoahoc}</td>

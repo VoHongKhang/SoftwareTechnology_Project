@@ -24,4 +24,7 @@ public interface IDeTaiDao {
 	List<DeTai> findByMaDeTai(int madetai);
 	
 	List<DeTai> findByTenGV(String giangvien);
+	
+	List<DeTai> findAllDaDuyet();
+
 }

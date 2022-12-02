@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		// lấy dữ liệu từ tham số của form
-		String username = req.getParameter("username");
+		String username =  req.getParameter("username");
 		String pass = req.getParameter("password");
 
 		ITaiKhoanService taikhoanService = new TaiKhoanServiceImpl();

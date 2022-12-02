@@ -15,7 +15,6 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
-
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
@@ -26,8 +25,7 @@
 
 </head>
 <body>
-	<div class="page-content-wrapper"
-		style="margin-left: 40px; margin-right: 40px;">
+	<div class="page-content-wrapper" style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
 			<div class="row">
 				<div class="col-md-12">
@@ -35,7 +33,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Quản lý Đề Tài
+								<i class="fa fa-globe"></i>Quản lý Hội Đồng
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -55,16 +53,17 @@
 											<div class="col-md-9">
 												<form action="#" method="post" enctype="multipart/form-data">
 													<br />
-												
+
 													<div class="form-group">
-														<label for="matkhaucu">Nhập lại mật khẩu cũ:</label> <input
-															type="text" class="form-control" name="matkhaucu" id="matkhaucu"
-															value="${matkhaucu}" />
+														<label for="mahoidong">Mã hội đồng:</label> <input
+															type="text" name="mahoidong"
+															value="${hoidong.mahoidong}" id="mahoidong"
+															class="form-control"/>
 													</div>
 													<div class="form-group">
-														<label for="matkhaumoi">Mật khẩu mới:</label> <input
-															type="text" class="form-control" name="matkhaumoi"
-															value="${matkhaumoi}" id="matkhaumoi" />
+														<label for="tenhoidong">Tên hội đồng:</label> <input type="text"
+															class="form-control" name="tenhoidong" id="tenhoidong"
+															value="${hoidong.tenhoidong}" />
 													</div>
 													
 
@@ -72,17 +71,44 @@
 													<hr>
 													<div class="form-group">
 														<button class="btn green"
-															formaction="<c:url value="/student/thongtin/update"/>">
-															Update <i class="fa fa-plus"></i>
+															formaction="<c:url value="/admin-hoidong/create"/>">
+															Create <i class="fa fa-plus"></i>
 														</button>
-														
+														<button class="btn btn-success"
+															formaction="${pageContext.request.contextPath}/admin-hoidong/reset">
+															Reset <i class="fa fa-undo"></i>
+														</button>
+
 													</div>
 												</form>
 											</div>
 										</div>
 									</div>
 
-									
+									<div class="col-md-9" style="padding-right: 25px">
+										<div class="row">
+											<table class="table table-striped table-bordered table-hover"
+												id="sample_2">
+												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+												<thead>
+													<tr>
+														<th>Mã hội đồng</th>
+														<th>Tên hội đồng</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach var="item" items="${hoidongs}">
+														<tr class="odd gradeX">
+
+															<td>${item.mahoidong}</td>
+															<td>${item.tenhoidong}</td>
+															
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

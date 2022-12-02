@@ -2,10 +2,6 @@ package vn.DAO;
 
 import java.util.List;
 
-
-
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -14,10 +10,7 @@ import vn.Entity.DeTai;
 
 import vn.JPACongfig.JpaConfig;
 
-
-
-
-public class DeTaiDaoImpl implements IDeTaiDao{
+public class DeTaiDaoImpl implements IDeTaiDao {
 	@Override
 	public void update(DeTai detai) {
 
@@ -26,7 +19,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 
 		try {
 			trans.begin();
-			//update
+			// update
 			enma.merge(detai);
 			trans.commit();
 		} catch (Exception e) {
@@ -37,6 +30,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 			enma.close();
 		}
 	}
+
 	@Override
 	public void insert(DeTai detai) {
 
@@ -45,7 +39,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 
 		try {
 			trans.begin();
-			//Thêm
+			// Thêm
 			enma.persist(detai);
 			trans.commit();
 		} catch (Exception e) {
@@ -56,6 +50,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 			enma.close();
 		}
 	}
+
 	@Override
 	public void delete(int madetai) throws Exception {
 
@@ -67,7 +62,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 			// kiếm đề tài
 			DeTai detai = enma.find(DeTai.class, madetai);
 			if (detai != null) {
-				//delete
+				// delete
 				enma.remove(detai);
 			} else {
 				throw new Exception("Không tìm thấy");
@@ -81,6 +76,7 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 			enma.close();
 		}
 	}
+
 	@Override
 	public List<DeTai> findAll() {
 		EntityManager enma = JpaConfig.getEntityManager();
@@ -94,32 +90,41 @@ public class DeTaiDaoImpl implements IDeTaiDao{
 		DeTai detai = enma.find(DeTai.class, madetai);
 		return detai;
 	}
-	
+
 	@Override
 	public List<DeTai> findByTenDeTai(String tendetai) {
 		EntityManager enma = JpaConfig.getEntityManager();
 		String jpql = "SELECT c FROM DeTai c WHERE c.tendetai like :tendetai";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
-		query.setParameter("tendetai","%"+tendetai+"%");
+		query.setParameter("tendetai", "%" + tendetai + "%");
 		return query.getResultList();
 	}
-	
+
 	@Override
 	public List<DeTai> findByTenGV(String giangvien) {
 		EntityManager enma = JpaConfig.getEntityManager();
 		String jpql = "SELECT c FROM DeTai c WHERE c.giangvien like :giangvien";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
-		query.setParameter("giangvien","%"+giangvien+"%");
+		query.setParameter("giangvien", "%" + giangvien + "%");
 		return query.getResultList();
 	}
-	
-	
+
 	@Override
 	public List<DeTai> findByMaDeTai(int madetai) {
 		EntityManager enma = JpaConfig.getEntityManager();
 		String jpql = "SELECT c FROM DeTai c WHERE c.madetai like :madetai";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
-		query.setParameter("madetai","%"+madetai+"%");
+		query.setParameter("madetai", "%" + madetai + "%");
+		return query.getResultList();
+	}
+
+	@Override
+	public List<DeTai> findAllDaDuyet() {
+
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.tinhtrang = :tihtrang";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("tihtrang", 1);
 		return query.getResultList();
 	}
 

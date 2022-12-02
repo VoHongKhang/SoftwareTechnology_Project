@@ -7,9 +7,10 @@ import vn.Entity.SinhVien;
 public interface ISinhVienService {
 	List<SinhVien> findAll();
 	
-	SinhVien findById(int masinhvien);
 
 	void update(SinhVien sinhvien);
 	
 	void delete(int masinhvien) throws Exception;
+
+	SinhVien findById(int masinhvien);
 }
