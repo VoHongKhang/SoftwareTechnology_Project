@@ -8,6 +8,7 @@
 <c:url value="/giangvien-detai/search" var="search" />
 <c:url value="/giangvien/home" var="home" />
 <c:url value="/giangvien/thongtin" var="thongtin" />
+<c:url value="/giangvien-hoidong" var="hoidong" />
 
 <header>
 	<!-- header inner -->
@@ -32,7 +33,7 @@
 									<li class="active"><a href="${home}">Trang chủ</a></li>
 									<li><a href="${detai}">Đề tài</a></li>
 									<li><a href="${search}">Tìm kiếm đề tài</a></li>
-									<li><a href="#">Hội đồng</a></li>
+									<li><a href="${hoidong}">Hội đồng</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Đăng xuất</a></li>
 								</ul>

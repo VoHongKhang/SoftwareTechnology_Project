@@ -3,7 +3,10 @@ encoding//src/main/java/vn/Controller/Admin/DeTaiController.java=UTF-8
 encoding//src/main/java/vn/Controller/Admin/GiangVienController.java=UTF-8
 encoding//src/main/java/vn/Controller/Admin/SinhVienController.java=UTF-8
 encoding//src/main/java/vn/Controller/Admin/TaiKhoanController.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/java/vn/Controller/GiangVien/DeTaiController.java=UTF-8
+=======
+>>>>>>> 78273a579b60adbc0f23c810fe744d8b10f9dcf1
 encoding//src/main/java/vn/DAO/BangDiemDaoImpl.java=UTF-8
 encoding//src/main/java/vn/DAO/SinhVienDaoImpl.java=UTF-8
 encoding//src/main/webapp/views/admin/home.jsp=UTF-8

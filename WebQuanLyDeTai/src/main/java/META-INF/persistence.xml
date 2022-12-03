@@ -32,7 +32,11 @@
 			<property name="javax.persistence.jdbc.user" value="sa" />
 
 			<property name="javax.persistence.jdbc.password"
+<<<<<<< HEAD
 				value="19052002" />
+=======
+				value="123" />
+>>>>>>> 78273a579b60adbc0f23c810fe744d8b10f9dcf1
 
 			<property name="hibernate.show_sql" value="true" />
 

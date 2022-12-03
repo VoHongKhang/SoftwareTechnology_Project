@@ -126,7 +126,6 @@ public class DeTaiController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.getAttribute("acc");
 			TaiKhoan taikhoan=(TaiKhoan) session.getAttribute("acc");
-			
 			detai.setGiangvien(taikhoan.getUsername());
 			detai.setLoaidetai(request.getParameter("loaidetai"));
 			
@@ -213,7 +212,7 @@ public class DeTaiController extends HttpServlet {
 		req.setAttribute("detais", detais);
 		req.setAttribute("tendetai", tendetai);
 		try {
-			req.getRequestDispatcher("/views/detai/timkiem-detai-ten.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/giangvien/timkiem-detai.jsp").forward(req, resp);
 		} catch (ServletException e) {
 
 			e.printStackTrace();
@@ -231,7 +230,7 @@ public class DeTaiController extends HttpServlet {
 		req.setAttribute("detaii", detaii);
 		req.setAttribute("madetai", madetai);
 		try {
-			req.getRequestDispatcher("/views/detai/timkiem-detai-ma.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/giangvien/timkiem-detai.jsp").forward(req, resp);
 		} catch (ServletException e) {
 
 			e.printStackTrace();
