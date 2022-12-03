@@ -72,6 +72,24 @@
 															value="${thongbao.mota}" id="mota" />
 													</div>
 													
+													<div class="form-group">
+														<label for="loaidetai">Loại đề tài:</label> <input
+															type="text" class="form-control" name="loaidetai"
+															value="${thongbao.loaidetai}" id="mota" />
+													</div>
+													
+													<div class="form-group">
+														<label for="ngaybatdau">Ngày bắt đầu:</label> <input
+															type="date" class="form-control" name="ngaybatdau"
+															value="${thongbao.ngaybatdau}" id="ngaybatdau" />
+													</div>
+													
+													<div class="form-group">
+														<label for="ngayketthuc">Ngày kết thúc:</label> <input
+															type="date" class="form-control" name="ngayketthuc"
+															value="${thongbao.ngayketthuc}" id="ngayketthuc" />
+													</div>
+													
 													<br />
 													<hr>
 													<div class="form-group">

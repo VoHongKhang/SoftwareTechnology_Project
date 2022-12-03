@@ -40,7 +40,12 @@ public class DeTaiController extends HttpServlet {
 			insert(request, response);
 			findAll(request, response);
 			request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
-		}					
+		}	
+		else if (url.contains("search")) {
+
+			TimKiemDeTai(request, response);
+
+		} 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.setAttribute("tag", "cate");
@@ -55,6 +60,11 @@ public class DeTaiController extends HttpServlet {
 		// kiểm tra url rồi chuyển đến hàm tương ứng
 		if (url.contains("register")) {
 			insert(request, response);
+		} 
+		else if (url.contains("search")) {
+
+			TimKiemDeTai(request, response);
+
 		} 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);		
@@ -132,7 +142,7 @@ public class DeTaiController extends HttpServlet {
 		req.setAttribute("detais", detais);
 		req.setAttribute("tendetai", tendetai);
 		try {
-			req.getRequestDispatcher("/views/detai/timkiem_detai.jsp").forward(req, resp);
+			req.getRequestDispatcher("/views/student/timkiem-detai.jsp").forward(req, resp);
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

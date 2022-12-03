@@ -26,6 +26,9 @@
 
 </head>
 <body>
+	<c:url value="/giangvien/thongtin/update" var="update"></c:url>
+
+
 	<div class="page-content-wrapper"
 		style="margin-left: 40px; margin-right: 40px;">
 		<div class="page-content">
@@ -53,36 +56,23 @@
 									<div class="col-md-3">
 										<div class="row">
 											<div class="col-md-9">
-												<form action="#" method="post" enctype="multipart/form-data">
-													<br />
-												
-													<div class="form-group">
-														<label for="matkhaucu">Nhập lại mật khẩu cũ:</label> <input
-															type="text" class="form-control" name="matkhaucu" id="matkhaucu"
-															value="${matkhaucu}" />
-													</div>
-													<div class="form-group">
-														<label for="matkhaumoi">Mật khẩu mới:</label> <input
-															type="text" class="form-control" name="matkhaumoi"
-															value="${matkhaumoi}" id="matkhaumoi" />
-													</div>
-													
 
-													<br />
-													<hr>
-													<div class="form-group">
-														<button class="btn green"
-															formaction="<c:url value="/student/thongtin/update"/>">
-															Update <i class="fa fa-plus"></i>
-														</button>
-														
-													</div>
-												</form>
+
+												<div class="form-tt">
+													<h2>Đổi mật khẩu</h2>
+													<form action="update" method="Post">
+														<input type="text" name="matkhaucu"
+															placeholder="Nhap mat khau cu" /> <input type="text"
+															name="matkhaumoi" placeholder="Nhập mật moi" /> <input
+															type="submit" name="submit" value="update" />
+													</form>
+												</div>
+
 											</div>
 										</div>
 									</div>
 
-									
+
 								</div>
 							</div>
 						</div>
@@ -92,5 +82,7 @@
 			</div>
 		</div>
 	</div>
+
+	
 </body>
 </html>

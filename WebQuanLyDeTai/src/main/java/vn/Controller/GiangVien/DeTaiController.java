@@ -17,7 +17,9 @@ import org.apache.commons.beanutils.BeanUtils;
 import vn.Entity.DeTai;
 import vn.Entity.TaiKhoan;
 import vn.Service.IDeTaiService;
+import vn.Service.IGiangVienService;
 import vn.Service.Impl.DeTaiServiceImpl;
+import vn.Service.Impl.GiangVienServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
@@ -26,6 +28,7 @@ import vn.Service.Impl.DeTaiServiceImpl;
 		"/giangvien-detai/search-tengv" })
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
+	IGiangVienService giagvienservice = new GiangVienServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -127,6 +130,9 @@ public class DeTaiController extends HttpServlet {
 			detai.setGiangvien(taikhoan.getUsername());
 			detai.setLoaidetai(request.getParameter("loaidetai"));
 			
+			String giangvien=( giagvienservice.findById(1003)).getTen();
+			
+			detai.setGiangvien(giangvien);
 			detai.setSoluongsv(Integer.parseInt(request.getParameter("soluongsv")));
 			detai.setTendetai(request.getParameter("tendetai"));
 			detai.setTinhtrang(0);
@@ -149,7 +155,13 @@ public class DeTaiController extends HttpServlet {
 			// gọi hàm insert để thêm dữ liệu
 			DeTai detai = detaiService.findById(Integer.parseInt(madetai));
 			// thông báo
-			request.setAttribute("detai", detai);
+			request.setAttribute("madetai", detai.getMadetai());
+			request.setAttribute("tendetai", detai.getTendetai());
+			request.setAttribute("loaidetai", detai.getLoaidetai());
+			request.setAttribute("chuyennganh", detai.getChuyennganh());
+			request.setAttribute("soluongsv", detai.getSoluongsv());
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

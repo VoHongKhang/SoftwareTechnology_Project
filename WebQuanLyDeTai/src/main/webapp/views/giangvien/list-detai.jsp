@@ -63,8 +63,8 @@
 													</div>
 
 													<div class="form-group" hidden="hidden">
-														<label for="madetai">GiangVien:</label> <input type="text"
-															name="madetai"
+														<label for="giangvien">GiangVien:</label> <input type="text"
+															name="giangvien"
 															value="${giangvien = sessionScope.acc.username}"
 															id="madetai" class="form-control" readonly />
 													</div>
@@ -85,14 +85,14 @@
 														
 															<label class="dropdown-menu" >Chuyên ngành: </label> <select
 																id="dropdownMenuButton1" name ="chuyennganh" value="${chuyennganh}">
-																<option class="dropdown-item"  value="công nghệ phần mềm">Công
+																<option class="dropdown-item"  value="cong nghe phan mem">Công
 																	nghệ phần mềm</option>
-																<option class="dropdown-item" value="Hệ thống thông tin" >Hệ
+																<option class="dropdown-item" value="He thong thong tin" >Hệ
 																	thống thông tin</option>
 																<option class="dropdown-item"
-																	value="Mạng và an ninh mạng">Mạng và an ninh
+																	value="mang va an ninh mang">Mạng và an ninh
 																	mạng</option>
-																<option class="dropdown-item" value="Trí tuệ nhân tạo" >Trí
+																<option class="dropdown-item" value="tri tue nhan tao" >Trí
 																	tuệ nhân tạo</option>
 															</select> <br>
 															<br> 

@@ -33,11 +33,7 @@
 					
 					<p class="card-text" style="margin-bottom: 20px;" >Mật Khẩu: ${matkhau}</p>
 					
-<<<<<<< HEAD
 					<a href=<c:url value="/giangvien/thongtin/edit"/> class="btn btn-primary" style="margin-top: 87px;">Đổi mật khẩu</a>
-=======
-					<a href=<c:url value="/student/thongtin/edit"/> class="btn btn-primary" style="margin-top: 87px;">Đổi mật khẩu</a>
->>>>>>> 5a5fd0d1e4feaf4ab33ce42197ed0bfe6359c1f2
 				</div>
 			</div>
 			<div class="card" style="width: 300px; margin: 0 30px;">
