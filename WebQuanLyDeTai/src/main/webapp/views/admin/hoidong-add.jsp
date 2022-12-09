@@ -149,24 +149,29 @@
 													<tr>
 														<th>Danh sách thành viên</th>
 														<th></th>
-													
-														
+
+
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="item" items="${thamgiahoidong}">
-													 <c:if test="${item.mahoidong=1}"> 
-														<tr class="odd gradeX">
 
-															<td>${item.magiangvien}</td>
-															
-															<td><a
-																href="<c:url value='/admin-sinhvien/edit?masinhvien=${item.masinhvien}'/>"
-																class="center">Edit</a>| <a
-																href="<c:url value='/admin-sinhvien/delete?masinhvien=${item.masinhvien}'/>"
-																class="center">Delete</a></td>
-														</tr>
-														</c:if>
+													<c:forEach var="item" items="${thamgiahoidongs}">
+														 <c:set var="mahoidong1" scope="session"
+															value="${item.mahoidong}" />
+														 <c:if test="${mahoidong1 ==1}">
+														 
+														
+															<tr class="odd gradeX">
+
+																<td>${item.magiangvien}</td>
+
+																<td><a
+																	href="<c:url value='/admin-sinhvien/edit?masinhvien='/>"
+																	class="center">Edit</a>| <a
+																	href="<c:url value='/admin-sinhvien/delete?masinhvien='/>"
+																	class="center">Delete</a></td>
+															</tr>
+														</c:if> 
 													</c:forEach>
 												</tbody>
 											</table>

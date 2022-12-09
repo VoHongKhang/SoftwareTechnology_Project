@@ -64,7 +64,7 @@ public class HoiDongController extends HttpServlet{
 			request.setAttribute("giangvien", list);
 			
 			List<ThamGiaHoiDong> thamgiahoidong=thamgiaservice.findAll();
-			request.setAttribute("thamgiahoidong", thamgiahoidong);
+			request.setAttribute("thamgiahoidongs", thamgiahoidong);
 		
 			request.getRequestDispatcher("/views/admin/hoidong-add.jsp").forward(request, response);
 		}
