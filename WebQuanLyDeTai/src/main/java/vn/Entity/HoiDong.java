@@ -21,6 +21,25 @@ public class HoiDong implements Serializable{
 	
 	@Column(name = "TenHoiDong")
 	private String tenhoidong;
+	
+	@Column(name = "Truonghoidong")
+	private String truonghoidong;
+	
+
+	public String getTruonghoidong() {
+		return truonghoidong;
+	}
+
+	public void setTruonghoidong(String truonghoidong) {
+		this.truonghoidong = truonghoidong;
+	}
+
+	public HoiDong(int mahoidong, String tenhoidong, String truonghoidong) {
+		super();
+		this.mahoidong = mahoidong;
+		this.tenhoidong = tenhoidong;
+		this.truonghoidong = truonghoidong;
+	}
 
 	public HoiDong(int mahoidong, String tenhoidong) {
 		super();

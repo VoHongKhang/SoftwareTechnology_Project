@@ -110,12 +110,12 @@ public class DeTaiDaoImpl implements IDeTaiDao {
 	}
 
 	@Override
-	public List<DeTai> findByMaDeTai(int madetai) {
+	public DeTai findByMaDeTai(int madetai) {
 		EntityManager enma = JpaConfig.getEntityManager();
 		String jpql = "SELECT c FROM DeTai c WHERE c.madetai like :madetai";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
 		query.setParameter("madetai", "%" + madetai + "%");
-		return query.getResultList();
+		return query.getSingleResult();
 	}
 
 	@Override

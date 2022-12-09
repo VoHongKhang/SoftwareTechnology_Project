@@ -37,6 +37,33 @@ public class DeTai implements Serializable {
 	@Column(name = "Giangvien")
 	private String giangvien;
 	
+	@Column(name = "HoiDong")
+	private String hoidong;
+	
+	
+	public DeTai(int madetai, String tendetai, String loaidetai, String chuyennganh, int soluongsv, String giangvien,
+			String hoidong, int tinhtrang) {
+		super();
+		this.madetai = madetai;
+		this.tendetai = tendetai;
+		this.loaidetai = loaidetai;
+		this.chuyennganh = chuyennganh;
+		this.soluongsv = soluongsv;
+		this.giangvien = giangvien;
+		this.hoidong = hoidong;
+		this.tinhtrang = tinhtrang;
+	}
+
+
+	public String getHoidong() {
+		return hoidong;
+	}
+
+
+	public void setHoidong(String hoidong) {
+		this.hoidong = hoidong;
+	}
+
 	@Column(name = "TinhTrang")
 	private int tinhtrang;
 

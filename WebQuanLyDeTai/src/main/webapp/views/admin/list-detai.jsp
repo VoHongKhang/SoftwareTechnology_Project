@@ -69,6 +69,7 @@
 														<th>Chuyên ngành</th>
 														<th>Số lượng sinh viên</th>
 														<th>Giảng viên hướng dẫn</th>
+														<th>Hội đồng</th>
 														<th>Hành động</th>
 														<th>Tình trạng</th>
 													</tr>
@@ -82,12 +83,18 @@
 															<td>${item.chuyennganh}</td>
 															<td>${item.soluongsv}</td>
 															<td>${item.giangvien}</td>
+															<td>${item.hoidong}</td>
 
 															<td><a
 																href="<c:url value='/admin-detai/update?madetai=${item.madetai}'/>"
 																class="center">Duyệt</a> | <a
 																href="<c:url value='/admin-detai/delete?madetai=${item.madetai}'/>"
-																class="center">Delete</a></td>
+																class="center">Delete</a>|
+																<a
+																href="<c:url value='/admin-detai/hoidong?madetai=${item.madetai}'/>"
+																class="center">Hội đồng</a>
+																
+																</td>
 
 															<td><c:if test="${item.tinhtrang==0}">
 																Chưa duyệt

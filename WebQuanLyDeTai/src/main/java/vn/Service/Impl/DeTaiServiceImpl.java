@@ -44,7 +44,7 @@ public class DeTaiServiceImpl implements IDeTaiService{
 	}
 	
 	@Override
-	public List<DeTai> findByMaDeTai(int madetai) {
+	public DeTai findByMaDeTai(int madetai) {
 		return detaiDao.findByMaDeTai(madetai);
 	}
 	

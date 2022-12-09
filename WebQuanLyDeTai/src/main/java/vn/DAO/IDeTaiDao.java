@@ -21,7 +21,7 @@ public interface IDeTaiDao {
 	
 	List<DeTai> findByTenDeTai(String tendetai);
 	
-	List<DeTai> findByMaDeTai(int madetai);
+	DeTai findByMaDeTai(int madetai);
 	
 	List<DeTai> findByTenGV(String giangvien);
 	

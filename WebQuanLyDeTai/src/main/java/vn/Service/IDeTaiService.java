@@ -19,7 +19,7 @@ public interface IDeTaiService {
 	
 	List<DeTai> findByTenDeTai(String tendetai);
 	
-	List<DeTai> findByMaDeTai(int tendetai);
+	DeTai findByMaDeTai(int tendetai);
 	
 	List<DeTai> findByTenGV(String giangvien);
 	

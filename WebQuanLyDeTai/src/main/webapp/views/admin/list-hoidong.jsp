@@ -101,7 +101,7 @@
 														<tr class="odd gradeX">
 
 															<td>${item.mahoidong}</td>
-															<td>${item.tenhoidong}</td>
+															<td > <a href="${pageContext.request.contextPath}/admin-hoidong/add?id=${item.mahoidong}">${item.tenhoidong} </a></td>
 															
 														</tr>
 													</c:forEach>
