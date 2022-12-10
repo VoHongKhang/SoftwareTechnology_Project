@@ -35,4 +35,10 @@ public class HoiDongServiceImpl implements IHoiDongService {
 		// TODO Auto-generated method stub
 		return hoidongDao.findByUser_pass(user, pass);
 	}
+
+	@Override
+	public HoiDong findByMaHoiDong(String ma) {
+		// TODO Auto-generated method stub
+		return hoidongDao.findByMaHoiDong(ma);
+	}
 }

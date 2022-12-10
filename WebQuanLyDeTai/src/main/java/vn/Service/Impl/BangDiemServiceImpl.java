@@ -46,4 +46,10 @@ public class BangDiemServiceImpl  implements IBangDiemService{
 		bangdiem.delete(id);
 	}
 
+	@Override
+	public void updatebyMadetai(int detai) {
+		// TODO Auto-generated method stub
+		bangdiem.updatebyMadetai(detai);
+	}
+
 }

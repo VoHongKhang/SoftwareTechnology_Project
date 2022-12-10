@@ -14,4 +14,5 @@ public interface IHoiDongService {
 	void update(HoiDong HoiDong);
 
 	void insert(HoiDong HoiDong);
+	HoiDong findByMaHoiDong(String ma);
 }

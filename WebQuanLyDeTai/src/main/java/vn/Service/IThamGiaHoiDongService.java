@@ -9,4 +9,5 @@ public interface IThamGiaHoiDongService {
 	void update(ThamGiaHoiDong thamgia);	
 	void insert(ThamGiaHoiDong giangvien);
 	List<ThamGiaHoiDong> findAll();
+	List<ThamGiaHoiDong> findAllByGiangVien(int ma);
 }

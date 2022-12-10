@@ -11,5 +11,6 @@ public interface IBangDiemService {
 	void update(BangDiem detai);		
 	void insert(BangDiem detai);
 	void delete(int id) throws Exception;
+	void updatebyMadetai(int detai);
 
 }

@@ -8,4 +8,5 @@ public interface IThamGiaHoiDongDao {
 	void insert(ThamGiaHoiDong giangvien);
 	
 	List<ThamGiaHoiDong> findAll();
+	List<ThamGiaHoiDong> findAllByGiangVien(int ma);
 }

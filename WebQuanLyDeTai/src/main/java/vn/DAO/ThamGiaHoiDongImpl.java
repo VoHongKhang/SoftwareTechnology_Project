@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import vn.Entity.DeTai;
+import vn.Entity.GiangVien;
 import vn.Entity.ThamGiaHoiDong;
 import vn.JPACongfig.JpaConfig;
 
@@ -58,6 +59,15 @@ public class ThamGiaHoiDongImpl implements IThamGiaHoiDongDao {
 		// TODO Auto-generated method stub
 		EntityManager enma = JpaConfig.getEntityManager();
 		TypedQuery<ThamGiaHoiDong> query = enma.createNamedQuery("ThamGiaHoiDong.findAll", ThamGiaHoiDong.class);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<ThamGiaHoiDong> findAllByGiangVien(int ma) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM ThamGiaHoiDong c WHERE c.magiangvien = :ten";
+		TypedQuery<ThamGiaHoiDong> query = enma.createQuery(jpql, ThamGiaHoiDong.class);
+		query.setParameter("ten",ma);
 		return query.getResultList();
 	}
 

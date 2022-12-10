@@ -30,4 +30,10 @@ public class ThamGiaHoiDongImpl implements IThamGiaHoiDongService {
 		return sinhvienDao.findAll();
 	}
 
+	@Override
+	public List<ThamGiaHoiDong> findAllByGiangVien(int ma) {
+		// TODO Auto-generated method stub
+		return sinhvienDao.findAllByGiangVien(ma);
+	}
+
 }

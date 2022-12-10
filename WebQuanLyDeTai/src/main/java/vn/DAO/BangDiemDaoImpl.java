@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import vn.Entity.BangDiem;
+import vn.Entity.TaiKhoan;
 import vn.JPACongfig.JpaConfig;
 
 public class BangDiemDaoImpl   implements IBangDiemDao{
@@ -98,6 +99,28 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 			enma.close();
 		}
 		
+	}
+
+	@Override
+	public void updatebyMadetai(int detai) {
+		
+	
+		EntityManager enma = JpaConfig.getEntityManager();
+		EntityTransaction trans = enma.getTransaction();
+
+		try {
+			trans.begin();
+			// tìm cate
+			enma.createQuery("update c from BangDiem c where c.madetai = :pass",BangDiem.class).setParameter("pass",detai).executeUpdate();
+			
+		trans.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.rollback();
+			throw e;
+		} finally {
+			enma.close();
+		}
 	}
 
 }

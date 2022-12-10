@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
 
 		ITaiKhoanService taikhoanService = new TaiKhoanServiceImpl();
 		TaiKhoan takhoan = taikhoanService.findByUser_pass(username,pass);
-		System.out.println(takhoan.getPhanquyen());
+		
 		/*
 		 * for (TaiKhoan i : taikhoan) { if (i.getUsername().equals(user) &&
 		 * i.getPassword().equals(pass)) { takhoan.setPassword(pass);
