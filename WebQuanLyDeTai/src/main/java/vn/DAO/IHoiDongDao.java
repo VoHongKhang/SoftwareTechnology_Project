@@ -9,7 +9,7 @@ public interface IHoiDongDao {
 
 	HoiDong findById(int id);
 	HoiDong findByUser_pass(String userna,String pass);
-	HoiDong findByMaHoiDong(String ma);
+	HoiDong findByMaHoiDong(int ma);
 
 	void update(HoiDong taikhoan);
 	

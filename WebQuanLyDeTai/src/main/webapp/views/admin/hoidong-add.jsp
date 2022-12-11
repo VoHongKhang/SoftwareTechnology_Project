@@ -158,11 +158,7 @@
 													<c:forEach var="item" items="${thamgiahoidongs}">
 														 <c:set var="mahoidong1" scope="session"
 															value="${item.mahoidong}" />
-<<<<<<< HEAD
 														 <c:if test="${mahoidong1 ==mahoidong}">
-=======
-														 <c:if test="${mahoidong1 ==1}">
->>>>>>> e6aafa2c69f0fa85bc3ab89b7bce7019bb1b6416
 														 
 														
 															<tr class="odd gradeX">

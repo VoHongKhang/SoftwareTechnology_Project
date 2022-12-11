@@ -61,6 +61,12 @@
 														class="form-control" readonly />
 												</div>
 
+												<div class="form-group" hidden="hidden">
+													<label for="UserID">Trưởng hội dồng:</label> <input
+														type="text" name="truonghoidong" value="${truonghoidong}"
+														id="truonghoidong" class="form-control" readonly />
+												</div>
+
 												<table
 													class="table table-striped table-bordered table-hover"
 													id="sample_2">
@@ -68,7 +74,7 @@
 													<thead>
 														<tr>
 															<th>Danh sách thành viên</th>
-															
+
 
 
 														</tr>
@@ -84,7 +90,7 @@
 																<tr class="odd gradeX">
 
 																	<td>${item.magiangvien}</td>
-																
+
 																</tr>
 															</c:if>
 														</c:forEach>
@@ -97,7 +103,8 @@
 									</div>
 
 									<div class="col-md-9" style="padding-right: 25px">
-										<div class="row"> Danh sách đề tài quản lý
+										<div class="row">
+											Danh sách đề tài quản lý
 											<table class="table table-striped table-bordered table-hover"
 												id="sample_2">
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
@@ -114,16 +121,62 @@
 													<c:forEach var="item" items="${detai}">
 														<c:set var="mahoidong2" scope="session"
 															value="${item.hoidong}" />
+
 														<c:if test="${mahoidong2 ==mahoidong}">
 															<tr class="odd gradeX">
 
 																<td>${item.tendetai}</td>
-																<td>0</td>
+																<td><c:if
+																		test="${sessionScope.acc.username==truonghoidong }">
+																		<c:forEach var="bangdiem" items="${bangdiem}">
+
+																			<c:set var="diem" scope="session"
+																				value="${bangdiem.madetai }" />
+
+																			<c:if test="${bangdiem!=null  && bangdiem.madetai==item.madetai}">
+																				<a>${bangdiem.diem }</a>
+																			</c:if>
+																			<c:if test="${diem==null }">
+																				<label for="diemso">Đánh giá:</label>
+																				<form action="#" method="post"
+																					enctype="multipart/form-data">
+																					<input type="text" class="form-control"
+																						name="diemso" id="diemso" value="${diemso} " />
+
+																					<button class="btn btn-success"
+																						formaction="${pageContext.request.contextPath}/giangvien-hoidong/diem?madetai=${item.madetai}">
+																						Luu <i class="fa fa-undo"></i>
+																					</button>
+																				</form>
+																			</c:if>
+
+																		</c:forEach>
+
+
+																	</c:if> <c:if
+																		test="${sessionScope.acc.username!=truonghoidong }">
+
+
+																		<c:forEach var="bangdiem" items="${bangdiem}">
+
+																			<c:set var="diem" scope="session"
+																				value="${bangdiem.madetai}" />
+
+																			<c:if test="${diem==item.madetai}">
+																				<a>${bangdiem.diem }</a>
+
+
+																			</c:if>
+																		</c:forEach>
+
+
+																	</c:if></td>
 																<td>${item.giangvien}</td>
 
 															</tr>
 														</c:if>
 													</c:forEach>
+
 												</tbody>
 											</table>
 										</div>

@@ -37,8 +37,8 @@ public class HoiDongServiceImpl implements IHoiDongService {
 	}
 
 	@Override
-	public HoiDong findByMaHoiDong(String ma) {
-		// TODO Auto-generated method stub
+	public HoiDong findByMaHoiDong(int ma) {
+
 		return hoidongDao.findByMaHoiDong(ma);
 	}
 }

@@ -73,7 +73,7 @@ public class HoiDongDaoImpl implements IHoiDongDao{
 		return HoiDong;
 	}
 	@Override
-	public HoiDong findByMaHoiDong(String ma) {
+	public HoiDong findByMaHoiDong(int ma) {
 		EntityManager enma = JpaConfig.getEntityManager();
 		TypedQuery<HoiDong> query=enma.createQuery("SELECT c from HoiDong c where c.mahoidong = :mahoidong",HoiDong.class);
 		query.setParameter("mahoidong",ma);

@@ -13,23 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
 import vn.Entity.HoiDong;
 import vn.Entity.ThamGiaHoiDong;
+import vn.Service.IBangDiemService;
 import vn.Service.IDeTaiService;
 import vn.Service.IHoiDongService;
+import vn.Service.Impl.BangDiemServiceImpl;
 import vn.Service.Impl.DeTaiServiceImpl;
 import vn.Service.Impl.HoiDongServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/admin-detai", "/admin-detai/create", "/admin-detai/edit", "/admin-detai/update",
-		"/admin-detai/reset", "/admin-detai/delete", "/admin-detai/search", "/admin-detai/ma","/admin-detai/hoidong",
+		"/admin-detai/reset", "/admin-detai/delete", "/admin-detai/search", "/admin-detai/ma", "/admin-detai/hoidong",
 		"/admin-detai/search-tengv" })
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
-	IHoiDongService hoidongservice= new HoiDongServiceImpl();
-	
+	IHoiDongService hoidongservice = new HoiDongServiceImpl();
+	IBangDiemService bangdiemservice = new BangDiemServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -63,26 +66,21 @@ public class DeTaiController extends HttpServlet {
 
 			TimKiemDeTaiBangTengv(request, response);
 
-		}
-		else if (url.contains("update")) {
+		} else if (url.contains("update")) {
 
 			update(request, response);
 
-		}
-		else if (url.contains("hoidong")) {
+		} else if (url.contains("hoidong")) {
 
-			String id= request.getParameter("madetai");
+			String id = request.getParameter("madetai");
 			request.setAttribute("madetai", id);
-			
-			List<HoiDong> hoidong=hoidongservice.findAll();
+
+			List<HoiDong> hoidong = hoidongservice.findAll();
 			request.setAttribute("hoidong", hoidong);
-			
-		
-			
+
 			request.getRequestDispatcher("/views/admin/detai-add-hoidong.jsp").forward(request, response);
 
 		}
-
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
@@ -108,11 +106,10 @@ public class DeTaiController extends HttpServlet {
 			TimKiemDeTai(request, response);
 		} else if (url.contains("ma")) {
 			TimKiemDeTaiBangMa(request, response);
-		}else if (url.contains("search-tengv")) {
+		} else if (url.contains("search-tengv")) {
 			TimKiemDeTaiBangTengv(request, response);
-		}else if (url.contains("hoidong"))
-		{
-			add(request,response);
+		} else if (url.contains("hoidong")) {
+			add(request, response);
 		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
@@ -133,21 +130,29 @@ public class DeTaiController extends HttpServlet {
 			request.setAttribute("error", "Eror: " + e.getMessage());
 		}
 	}
-	
-	protected void add(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	protected void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			String madetai=request.getParameter("madetai");
-			
-			
+			String madetai = request.getParameter("madetai");
+
 			// khỏi tạo đối tượng Model
 			DeTai detai = detaiService.findById(Integer.parseInt(madetai));
-		
+
 			detai.setHoidong(request.getParameter("hoidong"));
-			System.out.print(request.getParameter("hoidong"));
+
 			detaiService.update(detai);
+
+			List<BangDiem> bangdiem123 = bangdiemservice.findAll();
+			for (BangDiem a : bangdiem123) {
+				if (a.getMadetai() == detai.getMadetai()) {
+
+					a.setMahoidong(request.getParameter("hoidong"));
+					bangdiemservice.update(a);
+				}
+			}
+
 			// thông báo
 			request.setAttribute("message", "Đã Thêm đề tài cho hội đồng đánh giá");
 		} catch (Exception e) {
@@ -155,7 +160,6 @@ public class DeTaiController extends HttpServlet {
 			request.setAttribute("error", "Eror: " + e.getMessage());
 		}
 	}
-
 
 	protected void insert(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -265,7 +269,7 @@ public class DeTaiController extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void TimKiemDeTaiBangTengv(HttpServletRequest req, HttpServletResponse resp) {
 
 		String giangvien = req.getParameter("giangvien");
