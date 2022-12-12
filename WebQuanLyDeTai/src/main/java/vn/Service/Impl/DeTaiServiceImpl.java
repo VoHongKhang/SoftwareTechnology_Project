@@ -58,4 +58,10 @@ public class DeTaiServiceImpl implements IDeTaiService{
 		// TODO Auto-generated method stub
 		return detaiDao.findAllDaDuyet();
 	}
+
+	@Override
+	public List<DeTai> findByLoaiDeTai(String loaidetai) {
+		// TODO Auto-generated method stub
+		return detaiDao.findByLoaiDeTai(loaidetai);
+	}
 }

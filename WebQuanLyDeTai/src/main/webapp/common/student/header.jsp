@@ -10,6 +10,8 @@
 <c:url value="/student/home" var="home" />
 <c:url value="/student/thongtin" var="thongtin" />
 
+<c:url value="/student-detai/diem" var="diem" />
+
 <header>
 	<!-- header inner -->
 	<div class="header">
@@ -35,6 +37,7 @@
 									<li><a href="${detai}">Đề tài</a></li>
 									<li><a href="${search}">Tìm kiếm đề tài</a></li>
 									<li><a href="${search_ten}">Tìm kiếm giảng viên</a></li>
+									<li><a href="${diem}">Xem điểm</a></li>
 									<!-- <li><button class="btn green" >Log out</button> </li> -->
 									<li><a href="${login}">Đăng xuất</a></li>
 								

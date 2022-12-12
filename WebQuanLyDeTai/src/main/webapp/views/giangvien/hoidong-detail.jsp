@@ -128,13 +128,20 @@
 																<td>${item.tendetai}</td>
 																<td><c:if
 																		test="${sessionScope.acc.username==truonghoidong }">
+																		<c:set var="test" scope="session"
+																				value="${1}" />
 																		<c:forEach var="bangdiem" items="${bangdiem}">
 
 																			<c:set var="diem" scope="session"
 																				value="${bangdiem.madetai }" />
+																			
+																				
 
-																			<c:if test="${bangdiem!=null  && bangdiem.madetai==item.madetai}">
+																			<c:if test="${bangdiem!=null  && bangdiem.madetai==item.madetai && test==1}">
 																				<a>${bangdiem.diem }</a>
+																				
+																				<c:set var="test" scope="session"
+																				value="${2}" />
 																			</c:if>
 																			<c:if test="${diem==null }">
 																				<label for="diemso">Đánh giá:</label>

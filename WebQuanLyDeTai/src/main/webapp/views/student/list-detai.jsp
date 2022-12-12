@@ -74,7 +74,7 @@
 													<th>Chuyên ngành</th>
 													<th>Số lượng sinh viên</th>
 													<th>Giảng viên hướng dẫn</th>
-													
+
 													<th></th>
 
 
@@ -84,11 +84,11 @@
 												<c:forEach var="item" items="${detais}">
 													<tr class="odd gradeX">
 
-															<td>${item.tendetai}</td>
-															<td>${item.loaidetai}</td>
-															<td>${item.chuyennganh}</td>
-															<td>${item.soluongsv}</td>
-															<td>${item.giangvien}</td>
+														<td>${item.tendetai}</td>
+														<td>${item.loaidetai}</td>
+														<td>${item.chuyennganh}</td>
+														<td>${item.soluongsv}</td>
+														<td>${item.giangvien}</td>
 
 
 
@@ -101,18 +101,66 @@
 										</table>
 
 
+										Danh sách đề tài đã đăng ký
+										<br>
+										
+										<div class="col-md-9" style="padding-right: 25px">
+											<div class="row">
+												<table
+													class="table table-striped table-bordered table-hover"
+													id="sample_2">
+													<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+													<thead>
+														<tr>
+															<th>Tên đề tài</th>
+															<th>Loai đề tài</th>
+															<th>Chuyên ngành</th>
+															<th>Số lượng sinh viên</th>
+															<th>Giảng viên hướng dẫn</th>
+
+															<th></th>
 
 
+														</tr>
+													</thead>
+													<tbody>
+														<c:forEach var="item" items="${detais}">
+														<c:forEach var="bangdiem" items="${detaidangky}">
+															<tr class="odd gradeX">
+															
+															<c:if  test="${item.madetai==bangdiem.madetai && bangdiem.masinhvien==sessionScope.acc.username }">
+															
+
+																<td>${item.tendetai}</td>
+																<td>${item.loaidetai}</td>
+																<td>${item.chuyennganh}</td>
+																<td>${item.soluongsv}</td>
+																<td>${item.giangvien}</td>
+
+
+
+																<td><a
+																	href="<c:url value='/student-detai/xoadangky?madetai1=${item.madetai}'/>"
+																	class="center">xoá đăng ký</a></td>
+																	</c:if>
+															</tr>
+															</c:forEach>
+														</c:forEach>
+													</tbody>
+												</table>
+
+
+
+
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!-- END EXAMPLE TABLE PORTLET-->
 					</div>
 				</div>
-				<!-- END EXAMPLE TABLE PORTLET-->
 			</div>
-		</div>
-	</div>
-
 </body>
 </html>
