@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import vn.Entity.BangDiem;
+import vn.Entity.HoiDong;
 import vn.Entity.TaiKhoan;
 import vn.JPACongfig.JpaConfig;
 
@@ -28,11 +29,15 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 	}
 
 	@Override
-	public BangDiem findByMaSinhVien(int masinhvien) {
+	public List<BangDiem> findByMaSinhVien(String masinhvien) {
 	
 		EntityManager enma = JpaConfig.getEntityManager();
-		BangDiem BangDiem = enma.find(BangDiem.class, masinhvien);
-		return BangDiem;
+		TypedQuery<BangDiem> query=enma.createQuery("SELECT c from BangDiem c where c.masinhvien = :user ",BangDiem.class);
+			
+		query.setParameter("user",masinhvien);
+		
+		List<BangDiem> HoiDong=query.getResultList();
+		return HoiDong;
 	}
 
 	@Override
@@ -121,6 +126,17 @@ public class BangDiemDaoImpl   implements IBangDiemDao{
 		} finally {
 			enma.close();
 		}
+	}
+
+	@Override
+	public BangDiem findbyMaSinhVien_and_detai(int madetai, String masinhvien) {
+		EntityManager enma = JpaConfig.getEntityManager();
+		TypedQuery<BangDiem> query=enma.createQuery("SELECT c from BangDiem c where c.madetai = :user and c.masinhvien = :pass",BangDiem.class);
+			
+		query.setParameter("user",madetai);
+		query.setParameter("pass",masinhvien);
+		BangDiem HoiDong=(BangDiem) query.getSingleResult();
+		return HoiDong;
 	}
 
 }

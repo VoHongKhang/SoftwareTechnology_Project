@@ -114,7 +114,7 @@ public class DeTaiDaoImpl implements IDeTaiDao {
 		EntityManager enma = JpaConfig.getEntityManager();
 		String jpql = "SELECT c FROM DeTai c WHERE c.madetai like :madetai";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
-		query.setParameter("madetai", "%" + madetai + "%");
+		query.setParameter("madetai",  madetai );
 		return query.getSingleResult();
 	}
 
@@ -125,6 +125,16 @@ public class DeTaiDaoImpl implements IDeTaiDao {
 		String jpql = "SELECT c FROM DeTai c WHERE c.tinhtrang = :tihtrang";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
 		query.setParameter("tihtrang", 1);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<DeTai> findByLoaiDeTai(String loaidetai) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.loaidetai = :tihtrang";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("tihtrang", loaidetai);
 		return query.getResultList();
 	}
 

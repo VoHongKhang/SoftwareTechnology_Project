@@ -23,7 +23,7 @@ public class BangDiemServiceImpl  implements IBangDiemService{
 	}
 
 	@Override
-	public BangDiem findByMaSinhVien(int madetai) {
+	public List<BangDiem>  findByMaSinhVien(String madetai) {
 		// TODO Auto-generated method stub
 		return bangdiem.findByMaSinhVien(madetai);
 	}
@@ -50,6 +50,12 @@ public class BangDiemServiceImpl  implements IBangDiemService{
 	public void updatebyMadetai(int detai) {
 		// TODO Auto-generated method stub
 		bangdiem.updatebyMadetai(detai);
+	}
+
+	@Override
+	public BangDiem findbyMaSinhVien_and_detai(int madetai, String masinhvien) {
+		// TODO Auto-generated method stub
+		return bangdiem.findbyMaSinhVien_and_detai(madetai, masinhvien);
 	}
 
 }
