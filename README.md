@@ -15,22 +15,22 @@
 * Đăng nhập
 * đăng xuất
 * Đối với admin
-** Tạo tài khoản đăng nhập cho sinh viên,giảng viên hoặc thêm 1 admin khác
-** Lưu thông tin, cập nhật thông tin giảng viên, sinh viên
-** Mở đợt đăng ký đề tài ( thông qua tạo thông báo )
-** Duyệt đề tài mà giảng viên đăng ký
-** Tạo hội đồng
-** Tìm kiếm đề tài
-** Xem và chỉnh sửa thông tin cá nhân
+* Tạo tài khoản đăng nhập cho sinh viên,giảng viên hoặc thêm 1 admin khác
+* Lưu thông tin, cập nhật thông tin giảng viên, sinh viên
+* Mở đợt đăng ký đề tài ( thông qua tạo thông báo )
+* Duyệt đề tài mà giảng viên đăng ký
+* Tạo hội đồng
+* Tìm kiếm đề tài
+* Xem và chỉnh sửa thông tin cá nhân
 * Đối với giảng viên
-** Đăng ký đề tài với với admin
-** Tìm kiếm đề tài của hệ thống
-** Xem và chỉnh sửa thông tin cá nhân
+* Đăng ký đề tài với với admin
+* Tìm kiếm đề tài của hệ thống
+* Xem và chỉnh sửa thông tin cá nhân
 * Đối với sinh viên
-** Xem và đăng ký đề tài
-** Tìm kiếm đề tài
-** Tìm kiếm giảng viên
-** Xem và chỉnh sửa thông tin cá nhân
+* Xem và đăng ký đề tài
+* Tìm kiếm đề tài
+* Tìm kiếm giảng viên
+* Xem và chỉnh sửa thông tin cá nhân
 ## Sprint 2:
 
 
