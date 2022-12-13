@@ -22,26 +22,16 @@ import vn.Service.IDeTaiService;
 import vn.Service.IGiangVienService;
 import vn.Service.Impl.BangDiemServiceImpl;
 import vn.Service.Impl.DeTaiServiceImpl;
-<<<<<<< HEAD
 import vn.Service.Impl.GiangVienServiceImpl;
-=======
->>>>>>> 614755654d63ff736359adb99ab12cb59fe2c206
 
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/student-detai", "/student-detai/search", "/student-detai/register",
-<<<<<<< HEAD
 		"/student-detai/xoadangky","/student-detai/diem" })
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
 	IBangDiemService bangdiemservice = new BangDiemServiceImpl();
 	IGiangVienService giangvienservice= new GiangVienServiceImpl();
-=======
-		"/student-detai/xoadangky" })
-public class DeTaiController extends HttpServlet {
-	IDeTaiService detaiService = new DeTaiServiceImpl();
-	IBangDiemService bangdiemservice = new BangDiemServiceImpl();
->>>>>>> 614755654d63ff736359adb99ab12cb59fe2c206
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -83,7 +73,6 @@ public class DeTaiController extends HttpServlet {
 
 			TimKiemDeTai(request, response);
 
-<<<<<<< HEAD
 		}else if(url.contains("diem"))
 		{
 			HttpSession session = request.getSession();
@@ -100,8 +89,6 @@ public class DeTaiController extends HttpServlet {
 			request.getRequestDispatcher("/views/student/diem.jsp").forward(request, response);
 			
 		
-=======
->>>>>>> 614755654d63ff736359adb99ab12cb59fe2c206
 		}
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
