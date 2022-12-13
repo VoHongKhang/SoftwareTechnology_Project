@@ -9,5 +9,7 @@ public interface IThongBaoDao {
 	void update(ThongBao thongbao);
 	void delete (int id)throws Exception;
 	
+	ThongBao findByID(int id);
+	
 	
 }

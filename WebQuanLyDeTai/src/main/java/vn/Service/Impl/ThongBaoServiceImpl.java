@@ -33,4 +33,10 @@ public class ThongBaoServiceImpl implements IThongBaoDao {
 		this.thongbao.delete(id);
 	}
 
+	@Override
+	public ThongBao findByID(int id) {
+		// TODO Auto-generated method stub
+		return thongbao.findByID(id);
+	}
+
 }

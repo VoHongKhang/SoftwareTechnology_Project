@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
-
+import vn.Entity.BangDiem;
 import vn.Entity.ThongBao;
 import vn.JPACongfig.JpaConfig;
 
@@ -85,6 +85,18 @@ public class ThongBaoDaoImpl implements IThongBaoDao {
 		} finally {
 			enma.close();
 		}
+	}
+
+	@Override
+	public ThongBao findByID(int id) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		TypedQuery<ThongBao> query=enma.createQuery("SELECT c from ThongBao c where c.id= :user ",ThongBao.class);
+			
+		query.setParameter("user",id);
+		
+		ThongBao HoiDong=(ThongBao) query.getSingleResult();
+		return HoiDong;
 	}
 
 }

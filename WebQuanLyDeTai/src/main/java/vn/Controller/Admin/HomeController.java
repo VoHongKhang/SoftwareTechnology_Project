@@ -19,7 +19,7 @@ import vn.Service.Impl.SinhVienServiceImpl;
 import vn.Service.Impl.ThongBaoServiceImpl;
 
 
-@WebServlet(urlPatterns = { "/admin/home" })
+@WebServlet(urlPatterns = { "/admin/home","/admin/home/thongbao" })
 public class HomeController extends HttpServlet {
 	ISinhVienService sinhvienService = new SinhVienServiceImpl();
 	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
@@ -29,6 +29,20 @@ public class HomeController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
+		
+		String url = req.getRequestURL().toString();
+		if(url.contains("thongbao"))
+		{
+			
+			int id= Integer.parseInt(req.getParameter("id"));
+			ThongBao thongbao= thongbaoservice.findByID(id);
+			if(thongbao!=null)
+				System.out.print(123);
+						req.setAttribute("thongbaos", thongbao);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/thongbaodetail.jsp");
+			dispatcher.forward(req, resp);
+		}
+		
 		List<SinhVien> list = sinhvienService.findAll();
 		req.setAttribute("sinhviens", list);
 		List<ThongBao> listhongbao=thongbaoservice.findAll();
