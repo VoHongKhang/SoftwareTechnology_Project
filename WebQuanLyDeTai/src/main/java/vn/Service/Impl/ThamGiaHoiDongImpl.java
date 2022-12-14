@@ -36,4 +36,10 @@ public class ThamGiaHoiDongImpl implements IThamGiaHoiDongService {
 		return sinhvienDao.findAllByGiangVien(ma);
 	}
 
+	@Override
+	public void delete(int id) throws Exception {
+		// TODO Auto-generated method stub
+		sinhvienDao.delete(id);
+	}
+
 }

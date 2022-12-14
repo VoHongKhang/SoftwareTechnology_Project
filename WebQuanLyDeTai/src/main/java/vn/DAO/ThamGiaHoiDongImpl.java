@@ -53,6 +53,32 @@ public class ThamGiaHoiDongImpl implements IThamGiaHoiDongDao {
 		}
 		
 	}
+	
+	@Override
+	public void delete(int id) throws Exception {
+
+		EntityManager enma = JpaConfig.getEntityManager();
+		EntityTransaction trans = enma.getTransaction();
+
+		try {
+			trans.begin();
+			// kiếm đề tài
+			ThamGiaHoiDong detai = enma.find(ThamGiaHoiDong.class, id);
+			if (detai != null) {
+				// delete
+				enma.remove(detai);
+			} else {
+				throw new Exception("Không tìm thấy");
+			}
+			trans.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			trans.rollback();
+			throw e;
+		} finally {
+			enma.close();
+		}
+	}
 
 	@Override
 	public List<ThamGiaHoiDong> findAll() {

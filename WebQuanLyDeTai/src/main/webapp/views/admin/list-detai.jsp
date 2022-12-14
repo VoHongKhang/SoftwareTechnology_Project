@@ -52,8 +52,7 @@
 								<div class="row">
 									<div class="col-md-3">
 										<div class="row">
-											<div class="col-md-9">								
-											</div>
+											<div class="col-md-9"></div>
 										</div>
 									</div>
 
@@ -64,11 +63,12 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
-													<th>Tên đề tài</th>
+														<th>Tên đề tài</th>
 														<th>Loai đề tài</th>
 														<th>Chuyên ngành</th>
 														<th>Số lượng sinh viên</th>
 														<th>Giảng viên hướng dẫn</th>
+														<th>Cập nhật điểm</th>
 														<th>Hội đồng</th>
 														<th>Hành động</th>
 														<th>Tình trạng</th>
@@ -83,18 +83,30 @@
 															<td>${item.chuyennganh}</td>
 															<td>${item.soluongsv}</td>
 															<td>${item.giangvien}</td>
+
+															<td>
+																<form action="#" method="post"
+																	enctype="multipart/form-data">
+																	<input type="text" class="form-control" name="diemso"
+																		id="diemso" value="${diemso}" />
+
+																	<button class="btn btn-success"
+																		formaction="${pageContext.request.contextPath}/admin-detai/diem?madetai=${item.madetai}">
+																		Cập nhật <i class="fa fa-undo"></i>
+																	</button>
+																</form>
+
+															</td>
+
 															<td>${item.hoidong}</td>
 
 															<td><a
 																href="<c:url value='/admin-detai/update?madetai=${item.madetai}'/>"
 																class="center">Duyệt</a> | <a
 																href="<c:url value='/admin-detai/delete?madetai=${item.madetai}'/>"
-																class="center">Delete</a>|
-																<a
+																class="center">Delete</a>| <a
 																href="<c:url value='/admin-detai/hoidong?madetai=${item.madetai}'/>"
-																class="center">Hội đồng</a>
-																
-																</td>
+																class="center">Hội đồng</a></td>
 
 															<td><c:if test="${item.tinhtrang==0}">
 																Chưa duyệt

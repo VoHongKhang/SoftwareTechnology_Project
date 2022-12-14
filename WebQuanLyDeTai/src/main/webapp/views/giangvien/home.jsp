@@ -92,7 +92,7 @@
 									<c:forEach var="item" items="${thongbaos}">
 										<tr class="odd gradeX">
 
-											<td>${item.tenthongbao}</td>
+										<td> <a href="${pageContext.request.contextPath}/giangvien/home/thongbao?id=${item.id}">${item.tenthongbao} </a></td>
 										</tr>
 									</c:forEach>
 								</tbody>

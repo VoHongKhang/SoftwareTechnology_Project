@@ -42,6 +42,21 @@ public class ThamGiaHoiDong implements Serializable{
 		return mahoidong;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public ThamGiaHoiDong(int id, int mahoidong, int magiangvien) {
+		super();
+		this.id = id;
+		this.mahoidong = mahoidong;
+		this.magiangvien = magiangvien;
+	}
+
 	public void setMahoidong(int mahoidong) {
 		this.mahoidong = mahoidong;
 	}

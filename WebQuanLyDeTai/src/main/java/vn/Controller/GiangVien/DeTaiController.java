@@ -1,7 +1,8 @@
 package vn.Controller.GiangVien;
 
 import java.io.IOException;
-
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,21 +15,33 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
+import vn.Entity.SinhVien;
 import vn.Entity.TaiKhoan;
+import vn.Entity.ThongBao;
+import vn.Service.IBangDiemService;
 import vn.Service.IDeTaiService;
 import vn.Service.IGiangVienService;
+import vn.Service.ISinhVienService;
+import vn.Service.IThongBaoService;
+import vn.Service.Impl.BangDiemServiceImpl;
 import vn.Service.Impl.DeTaiServiceImpl;
 import vn.Service.Impl.GiangVienServiceImpl;
+import vn.Service.Impl.SinhVienServiceImpl;
+import vn.Service.Impl.ThongBaoServiceImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/giangvien-detai", "/giangvien-detai/create", "/giangvien-detai/edit", "/giangvien-detai/update",
 		"/giangvien-detai/reset", "/giangvien-detai/delete", "/giangvien-detai/search", "/giangvien-detai/ma",
-		"/giangvien-detai/search-tengv" })
+		"/giangvien-detai/search-tengv", "/giangvien-detai/detail" })
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
 	IGiangVienService giagvienservice = new GiangVienServiceImpl();
+	ThongBaoServiceImpl thongbaoservice = new ThongBaoServiceImpl();
+	IBangDiemService bangdiemservice= new BangDiemServiceImpl();
+	ISinhVienService sinhvienservice= new SinhVienServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -63,6 +76,29 @@ public class DeTaiController extends HttpServlet {
 			TimKiemDeTaiBangTengv(request, response);
 
 		}
+		
+		else if (url.contains("detail")) {
+			
+			
+			List<BangDiem> bangdiem= bangdiemservice.findAll();
+			List<SinhVien> sinhvien=sinhvienservice.findAll();
+			DeTai detai1=(DeTai)detaiService.findById(Integer.parseInt(request.getParameter("madetai")));
+			int sl=0;
+			for(BangDiem bd: bangdiem)
+			{
+				if(bd.getMadetai()==detai1.getMadetai())
+					sl++;
+				
+			}
+			
+			
+			
+			request.setAttribute("detai", detai1);
+
+			request.getRequestDispatcher("/views/giangvien/detai-detailjsp.jsp").forward(request, response);
+
+		}
+
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
@@ -91,6 +127,8 @@ public class DeTaiController extends HttpServlet {
 		}else if (url.contains("search-tengv")) {
 			TimKiemDeTaiBangTengv(request, response);
 		}
+		
+		
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
@@ -102,7 +140,29 @@ public class DeTaiController extends HttpServlet {
 		try {
 			// khởi tạo DAO
 			// khai báo danh sách và gọi hàm findAll() trong dao
-			List<DeTai> list = detaiService.findAll();
+			HttpSession session = request.getSession();
+			session.getAttribute("acc");
+			TaiKhoan taikhoan=(TaiKhoan) session.getAttribute("acc");
+		
+			List<DeTai> list = detaiService.findByTenGV(taikhoan.getUsername());
+			
+			List<ThongBao> listthongbao= thongbaoservice.findAll();
+			List<ThongBao> listthongbaoconhan=  new ArrayList<ThongBao>();
+			long millis = System.currentTimeMillis();
+			  Date date = new Date(millis);
+			
+			for(ThongBao tb:listthongbao )
+			{
+				System.out.print(tb.getNgaybatdau());
+				System.out.print(date);
+				
+			
+				if( tb.getNgaybatdau().compareTo(date)<=0 && tb.getNgayketthuc().compareTo(date)>=0)
+					listthongbaoconhan.add(tb);
+			}
+			
+			
+			request.setAttribute("thongbaos", listthongbaoconhan);
 			// thông báo
 			request.setAttribute("detais", list);
 		} catch (Exception e) {
@@ -116,6 +176,11 @@ public class DeTaiController extends HttpServlet {
 		try {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
+			String ldt=request.getParameter("loaidetai");
+			if(ldt==null)
+				request.setAttribute("message", "Không nằm trong đợt đăng ký đề tài");
+			else
+			{
 			// khỏi tạo đối tượng Model
 			DeTai detai = new DeTai();
 			// sử dụng BeanUtils để tự lấy các name Field trên form
@@ -129,6 +194,7 @@ public class DeTaiController extends HttpServlet {
 			
 			detai.setGiangvien(taikhoan.getUsername());
 			detai.setLoaidetai(request.getParameter("loaidetai"));
+								
 			
 			String giangvien=Integer.toString(( giagvienservice.findById(Integer.parseInt(taikhoan.getUsername()))).getMagiangvien());
 			
@@ -141,6 +207,7 @@ public class DeTaiController extends HttpServlet {
 			detaiService.insert(detai);
 			// thông báo
 			request.setAttribute("message", "Đã Thêm Thành Công");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());

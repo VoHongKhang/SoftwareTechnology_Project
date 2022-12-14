@@ -35,7 +35,7 @@ public class ThongBao implements Serializable {
 	private Date ngaybatdau;
 	
 	@Column(name = "NgayKT")
-	private String ngayketthuc;
+	private Date ngayketthuc;
 	
 	
 
@@ -55,15 +55,15 @@ public class ThongBao implements Serializable {
 		this.ngaybatdau = ngaybatdau;
 	}
 
-	public String getNgayketthuc() {
+	public Date getNgayketthuc() {
 		return ngayketthuc;
 	}
 
-	public void setNgayketthuc(String ngayketthuc) {
+	public void setNgayketthuc(Date ngayketthuc) {
 		this.ngayketthuc = ngayketthuc;
 	}
 
-	public ThongBao(int id, String tenthongbao, String mota, String loaidetai, Date ngaybatdau, String ngayketthuc) {
+	public ThongBao(int id, String tenthongbao, String mota, String loaidetai, Date ngaybatdau, Date ngayketthuc) {
 		super();
 		this.id = id;
 		this.tenthongbao = tenthongbao;

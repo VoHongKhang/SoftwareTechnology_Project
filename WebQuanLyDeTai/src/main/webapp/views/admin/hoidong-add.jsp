@@ -52,6 +52,9 @@
 									<div class="col-md-3">
 										<div class="row">
 											<div class="col-md-9">
+											
+											
+											
 												<form action="#" method="post" enctype="multipart/form-data">
 													<br />
 													<div class="form-group" hidden="hidden">
@@ -61,7 +64,7 @@
 													</div>
 
 													<label for="truonghoidong" class="form-lablel">
-														Trưởng hội đồng:</label> <br>
+														Danh sách giảng viên: </label> <br>
 													<div class="dropdown">
 
 														<label class="dropdown-menu">Danh sách giảng viên:
@@ -71,70 +74,27 @@
 																	value="${giangvien.magiangvien}">${giangvien.ten}</option>
 															</c:forEach>
 														</select> <br>
-
+														
 													</div>
-
-													<label for="thanhvien1" class="form-lablel"> Thành
-														viên 1:</label> <br>
-													<div class="dropdown">
-
-														<label class="dropdown-menu">Danh sách giảng viên:
-														</label> <select id="dropdownMenuButton1" name="thanhvien1">
-															<c:forEach items="${giangvien}" var="giangvien">
-																<option class="dropdown-item"
-																	value="${giangvien.magiangvien}">${giangvien.ten}</option>
-															</c:forEach>
-														</select> <br>
-
-													</div>
-
-													<label for="thanhvien2" class="form-lablel"> Thành
-														viên 2:</label> <br>
-													<div class="dropdown">
-
-														<label class="dropdown-menu">Danh sách giảng viên:
-														</label> <select id="dropdownMenuButton1" name="thanhvien2">
-															<c:forEach items="${giangvien}" var="giangvien">
-																<option class="dropdown-item"
-																	value="${giangvien.magiangvien}">${giangvien.ten}</option>
-															</c:forEach>
-														</select> <br>
-
-													</div>
-
-													<label for="thanhvien3" class="form-lablel"> Thành
-														viên 3:</label> <br>
-													<div class="dropdown">
-
-														<label class="dropdown-menu">Danh sách giảng viên:
-														</label> <select id="dropdownMenuButton1" name="thanhvien3">
-															<c:forEach items="${giangvien}" var="giangvien">
-																<option class="dropdown-item"
-																	value="${giangvien.magiangvien}">${giangvien.ten}</option>
-															</c:forEach>
-														</select> <br>
-
-													</div>
-
-
-
-
-
-
-													<br />
-													<hr>
 													<div class="form-group">
 														<button class="btn green"
 															formaction="<c:url value="/admin-hoidong/add"/>">
-															Add <i class="fa fa-plus"></i>
+															Add Trưởng hội đồng <i class="fa fa-plus"></i>
 														</button>
-														<button class="btn btn-success"
-															formaction="${pageContext.request.contextPath}/admin-hoidong/reset_add">
-															Reset <i class="fa fa-undo"></i>
+													</div>
+																		
+													<br />
+													<div class="form-group">
+														<button class="btn green"
+															formaction="<c:url value="/admin-hoidong/addthanhvien"/>">
+															Thêm thành viên hội đồng <i class="fa fa-plus"></i>
 														</button>
+														
 
 													</div>
+												
 												</form>
+												
 											</div>
 										</div>
 									</div>
@@ -166,9 +126,8 @@
 																<td>${item.magiangvien}</td>
 
 																<td><a
-																	href="<c:url value='/admin-sinhvien/edit?masinhvien='/>"
-																	class="center">Edit</a>| <a
-																	href="<c:url value='/admin-sinhvien/delete?masinhvien='/>"
+																	
+																	href="<c:url value='/admin-hoidong/deletethanhvien?ma=${item.magiangvien}'/>"
 																	class="center">Delete</a></td>
 															</tr>
 														</c:if> 

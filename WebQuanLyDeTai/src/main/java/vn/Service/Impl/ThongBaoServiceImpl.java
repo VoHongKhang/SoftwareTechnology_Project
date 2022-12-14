@@ -39,4 +39,10 @@ public class ThongBaoServiceImpl implements IThongBaoDao {
 		return thongbao.findByID(id);
 	}
 
+	@Override
+	public List<ThongBao> findConHan() {
+		// TODO Auto-generated method stub
+		return thongbao.findConHan();
+	}
+
 }

@@ -1,9 +1,11 @@
 package vn.DAO;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 import vn.Entity.BangDiem;
@@ -96,6 +98,22 @@ public class ThongBaoDaoImpl implements IThongBaoDao {
 		query.setParameter("user",id);
 		
 		ThongBao HoiDong=(ThongBao) query.getSingleResult();
+		return HoiDong;
+	}
+
+	@Override
+	public List<ThongBao> findConHan() {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		TypedQuery<ThongBao> query=enma.createQuery("SELECT c from ThongBao c where c.ngaybatdau <= :user and c.ngayketthuc >= :user ",ThongBao.class);
+			
+		
+		  long millis = System.currentTimeMillis();
+		  Date date = new Date(millis);
+		 
+		query.setParameter("user",date);
+					
+		List<ThongBao> HoiDong=query.getResultList();
 		return HoiDong;
 	}
 
