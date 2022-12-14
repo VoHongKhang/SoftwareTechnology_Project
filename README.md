@@ -11,10 +11,10 @@
 * Link tài liệu Sprint Backlog: https://docs.google.com/spreadsheets/d/1zqR_vJOemh6xisWgTfQaM8e8n0MZs185/edit#gid=1118561176
 * Link ghi nhận Daily Scrum Meeting: https://docs.google.com/document/d/1zmuYVcLduqbLgXLfC-vfg7Mn5A9P8i6x_Lvl6jFV-_s/edit
 * Link demo kết quả làm được: https://www.youtube.com/watch?v=w5GJOjhhN-A&t=1s
-## Kết quả đạt được:
-### Đăng nhập
-### Đăng xuất
-### Đối với admin
+### Kết quả đạt được:
+* Đăng nhập
+* Đăng xuất
+#### Đối với admin
 * Tạo tài khoản đăng nhập cho sinh viên,giảng viên hoặc thêm 1 admin khác
 * Lưu thông tin, cập nhật thông tin giảng viên, sinh viên
 * Mở đợt đăng ký đề tài ( thông qua tạo thông báo )
@@ -22,19 +22,28 @@
 * Tạo hội đồng
 * Tìm kiếm đề tài
 * Xem và chỉnh sửa thông tin cá nhân
-### Đối với giảng viên
+#### Đối với giảng viên
 * Đăng ký đề tài với với admin
 * Tìm kiếm đề tài của hệ thống
 * Xem và chỉnh sửa thông tin cá nhân
-### Đối với sinh viên
+#### Đối với sinh viên
 * Xem và đăng ký đề tài
 * Tìm kiếm đề tài
 * Tìm kiếm giảng viên
 * Xem và chỉnh sửa thông tin cá nhân
+
+
 ### Sprint 2:
+* Link  video nhóm thảo luận về bài tập: 
+* Link tài liệu Product Backlog: 
+* Link tài liệu Sprint Backlog: 
+* Link ghi nhận Daily Scrum Meeting:
+* Link demo kết quả làm được:
+
+
+
+### Kết quả đạt được
 
 ### Tài liệu tham khảo
 * Những kiến thức học được từ môn Công nghệ phần mềm của GV Huỳnh Xuân Phụng
 
-
-## Kết quả đạt được
