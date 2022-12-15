@@ -332,10 +332,13 @@ public class DeTaiController extends HttpServlet {
 
 					}
 				}
+<<<<<<< HEAD
 				SinhVien sv= sinhvienservice.findById(Integer.parseInt(taikhoan.getUsername()));
 				
 				if(detai.getChuyennganh() !="khong" && detai.getChuyennganh()!=sv.getChuyennganh())
 					check=2;
+=======
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 
 				if (check == 0)
 
@@ -347,7 +350,10 @@ public class DeTaiController extends HttpServlet {
 					bangdiem1.setNamhoc(date.getYear());
 					// BeanUtils.populate(bangdiem, map);
 					bangdiemservice.insert(bangdiem1);
+<<<<<<< HEAD
 					request.setAttribute("message", "Đăng ký thành công");
+=======
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 				}
 
 				else if (check == 1) {
@@ -358,6 +364,7 @@ public class DeTaiController extends HttpServlet {
 					bangdiem1.setDiem(0);
 					bangdiem1.setNamhoc(2022); // BeanUtils.populate(bangdiem, map);
 					bangdiemservice.insert(bangdiem1);
+<<<<<<< HEAD
 					request.setAttribute("message", "Đăng ký thành công");
 
 				} 
@@ -366,6 +373,13 @@ public class DeTaiController extends HttpServlet {
 
 				// thông báo
 				
+=======
+
+				} // detaiService.delete(dt);
+
+				// thông báo
+				request.setAttribute("message", "Đăng ký thành công");
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 			}
 			else if(ddk==0)
 			{

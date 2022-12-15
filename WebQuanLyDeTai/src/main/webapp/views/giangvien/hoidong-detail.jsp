@@ -89,13 +89,23 @@
 
 																<tr class="odd gradeX">
 
+<<<<<<< HEAD
 																	<td><c:forEach var="giangvien"
+=======
+																	<td>
+																	<c:forEach var="giangvien"
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 																			items="${giangviens}">
 																			<c:if
 																				test="${item.magiangvien==giangvien.magiangvien}">
 															${giangvien.ten}
 															</c:if>
+<<<<<<< HEAD
 																		</c:forEach></td>
+=======
+																		</c:forEach>
+																	</td>
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 
 																</tr>
 															</c:if>
@@ -135,21 +145,35 @@
 																<td><c:if
 																		test="${sessionScope.acc.username==truonghoidong }">
 																		<c:set var="test" scope="session" value="${1}" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 																		<c:forEach var="bangdiem" items="${bangdiem}">
 																			
 
 																			<c:set var="diem" scope="session"
 																				value="${bangdiem.diem }" />
 
+<<<<<<< HEAD
 																			<c:if
 																				test="${diem !=0  && bangdiem.madetai==item.madetai && test==1 }">
+=======
+
+
+																			<c:if
+																				test="${diem !=0  && bangdiem.madetai==item.madetai && test==1}">
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 																				<a>${bangdiem.diem }</a>
 
 																				<c:set var="test" scope="session" value="${2}" />
 
 																			</c:if>
+<<<<<<< HEAD
 																			<c:if test="${diem ==0 && test==1 && bangdiem.madetai==item.madetai}">
+=======
+																			<c:if test="${diem ==0 && test==1}">
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 																				<c:set var="test" scope="session" value="${3}" />
 
 
@@ -189,12 +213,25 @@
 
 
 																	</c:if></td>
+<<<<<<< HEAD
 																<td><c:forEach var="giangvien"
 																		items="${giangviens}">
 																		<c:if test="${item.giangvien==giangvien.magiangvien}">
 															${giangvien.ten}
 															</c:if>
 																	</c:forEach></td>
+=======
+																<td>
+																
+																<c:forEach var="giangvien"
+																			items="${giangviens}">
+																			<c:if
+																				test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																		</c:forEach>
+																</td>
+>>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 
 															</tr>
 														</c:if>
