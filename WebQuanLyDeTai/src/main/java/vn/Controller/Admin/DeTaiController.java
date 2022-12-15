@@ -15,14 +15,17 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
+import vn.Entity.GiangVien;
 import vn.Entity.HoiDong;
 import vn.Entity.ThamGiaHoiDong;
 import vn.Service.IBangDiemService;
 import vn.Service.IDeTaiService;
+import vn.Service.IGiangVienService;
 import vn.Service.IHoiDongService;
 import vn.Service.IThamGiaHoiDongService;
 import vn.Service.Impl.BangDiemServiceImpl;
 import vn.Service.Impl.DeTaiServiceImpl;
+import vn.Service.Impl.GiangVienServiceImpl;
 import vn.Service.Impl.HoiDongServiceImpl;
 import vn.Service.Impl.ThamGiaHoiDongImpl;
 
@@ -36,6 +39,7 @@ public class DeTaiController extends HttpServlet {
 	IHoiDongService hoidongservice = new HoiDongServiceImpl();
 	IBangDiemService bangdiemservice = new BangDiemServiceImpl();
 	IThamGiaHoiDongService thamgiahoidongservice = new ThamGiaHoiDongImpl();
+	IGiangVienService giangvienservice= new GiangVienServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -147,6 +151,9 @@ public class DeTaiController extends HttpServlet {
 			List<DeTai> list = detaiService.findAll();
 			// thông báo
 			request.setAttribute("detais", list);
+			
+			List<GiangVien> listgiangvien=giangvienservice.findAll();
+			request.setAttribute("giangviens", listgiangvien);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -276,6 +283,9 @@ public class DeTaiController extends HttpServlet {
 
 		req.setAttribute("detais", detais);
 		req.setAttribute("tendetai", tendetai);
+		
+		List<GiangVien> listgiangvien=giangvienservice.findAll();
+		req.setAttribute("giangviens", listgiangvien);
 		try {
 			req.getRequestDispatcher("/views/detai/timkiem-detai-ten.jsp").forward(req, resp);
 		} catch (ServletException e) {
@@ -308,10 +318,13 @@ public class DeTaiController extends HttpServlet {
 	private void TimKiemDeTaiBangTengv(HttpServletRequest req, HttpServletResponse resp) {
 
 		String giangvien = req.getParameter("giangvien");
-		List<DeTai> detaim = detaiService.findByTenDeTai(giangvien);
-
+		GiangVien giangvie=giangvienservice.findByTenGV(giangvien);
+		
+		List<DeTai> detaim = detaiService.findByTenGV(String.valueOf(giangvie.getMagiangvien()));
+		
 		req.setAttribute("detaim", detaim);
 		req.setAttribute("giangvien", giangvien);
+		
 		try {
 			req.getRequestDispatcher("/views/detai/timkiem-detai-ten.jsp").forward(req, resp);
 		} catch (ServletException e) {

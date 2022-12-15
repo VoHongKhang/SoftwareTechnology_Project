@@ -163,11 +163,15 @@
 
 															<td><a
 																href="<c:url value='/giangvien-detai/detail?madetai=${item.madetai}'/>"
-																class="center">${item.tendetai}</a> </td>
+																class="center">${item.tendetai}</a></td>
 															<td>${item.loaidetai}</td>
 															<td>${item.chuyennganh}</td>
 															<td>${item.soluongsv}</td>
-															<td>${item.giangvien}</td>
+															<td><c:forEach var="giangvien" items="${giangviens}">
+																	<c:if test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																</c:forEach></td>
 
 															<td><a
 																href="<c:url value='/giangvien-detai/edit?madetai=${item.madetai}'/>"

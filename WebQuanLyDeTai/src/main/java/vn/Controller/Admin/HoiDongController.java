@@ -63,6 +63,9 @@ public class HoiDongController extends HttpServlet {
 			  List<ThamGiaHoiDong> thamgiahoidong = thamgiaservice.findAll();
 			  request.setAttribute("thamgiahoidongs", thamgiahoidong);
 			  
+			  List<GiangVien> listgiangvien=giangvienservice.findAll();
+				request.setAttribute("giangviens", listgiangvien);
+			  
 			  request.getRequestDispatcher("/views/admin/hoidong-add.jsp").forward(request,
 			  response);
 			 
@@ -76,6 +79,8 @@ public class HoiDongController extends HttpServlet {
 
 			List<ThamGiaHoiDong> thamgiahoidong = thamgiaservice.findAll();
 			request.setAttribute("thamgiahoidongs", thamgiahoidong);
+			List<GiangVien> listgiangvien=giangvienservice.findAll();
+			request.setAttribute("giangviens", listgiangvien);
 
 			request.getRequestDispatcher("/views/admin/hoidong-add.jsp").forward(request, response);
 		} else if (url.contains("deletethanhvien")) {
@@ -280,6 +285,8 @@ public class HoiDongController extends HttpServlet {
 			// khởi tạo DAO
 			// khai báo danh sách và gọi hàm findAll() trong dao
 			List<HoiDong> list = hoidongService.findAll();
+			List<GiangVien> listgiangvien=giangvienservice.findAll();
+			request.setAttribute("giangviens", listgiangvien);
 			// thông báo
 			request.setAttribute("hoidongs", list);
 		} catch (Exception e) {

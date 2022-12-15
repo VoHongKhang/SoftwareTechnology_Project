@@ -117,4 +117,16 @@ public class ThongBaoDaoImpl implements IThongBaoDao {
 		return HoiDong;
 	}
 
+	@Override
+	public ThongBao findbyLoaiDeTai(String loaidetai) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		TypedQuery<ThongBao> query=enma.createQuery("SELECT c from ThongBao c where c.loaidetai= :user ",ThongBao.class);
+			
+		query.setParameter("user",loaidetai);
+		
+		ThongBao HoiDong=(ThongBao) query.getSingleResult();
+		return HoiDong;
+	}
+
 }

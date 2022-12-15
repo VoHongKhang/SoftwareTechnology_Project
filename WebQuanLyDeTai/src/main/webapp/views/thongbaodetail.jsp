@@ -61,43 +61,62 @@
 </head>
 <!-- body -->
 <body class="main-layout ">
-<a>  Trường ĐH Sư phạm Kỹ thuật TP. HCM   Cộng hòa xã hội chủ nghĩa Việt Nam  </a>
-<br>
-<a>  Khoa Công nghệ thông tin   Độc lập - Tự do - Hạnh phúc </a>
-<br>
+	<a> Trường ĐH Sư phạm Kỹ thuật TP. HCM Cộng hòa xã hội chủ nghĩa
+		Việt Nam </a>
+	<br>
+	<a> Khoa Công nghệ thông tin Độc lập - Tự do - Hạnh phúc </a>
+	<br>
 
 
-									<div class="col-md-9" style="padding-right: 25px">
-										<div class="row">
-											<table class="table table-striped table-bordered table-hover"
-												id="sample_2">
-												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
-												<thead>
-													<tr>
-														<th>Tên thông báo</th>										
-														<th>Mô tả</th>
-														<th>loại đề tài</th>
-														<th>Ngày bắt đầu</th>
-														<th>Ngày Kết thúc</th>
-													</tr>
-												</thead>
-												<tbody>
-													<c:set var="item" scope="session" value="${thongbaos}">
-													</c:set>
-														<tr class="odd gradeX">
+	<div class="col-md-9" style="padding-right: 25px">
+		<div class="row">
+			<table class="table table-striped table-bordered table-hover"
+				id="sample_2">
+				<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
+				<thead>
+					<tr>
+						<th></th>
+						<th>Mô tả</th>
 
-															<td>${item.tenthongbao}</td>
-															<td>${item.mota}</td>
-															<td>${item.loaidetai}</td>
-															<td>${item.ngaybatdau}</td>
-															<td>${item.ngayketthuc}</td>
-															
-														</tr>
-													
-												</tbody>
-											</table>
-										</div>
-									</div>
+					</tr>
+				</thead>
+				<tbody>
+					<c:set var="item" scope="session" value="${thongbaos}">
+					</c:set>				
+
+					<tr class="odd gradeX">
+						<td>Thông báo</td>
+						<td>${item.tenthongbao}</td>
+					</tr>
+
+					<tr class="odd gradeX">
+						<td>Mô tả</td>
+						<td>${item.mota}</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>Mô tả</td>
+						<td>${item.loaidetai}</td>
+					</tr>
+					<tr class="odd gradeX">
+						<td>Giảng viên đăng ký đề tài từ ngày:</td>
+						<td>${item.ngaybatdauGV}</td>
+					</tr>
+
+					<tr class="odd gradeX">
+						<td>Sinh viên đăng ký từ ngày:</td>
+						<td>${item.ngaybatdau}</td>
+					</tr>
+					
+					<tr class="odd gradeX">
+						<td>Hạn cuối đăng ký:</td>
+						<td>${item.ngayketthuc}</td>
+					</tr>
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 
 </body>

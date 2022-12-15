@@ -27,5 +27,7 @@ public interface IDeTaiDao {
 	
 	List<DeTai> findAllDaDuyet();
 	List<DeTai> findByLoaiDeTai(String loaidetai);
+	
+	List<DeTai> findByChuyenNganh(String chuyennganh);
 
 }

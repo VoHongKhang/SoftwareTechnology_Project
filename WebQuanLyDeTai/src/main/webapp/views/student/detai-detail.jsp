@@ -35,7 +35,7 @@
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>Quản lý Đề Tài
+								<i class="fa fa-globe"></i>Chi tiết đề tài
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse"> </a> <a
@@ -50,10 +50,11 @@
 								<%@include file="/common/info.jsp"%>
 								<!-- Kết thúc hiển thị thông báo -->
 								<div class="row">
-									<div class="col-md-3">
-										<div class="row">
-											<div class="col-md-9"></div>
-										</div>
+
+
+									<div class="form-group" hidden="hidden">
+										<label for="UserID">:</label> <input type="text" name="detai"
+											value="${detai}" id="detai" class="form-control" readonly />
 									</div>
 
 									<div class="col-md-9" style="padding-right: 25px">
@@ -63,66 +64,93 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
-														<th>Tên đề tài</th>
-														<th>Loai đề tài</th>
-														<th>Chuyên ngành</th>
-														<th>Số lượng sinh viên</th>
-														<th>Giảng viên hướng dẫn</th>
-														<th>Cập nhật điểm</th>
-														<th>Hội đồng</th>
-														<th>Hành động</th>
-														<th>Tình trạng</th>
+														<th></th>
+														<th></th>
+
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach var="item" items="${detais}">
-														<tr class="odd gradeX">
 
-															<td>${item.tendetai}</td>
-															<td>${item.loaidetai}</td>
-															<td>${item.chuyennganh}</td>
-															<td>${item.soluongsv}</td>
-															<td><c:forEach var="giangvien" items="${giangviens}">
-																	<c:if test="${item.giangvien==giangvien.magiangvien}">
-															${giangvien.ten}
-															</c:if>
-																</c:forEach></td>
+													<tr class="odd gradeX">
 
-															<td>
-																<form action="#" method="post"
-																	enctype="multipart/form-data">
-																	<input type="text" class="form-control" name="diemso"
-																		id="diemso" value="${diemso}" />
 
-																	<button class="btn btn-success"
-																		formaction="${pageContext.request.contextPath}/admin-detai/diem?madetai=${item.madetai}">
-																		Cập nhật <i class="fa fa-undo"></i>
-																	</button>
-																</form>
+														<td>Tên đề tài</td>
+														<td>${detai.tendetai}</td>
+													</tr>
 
-															</td>
+													<tr class="odd gradeX">
 
-															<td>${item.hoidong}</td>
 
-															<td><a
-																href="<c:url value='/admin-detai/update?madetai=${item.madetai}'/>"
-																class="center">Duyệt</a> | <a
-																href="<c:url value='/admin-detai/delete?madetai=${item.madetai}'/>"
-																class="center">Delete</a>| <a
-																href="<c:url value='/admin-detai/hoidong?madetai=${item.madetai}'/>"
-																class="center">Hội đồng</a></td>
+														<td>Số lượng cho phép</td>
+														<td>${detai.soluongsv}</td>
+													</tr>
 
-															<td><c:if test="${item.tinhtrang==0}">
-																Chưa duyệt
-																</c:if> <c:if test="${item.tinhtrang==1}">
-																Đã duyệt
-																</c:if></td>
-														</tr>
-													</c:forEach>
+													<tr class="odd gradeX">
+
+
+														<td>Số lượng đã đăng ký</td>
+														<td>${soluong}</td>
+
+													</tr>
+													<tr class="odd gradeX">
+
+
+														<td>Được phép đăng ký</td>
+														<td>${dangky}</td>
+
+													</tr>
+
+													<tr class="odd gradeX">
+
+
+														<td>Danh sách sinh viên đăng ký</td>
+														<td><c:forEach var="danhsach" items="${danhsach}">
+														${danhsach.masinhvien } - ${danhsach.ten}													
+														<br>
+															</c:forEach></td>
+
+													</tr>
+													<tr class="odd gradeX">
+
+
+														<td>Nhóm trưởng</td>
+														<td>${nhomtruong.masinhvien } - ${nhomtruong.ten}</td>
+
+													</tr>
+													
+
+													<tr class="odd gradeX">
+
+
+														<td>Chuyên ngành</td>
+														<td>${detai.chuyennganh}</td>
+
+													</tr>
+
+
+													<tr class="odd gradeX">
+
+
+														<td>Loại đề tài</td>
+														<td>${detai.loaidetai}</td>
+
+													</tr>
+
+
+													<tr class="odd gradeX">
+
+
+														<td>Điểm đề tài</td>
+														<td>${diem}</td>
+
+													</tr>
 												</tbody>
 											</table>
+
 										</div>
 									</div>
+
+
 								</div>
 							</div>
 						</div>

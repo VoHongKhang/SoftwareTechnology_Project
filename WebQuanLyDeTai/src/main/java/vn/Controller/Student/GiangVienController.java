@@ -167,7 +167,7 @@ public class GiangVienController extends HttpServlet {
 	private void TimKiemGiangVienBangTen(HttpServletRequest req, HttpServletResponse resp) {
 
 		String ten = req.getParameter("ten");
-		List<GiangVien> giangviens = giangvienService.findByTenGV(ten);
+		GiangVien giangviens = giangvienService.findByTenGV(ten);
 
 		req.setAttribute("giangviens", giangviens);
 		req.setAttribute("ten", ten);

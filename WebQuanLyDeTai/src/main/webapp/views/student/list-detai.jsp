@@ -60,6 +60,13 @@
 
 								</c:if>
 
+								<div class="form-group" hidden="hidden">
+									<label for="UserID">loaidetai:</label> <input type="text"
+										name="loaidetai" value="${loaidetai}" id="loaidetai"
+										class="form-control" readonly />
+								</div>
+
+
 
 
 								<div class="col-md-9" style="padding-right: 25px">
@@ -84,11 +91,17 @@
 												<c:forEach var="item" items="${detais}">
 													<tr class="odd gradeX">
 
-														<td>${item.tendetai}</td>
+														<td><a
+															href="<c:url value='/student-detai/detail?madetai=${item.madetai}'/>"
+															class="center">${item.tendetai}</a></td>
 														<td>${item.loaidetai}</td>
 														<td>${item.chuyennganh}</td>
 														<td>${item.soluongsv}</td>
-														<td>${item.giangvien}</td>
+														<td><c:forEach var="giangvien" items="${giangviens}">
+																<c:if test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+															</c:forEach></td>
 
 
 
@@ -101,9 +114,8 @@
 										</table>
 
 
-										Danh sách đề tài đã đăng ký
-										<br>
-										
+										Danh sách đề tài đã đăng ký <br>
+
 										<div class="col-md-9" style="padding-right: 25px">
 											<div class="row">
 												<table
@@ -124,26 +136,33 @@
 														</tr>
 													</thead>
 													<tbody>
-														<c:forEach var="item" items="${detais}">
-														<c:forEach var="bangdiem" items="${detaidangky}">
-															<tr class="odd gradeX">
-															
-															<c:if  test="${item.madetai==bangdiem.madetai && bangdiem.masinhvien==sessionScope.acc.username }">
-															
+														<c:forEach var="item" items="${detaidk}">
+															<c:forEach var="bangdiem" items="${detaidangky}">
+																<tr class="odd gradeX">
 
-																<td>${item.tendetai}</td>
-																<td>${item.loaidetai}</td>
-																<td>${item.chuyennganh}</td>
-																<td>${item.soluongsv}</td>
-																<td>${item.giangvien}</td>
+																	<c:if
+																		test="${item.madetai==bangdiem.madetai && bangdiem.masinhvien==sessionScope.acc.username }">
 
 
+																		<td>${item.tendetai}</td>
+																		<td>${item.loaidetai}</td>
+																		<td>${item.chuyennganh}</td>
+																		<td>${item.soluongsv}</td>
+																		<td><c:forEach var="giangvien"
+																				items="${giangviens}">
+																				<c:if
+																					test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																			</c:forEach></td>
 
-																<td><a
-																	href="<c:url value='/student-detai/xoadangky?madetai1=${item.madetai}'/>"
-																	class="center">xoá đăng ký</a></td>
+
+
+																		<td><a
+																			href="<c:url value='/student-detai/xoadangky?madetai1=${item.madetai}'/>"
+																			class="center">xoá đăng ký</a></td>
 																	</c:if>
-															</tr>
+																</tr>
 															</c:forEach>
 														</c:forEach>
 													</tbody>

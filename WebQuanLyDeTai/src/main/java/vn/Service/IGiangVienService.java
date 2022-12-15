@@ -16,5 +16,5 @@ public interface IGiangVienService {
 	
 	void insert(GiangVien giangvien);
 	
-	List<GiangVien> findByTenGV(String tengv);
+	GiangVien findByTenGV(String tengv);
 }

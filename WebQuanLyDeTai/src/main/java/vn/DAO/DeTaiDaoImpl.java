@@ -138,4 +138,14 @@ public class DeTaiDaoImpl implements IDeTaiDao {
 		return query.getResultList();
 	}
 
+	@Override
+	public List<DeTai> findByChuyenNganh(String chuyennganh) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.chuyennganh = :tihtrang";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("tihtrang", chuyennganh);
+		return query.getResultList();
+	}
+
 }

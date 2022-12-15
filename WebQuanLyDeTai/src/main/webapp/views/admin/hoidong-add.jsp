@@ -52,9 +52,9 @@
 									<div class="col-md-3">
 										<div class="row">
 											<div class="col-md-9">
-											
-											
-											
+
+
+
 												<form action="#" method="post" enctype="multipart/form-data">
 													<br />
 													<div class="form-group" hidden="hidden">
@@ -74,7 +74,7 @@
 																	value="${giangvien.magiangvien}">${giangvien.ten}</option>
 															</c:forEach>
 														</select> <br>
-														
+
 													</div>
 													<div class="form-group">
 														<button class="btn green"
@@ -82,19 +82,19 @@
 															Add Trưởng hội đồng <i class="fa fa-plus"></i>
 														</button>
 													</div>
-																		
+
 													<br />
 													<div class="form-group">
 														<button class="btn green"
 															formaction="<c:url value="/admin-hoidong/addthanhvien"/>">
 															Thêm thành viên hội đồng <i class="fa fa-plus"></i>
 														</button>
-														
+
 
 													</div>
-												
+
 												</form>
-												
+
 											</div>
 										</div>
 									</div>
@@ -116,21 +116,25 @@
 												<tbody>
 
 													<c:forEach var="item" items="${thamgiahoidongs}">
-														 <c:set var="mahoidong1" scope="session"
+														<c:set var="mahoidong1" scope="session"
 															value="${item.mahoidong}" />
-														 <c:if test="${mahoidong1 ==mahoidong}">
-														 
-														
+														<c:if test="${mahoidong1 ==mahoidong}">
+
+
 															<tr class="odd gradeX">
 
-																<td>${item.magiangvien}</td>
+																<td><c:forEach var="giangvien"
+																		items="${giangviens}">
+																		<c:if test="${item.magiangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																	</c:forEach></td>
 
 																<td><a
-																	
 																	href="<c:url value='/admin-hoidong/deletethanhvien?ma=${item.magiangvien}'/>"
 																	class="center">Delete</a></td>
 															</tr>
-														</c:if> 
+														</c:if>
 													</c:forEach>
 												</tbody>
 											</table>

@@ -12,5 +12,7 @@ public interface IThongBaoDao {
 	
 	ThongBao findByID(int id);
 	
+	ThongBao findbyLoaiDeTai(String loaidetai);
+	
 	
 }

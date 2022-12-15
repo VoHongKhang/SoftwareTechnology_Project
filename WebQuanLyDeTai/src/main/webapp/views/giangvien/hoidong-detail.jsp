@@ -89,7 +89,15 @@
 
 																<tr class="odd gradeX">
 
-																	<td>${item.magiangvien}</td>
+																	<td>
+																	<c:forEach var="giangvien"
+																			items="${giangviens}">
+																			<c:if
+																				test="${item.magiangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																		</c:forEach>
+																	</td>
 
 																</tr>
 															</c:if>
@@ -137,7 +145,7 @@
 
 
 																			<c:if
-																				test="${bangdiem!=null && diem!=0  && bangdiem.madetai==item.madetai && test==1}">
+																				test="${diem !=0  && bangdiem.madetai==item.madetai && test==1}">
 																				<a>${bangdiem.diem }</a>
 
 																				<c:set var="test" scope="session" value="${2}" />
@@ -183,7 +191,16 @@
 
 
 																	</c:if></td>
-																<td>${item.giangvien}</td>
+																<td>
+																
+																<c:forEach var="giangvien"
+																			items="${giangviens}">
+																			<c:if
+																				test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																		</c:forEach>
+																</td>
 
 															</tr>
 														</c:if>

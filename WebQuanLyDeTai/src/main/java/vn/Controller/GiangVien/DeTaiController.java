@@ -17,6 +17,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
+import vn.Entity.GiangVien;
 import vn.Entity.SinhVien;
 import vn.Entity.TaiKhoan;
 import vn.Entity.ThongBao;
@@ -83,17 +84,41 @@ public class DeTaiController extends HttpServlet {
 			List<BangDiem> bangdiem= bangdiemservice.findAll();
 			List<SinhVien> sinhvien=sinhvienservice.findAll();
 			DeTai detai1=(DeTai)detaiService.findById(Integer.parseInt(request.getParameter("madetai")));
+			
 			int sl=0;
+			int diem=0;
+			
+			List<SinhVien>sinhviendangky=new ArrayList<SinhVien>();
 			for(BangDiem bd: bangdiem)
 			{
-				if(bd.getMadetai()==detai1.getMadetai())
+				if(bd.getMadetai()==detai1.getMadetai()&& bd.getMadetai()==detai1.getMadetai())
+
+				{
 					sl++;
+					diem=bd.getDiem();
+				}
 				
 			}
 			
+			for(BangDiem bd: bangdiem)
+			{
+				for(SinhVien sv:sinhvien)
+				{
+					if(Integer.parseInt(bd.getMasinhvien())==sv.getMasinhvien() && bd.getMadetai()==detai1.getMadetai())
+						
+						sinhviendangky.add(sv);
+				}
+			}
+			SinhVien sv = null;
 			
+			if(sinhviendangky.size()>0)
+				sv=sinhvienservice.findById(sinhviendangky.get(0).getMasinhvien());
+			request.setAttribute("nhomtruong", sv);
 			
+			request.setAttribute("soluong", sl);
 			request.setAttribute("detai", detai1);
+			request.setAttribute("danhsach", sinhviendangky);
+			request.setAttribute("diem", diem);
 
 			request.getRequestDispatcher("/views/giangvien/detai-detailjsp.jsp").forward(request, response);
 
@@ -153,16 +178,17 @@ public class DeTaiController extends HttpServlet {
 			
 			for(ThongBao tb:listthongbao )
 			{
-				System.out.print(tb.getNgaybatdau());
-				System.out.print(date);
+			
 				
 			
-				if( tb.getNgaybatdau().compareTo(date)<=0 && tb.getNgayketthuc().compareTo(date)>=0)
+				if( tb.getNgaybatdauGV().compareTo(date)<=0 && tb.getNgayketthuc().compareTo(date)>=0)
 					listthongbaoconhan.add(tb);
 			}
 			
 			
 			request.setAttribute("thongbaos", listthongbaoconhan);
+			List<GiangVien> listgiangvien=giagvienservice.findAll();
+			request.setAttribute("giangviens", listgiangvien);
 			// thông báo
 			request.setAttribute("detais", list);
 		} catch (Exception e) {

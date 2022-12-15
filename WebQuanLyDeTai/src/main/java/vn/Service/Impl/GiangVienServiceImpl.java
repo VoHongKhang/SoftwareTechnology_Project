@@ -38,7 +38,7 @@ public class GiangVienServiceImpl implements IGiangVienService{
 	}
 	
 	@Override
-	public List<GiangVien> findByTenGV(String tengv) {
+	public GiangVien findByTenGV(String tengv) {
 		return giangvienDao.findByTenGV(tengv);
 	}
 	
