@@ -10,4 +10,7 @@ public interface IThongBaoService {
 	void insert(ThongBao thongbao);
 	void update(ThongBao thongbao);
 	void delete (int id)throws Exception;
+	ThongBao findByID(int id);
+	ThongBao findbyLoaiDeTai(String loaidetai);
+	List<ThongBao> findConHan();
 }

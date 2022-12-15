@@ -79,7 +79,13 @@
 													</div>
 													
 													<div class="form-group">
-														<label for="ngaybatdau">Ngày bắt đầu:</label> <input
+														<label for="ngaybatdau">Ngày bắt đầu giảng viên đăng ký đề tài:</label> <input
+															type="date" class="form-control" name="ngaybatdauGV"
+															value="${thongbao.ngaybatdauGV}" id="ngaybatdauGV" />
+													</div>
+													
+													<div class="form-group">
+														<label for="ngaybatdau">Ngày bắt đầu Sinh viên đăng ký đề tài:</label> <input
 															type="date" class="form-control" name="ngaybatdau"
 															value="${thongbao.ngaybatdau}" id="ngaybatdau" />
 													</div>

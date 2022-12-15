@@ -64,4 +64,10 @@ public class DeTaiServiceImpl implements IDeTaiService{
 		// TODO Auto-generated method stub
 		return detaiDao.findByLoaiDeTai(loaidetai);
 	}
+
+	@Override
+	public List<DeTai> findByChuyenNganh(String chuyennganh) {
+		// TODO Auto-generated method stub
+		return detaiDao.findByChuyenNganh(chuyennganh);
+	}
 }

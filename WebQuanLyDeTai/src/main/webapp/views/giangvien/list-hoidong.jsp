@@ -52,8 +52,7 @@
 								<div class="row">
 									<div class="col-md-3">
 										<div class="row">
-											<div class="col-md-9">								
-											</div>
+											<div class="col-md-9"></div>
 										</div>
 									</div>
 
@@ -64,28 +63,37 @@
 												<!-- <table id="sample_2" class="table table-striped table-bordered table-hover" style="width: 100%"> -->
 												<thead>
 													<tr>
-													<th>Mã hội đồng</th>
+														<th>Mã hội đồng</th>
 														<th>tên hội đồng</th>
 														<th>trưởng hội đồng</th>
-														
+
 													</tr>
 												</thead>
 												<tbody>
 													<c:forEach var="thamgia" items="${thamgiahoidong}">
-													<c:set var="test1" scope="session"
+														<c:set var="test1" scope="session"
 															value="${thamgia.mahoidong}" />
-													<c:forEach var="hoidong" items="${hoidong}">
-													<c:set var="test2" scope="session"
-															value="${hoidong.mahoidong}" />
-													<c:if test="${test1==test2}">
-														<tr class="odd gradeX">
+														<c:forEach var="hoidong" items="${hoidong}">
+															<c:set var="test2" scope="session"
+																value="${hoidong.mahoidong}" />
+															<c:if test="${test1==test2}">
+																<tr class="odd gradeX">
 
-															<td ><a href="${pageContext.request.contextPath}/giangvien-hoidong/view?id=${hoidong.mahoidong}">${hoidong.mahoidong} </a></td>
-															<td><a href="${pageContext.request.contextPath}/giangvien-hoidong/view?id=${hoidong.mahoidong}">${hoidong.tenhoidong} </a> </td>
-															<td>${hoidong.truonghoidong}</td>
-															
-														</tr>
-														</c:if>
+																	<td><a
+																		href="${pageContext.request.contextPath}/giangvien-hoidong/view?id=${hoidong.mahoidong}">${hoidong.mahoidong}
+																	</a></td>
+																	<td><a
+																		href="${pageContext.request.contextPath}/giangvien-hoidong/view?id=${hoidong.mahoidong}">${hoidong.tenhoidong}
+																	</a></td>
+																	<td><c:forEach var="giangvien"
+																			items="${giangviens}">
+																			<c:if
+																				test="${hoidong.truonghoidong==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																		</c:forEach></td>
+																</tr>
+															</c:if>
 														</c:forEach>
 													</c:forEach>
 												</tbody>

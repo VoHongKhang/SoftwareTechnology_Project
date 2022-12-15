@@ -8,6 +8,11 @@ public interface IThongBaoDao {
 	void insert(ThongBao thongbao);
 	void update(ThongBao thongbao);
 	void delete (int id)throws Exception;
+	List<ThongBao> findConHan();
+	
+	ThongBao findByID(int id);
+	
+	ThongBao findbyLoaiDeTai(String loaidetai);
 	
 	
 }

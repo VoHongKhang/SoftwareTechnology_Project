@@ -63,8 +63,8 @@
 													</div>
 
 													<div class="form-group" hidden="hidden">
-														<label for="giangvien">GiangVien:</label> <input type="text"
-															name="giangvien"
+														<label for="giangvien">GiangVien:</label> <input
+															type="text" name="giangvien"
 															value="${giangvien = sessionScope.acc.username}"
 															id="madetai" class="form-control" readonly />
 													</div>
@@ -75,28 +75,38 @@
 															type="text" class="form-control" name="tendetai"
 															id="tendetai" value="${tendetai}" />
 													</div>
-													<div class="form-group">
+
+													Loại đề tài <label class="dropdown-menu">Loại đề
+														tài: </label> <select id="dropdownMenuButton1" name="loaidetai">
+														<c:forEach items="${thongbaos}" var="thongbao">
+															<option class="dropdown-item"
+																value="${thongbao.loaidetai}">${thongbao.loaidetai}</option>
+														</c:forEach>
+													</select> <br>
+
+
+													<%-- <div class="form-group">
 														<label for="loaidetai">Loại đề tài:</label> <input
 															type="text" class="form-control" name="loaidetai"
 															value="${loaidetai}" id="loaidetai" />
-													</div>
+													</div> --%>
 
 													<div class="dropdown">
-														
-															<label class="dropdown-menu" >Chuyên ngành: </label> <select
-																id="dropdownMenuButton1" name ="chuyennganh" value="${chuyennganh}">
-																<option class="dropdown-item"  value="cong nghe phan mem">Công
-																	nghệ phần mềm</option>
-																<option class="dropdown-item" value="He thong thong tin" >Hệ
-																	thống thông tin</option>
-																<option class="dropdown-item"
-																	value="mang va an ninh mang">Mạng và an ninh
-																	mạng</option>
-																<option class="dropdown-item" value="tri tue nhan tao" >Trí
-																	tuệ nhân tạo</option>
-															</select> <br>
-															<br> 
-														
+														Chuyên ngành <label class="dropdown-menu">Chuyên
+															ngành: </label> <select id="dropdownMenuButton1"
+															name="chuyennganh" value="${chuyennganh}">
+															<option class="dropdown-item" value="khong">Không</option>
+															<option class="dropdown-item" value="cong nghe phan mem">Công
+																nghệ phần mềm</option>
+															<option class="dropdown-item" value="He thong thong tin">Hệ
+																thống thông tin</option>
+															<option class="dropdown-item"
+																value="mang va an ninh mang">Mạng và an ninh
+																mạng</option>
+															<option class="dropdown-item" value="tri tue nhan tao">Trí
+																tuệ nhân tạo</option>
+														</select> <br> <br>
+
 													</div>
 													<div class="form-group">
 														<label for="soluongsv">Số lượng sinh viên:</label> <input
@@ -152,11 +162,17 @@
 													<c:forEach var="item" items="${detais}">
 														<tr class="odd gradeX">
 
-															<td>${item.tendetai}</td>
+															<td><a
+																href="<c:url value='/giangvien-detai/detail?madetai=${item.madetai}'/>"
+																class="center">${item.tendetai}</a></td>
 															<td>${item.loaidetai}</td>
 															<td>${item.chuyennganh}</td>
 															<td>${item.soluongsv}</td>
-															<td>${item.giangvien}</td>
+															<td><c:forEach var="giangvien" items="${giangviens}">
+																	<c:if test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																</c:forEach></td>
 
 															<td><a
 																href="<c:url value='/giangvien-detai/edit?madetai=${item.madetai}'/>"
@@ -174,15 +190,15 @@
 													</c:forEach>
 												</tbody>
 											</table>
-											
-											
-											
+
+
+
 										</div>
 									</div>
-									
-									
-									
-									
+
+
+
+
 								</div>
 							</div>
 						</div>

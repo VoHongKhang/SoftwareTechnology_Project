@@ -7,6 +7,8 @@ public interface IThamGiaHoiDongDao {
 	
 	void insert(ThamGiaHoiDong giangvien);
 	
+	void delete(int id)throws Exception;
+	
 	List<ThamGiaHoiDong> findAll();
 	List<ThamGiaHoiDong> findAllByGiangVien(int ma);
 }

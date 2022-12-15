@@ -89,7 +89,13 @@
 
 																<tr class="odd gradeX">
 
-																	<td>${item.magiangvien}</td>
+																	<td><c:forEach var="giangvien"
+																			items="${giangviens}">
+																			<c:if
+																				test="${item.magiangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																		</c:forEach></td>
 
 																</tr>
 															</c:if>
@@ -128,27 +134,30 @@
 																<td>${item.tendetai}</td>
 																<td><c:if
 																		test="${sessionScope.acc.username==truonghoidong }">
-																		<c:set var="test" scope="session"
-																				value="${1}" />
+																		<c:set var="test" scope="session" value="${1}" />
+
 																		<c:forEach var="bangdiem" items="${bangdiem}">
+																			
 
 																			<c:set var="diem" scope="session"
-																				value="${bangdiem.madetai }" />
-																			
-																				
+																				value="${bangdiem.diem }" />
 
-																			<c:if test="${bangdiem!=null  && bangdiem.madetai==item.madetai && test==1}">
+																			<c:if
+																				test="${diem !=0  && bangdiem.madetai==item.madetai && test==1 }">
 																				<a>${bangdiem.diem }</a>
-																				
-																				<c:set var="test" scope="session"
-																				value="${2}" />
+
+																				<c:set var="test" scope="session" value="${2}" />
+
 																			</c:if>
-																			<c:if test="${diem==null }">
+																			<c:if test="${diem ==0 && test==1 && bangdiem.madetai==item.madetai}">
+																				<c:set var="test" scope="session" value="${3}" />
+
+
 																				<label for="diemso">Đánh giá:</label>
 																				<form action="#" method="post"
 																					enctype="multipart/form-data">
 																					<input type="text" class="form-control"
-																						name="diemso" id="diemso" value="${diemso} " />
+																						name="diemso" id="diemso" value="${diemso}" />
 
 																					<button class="btn btn-success"
 																						formaction="${pageContext.request.contextPath}/giangvien-hoidong/diem?madetai=${item.madetai}">
@@ -163,22 +172,29 @@
 																	</c:if> <c:if
 																		test="${sessionScope.acc.username!=truonghoidong }">
 
-
+																		<c:set var="test" scope="session" value="${1}" />
 																		<c:forEach var="bangdiem" items="${bangdiem}">
+
 
 																			<c:set var="diem" scope="session"
 																				value="${bangdiem.madetai}" />
 
-																			<c:if test="${diem==item.madetai}">
+																			<c:if test="${diem==item.madetai && test==1}">
 																				<a>${bangdiem.diem }</a>
 
+																				<c:set var="test" scope="session" value="${2}" />
 
 																			</c:if>
 																		</c:forEach>
 
 
 																	</c:if></td>
-																<td>${item.giangvien}</td>
+																<td><c:forEach var="giangvien"
+																		items="${giangviens}">
+																		<c:if test="${item.giangvien==giangvien.magiangvien}">
+															${giangvien.ten}
+															</c:if>
+																	</c:forEach></td>
 
 															</tr>
 														</c:if>

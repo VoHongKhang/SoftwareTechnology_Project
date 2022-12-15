@@ -25,5 +25,6 @@ public interface IDeTaiService {
 	
 	List<DeTai> findAllDaDuyet();
 	List<DeTai> findByLoaiDeTai(String loaidetai);
+	List<DeTai> findByChuyenNganh(String chuyennganh);
 
 }

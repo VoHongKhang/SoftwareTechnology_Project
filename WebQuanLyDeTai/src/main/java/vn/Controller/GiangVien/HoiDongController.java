@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
+import vn.Entity.GiangVien;
 import vn.Entity.HoiDong;
 import vn.Entity.TaiKhoan;
 import vn.Entity.ThamGiaHoiDong;
@@ -60,10 +61,12 @@ public class HoiDongController extends HttpServlet {
 			request.setAttribute("detai", detai);
 
 			List<BangDiem> bangdiem = bangdiemservice.findAll();
-			if (bangdiem.equals(null))
-				System.out.print("Trowif owi baox taps muwa sa");
+			
 			request.setAttribute("bangdiem", bangdiem);
 
+			List<GiangVien> listgiangvien=giangvienservice.findAll();
+			request.setAttribute("giangviens", listgiangvien);
+			
 			request.getRequestDispatcher("/views/giangvien/hoidong-detail.jsp").forward(request, response);
 
 		} else if (url.contains("diem")) {
@@ -85,7 +88,7 @@ public class HoiDongController extends HttpServlet {
 				}
 			}
 
-			request.getRequestDispatcher("/views/giangvien/list-hoidong.jsp").forward(request, response);
+			
 		}
 
 		HttpSession session = request.getSession();
@@ -96,6 +99,9 @@ public class HoiDongController extends HttpServlet {
 		List<ThamGiaHoiDong> thamgia = thamgiahoidong.findAllByGiangVien(magiangvien);
 		request.setAttribute("thamgiahoidong", thamgia);
 		request.setAttribute("hoidong", hoidong);
+		
+		List<GiangVien> listgiangvien=giangvienservice.findAll();
+		request.setAttribute("giangviens", listgiangvien);
 
 		request.getRequestDispatcher("/views/giangvien/list-hoidong.jsp").forward(request, response);
 		

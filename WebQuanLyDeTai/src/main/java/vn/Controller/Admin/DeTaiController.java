@@ -15,24 +15,31 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import vn.Entity.BangDiem;
 import vn.Entity.DeTai;
+import vn.Entity.GiangVien;
 import vn.Entity.HoiDong;
 import vn.Entity.ThamGiaHoiDong;
 import vn.Service.IBangDiemService;
 import vn.Service.IDeTaiService;
+import vn.Service.IGiangVienService;
 import vn.Service.IHoiDongService;
+import vn.Service.IThamGiaHoiDongService;
 import vn.Service.Impl.BangDiemServiceImpl;
 import vn.Service.Impl.DeTaiServiceImpl;
+import vn.Service.Impl.GiangVienServiceImpl;
 import vn.Service.Impl.HoiDongServiceImpl;
+import vn.Service.Impl.ThamGiaHoiDongImpl;
 
 @SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet(urlPatterns = { "/admin-detai", "/admin-detai/create", "/admin-detai/edit", "/admin-detai/update",
 		"/admin-detai/reset", "/admin-detai/delete", "/admin-detai/search", "/admin-detai/ma", "/admin-detai/hoidong",
-		"/admin-detai/search-tengv" })
+		"/admin-detai/search-tengv" ,"/admin-detai/diem"})
 public class DeTaiController extends HttpServlet {
 	IDeTaiService detaiService = new DeTaiServiceImpl();
 	IHoiDongService hoidongservice = new HoiDongServiceImpl();
 	IBangDiemService bangdiemservice = new BangDiemServiceImpl();
+	IThamGiaHoiDongService thamgiahoidongservice = new ThamGiaHoiDongImpl();
+	IGiangVienService giangvienservice= new GiangVienServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -81,6 +88,9 @@ public class DeTaiController extends HttpServlet {
 			request.getRequestDispatcher("/views/admin/detai-add-hoidong.jsp").forward(request, response);
 
 		}
+		else if (url.contains("hoidong")) {
+			add(request, response);
+		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
@@ -111,6 +121,22 @@ public class DeTaiController extends HttpServlet {
 		} else if (url.contains("hoidong")) {
 			add(request, response);
 		}
+		else if (url.contains("diem")) {
+			int madetai = Integer.parseInt(request.getParameter("madetai"));
+
+			List<BangDiem> bangdiem123 = bangdiemservice.findAll();
+			for (BangDiem a : bangdiem123) {
+				if (a.getMadetai() == madetai) {
+
+					String diemso=request.getParameter("diemso");
+					if(diemso== null)
+						a.setDiem(0);
+					else
+						a.setDiem(Integer.parseInt(diemso));
+					bangdiemservice.update(a);
+				}
+			}
+		}
 
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
@@ -125,6 +151,9 @@ public class DeTaiController extends HttpServlet {
 			List<DeTai> list = detaiService.findAll();
 			// thông báo
 			request.setAttribute("detais", list);
+			
+			List<GiangVien> listgiangvien=giangvienservice.findAll();
+			request.setAttribute("giangviens", listgiangvien);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -140,21 +169,34 @@ public class DeTaiController extends HttpServlet {
 			// khỏi tạo đối tượng Model
 			DeTai detai = detaiService.findById(Integer.parseInt(madetai));
 
-			detai.setHoidong(request.getParameter("hoidong"));
-
-			detaiService.update(detai);
-
-			List<BangDiem> bangdiem123 = bangdiemservice.findAll();
-			for (BangDiem a : bangdiem123) {
-				if (a.getMadetai() == detai.getMadetai()) {
-
-					a.setMahoidong(request.getParameter("hoidong"));
-					bangdiemservice.update(a);
-				}
+			List<ThamGiaHoiDong> listthamgia = thamgiahoidongservice
+					.findAllByGiangVien(Integer.parseInt(detai.getGiangvien()));
+			int check = 0;
+			for (ThamGiaHoiDong thamgia : listthamgia) {
+				if (thamgia.getMahoidong() == Integer.parseInt(request.getParameter("hoidong")))
+					check = 1;
 			}
 
-			// thông báo
-			request.setAttribute("message", "Đã Thêm đề tài cho hội đồng đánh giá");
+			if (check == 0) {
+
+				detai.setHoidong(request.getParameter("hoidong"));
+				detaiService.update(detai);
+				List<BangDiem> bangdiem123 = bangdiemservice.findAll();
+				for (BangDiem a : bangdiem123) {
+					if (a.getMadetai() == detai.getMadetai()) {
+
+						a.setMahoidong(request.getParameter("hoidong"));
+						bangdiemservice.update(a);
+					}
+				}
+				// thông báo
+				request.setAttribute("message", "Đã Thêm đề tài cho hội đồng đánh giá");
+			}
+			else
+			{
+				request.setAttribute("message", "Giảng viên đánh giá là thành viên của hội đồng");
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("error", "Eror: " + e.getMessage());
@@ -241,6 +283,9 @@ public class DeTaiController extends HttpServlet {
 
 		req.setAttribute("detais", detais);
 		req.setAttribute("tendetai", tendetai);
+		
+		List<GiangVien> listgiangvien=giangvienservice.findAll();
+		req.setAttribute("giangviens", listgiangvien);
 		try {
 			req.getRequestDispatcher("/views/detai/timkiem-detai-ten.jsp").forward(req, resp);
 		} catch (ServletException e) {
@@ -273,10 +318,13 @@ public class DeTaiController extends HttpServlet {
 	private void TimKiemDeTaiBangTengv(HttpServletRequest req, HttpServletResponse resp) {
 
 		String giangvien = req.getParameter("giangvien");
-		List<DeTai> detaim = detaiService.findByTenDeTai(giangvien);
-
+		GiangVien giangvie=giangvienservice.findByTenGV(giangvien);
+		
+		List<DeTai> detaim = detaiService.findByTenGV(String.valueOf(giangvie.getMagiangvien()));
+		
 		req.setAttribute("detaim", detaim);
 		req.setAttribute("giangvien", giangvien);
+		
 		try {
 			req.getRequestDispatcher("/views/detai/timkiem-detai-ten.jsp").forward(req, resp);
 		} catch (ServletException e) {

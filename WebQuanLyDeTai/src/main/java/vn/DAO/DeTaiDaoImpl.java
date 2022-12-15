@@ -103,16 +103,16 @@ public class DeTaiDaoImpl implements IDeTaiDao {
 	@Override
 	public List<DeTai> findByTenGV(String giangvien) {
 		EntityManager enma = JpaConfig.getEntityManager();
-		String jpql = "SELECT c FROM DeTai c WHERE c.giangvien like :giangvien";
+		String jpql = "SELECT c FROM DeTai c WHERE c.giangvien = :giang";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
-		query.setParameter("giangvien", "%" + giangvien + "%");
+		query.setParameter("giang",  giangvien);
 		return query.getResultList();
 	}
 
 	@Override
 	public DeTai findByMaDeTai(int madetai) {
 		EntityManager enma = JpaConfig.getEntityManager();
-		String jpql = "SELECT c FROM DeTai c WHERE c.madetai like :madetai";
+		String jpql = "SELECT c FROM DeTai c WHERE c.madetai = :madetai";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
 		query.setParameter("madetai",  madetai );
 		return query.getSingleResult();
@@ -135,6 +135,16 @@ public class DeTaiDaoImpl implements IDeTaiDao {
 		String jpql = "SELECT c FROM DeTai c WHERE c.loaidetai = :tihtrang";
 		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
 		query.setParameter("tihtrang", loaidetai);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<DeTai> findByChuyenNganh(String chuyennganh) {
+		// TODO Auto-generated method stub
+		EntityManager enma = JpaConfig.getEntityManager();
+		String jpql = "SELECT c FROM DeTai c WHERE c.chuyennganh = :tihtrang";
+		TypedQuery<DeTai> query = enma.createQuery(jpql, DeTai.class);
+		query.setParameter("tihtrang", chuyennganh);
 		return query.getResultList();
 	}
 

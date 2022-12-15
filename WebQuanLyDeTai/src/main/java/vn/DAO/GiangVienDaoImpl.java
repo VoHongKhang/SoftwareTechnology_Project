@@ -96,11 +96,11 @@ public class GiangVienDaoImpl implements IGiangVienDao{
 	}
 	
 	@Override
-	public List<GiangVien> findByTenGV(String ten) {
+	public GiangVien findByTenGV(String ten) {
 		EntityManager enma = JpaConfig.getEntityManager();
-		String jpql = "SELECT c FROM GiangVien c WHERE c.ten like :ten";
+		String jpql = "SELECT c FROM GiangVien c WHERE c.ten = :tengv";
 		TypedQuery<GiangVien> query = enma.createQuery(jpql, GiangVien.class);
-		query.setParameter("ten","%"+ten+"%");
-		return query.getResultList();
+		query.setParameter("tengv",ten);
+		return query.getSingleResult();
 	}
 }
