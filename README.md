@@ -34,11 +34,11 @@
 
 
 ### Sprint 2:
-* Link  video nhóm thảo luận về bài tập: 
-* Link tài liệu Product Backlog: 
-* Link tài liệu Sprint Backlog: 
-* Link ghi nhận Daily Scrum Meeting:
-* Link demo kết quả làm được:
+* Link  video nhóm thảo luận về bài tập: https://drive.google.com/drive/u/1/folders/1ejZI42q8cyrJDlw1bKMI2zixdQmzycNh
+* Link tài liệu Product Backlog: https://docs.google.com/document/d/1pn9dKz1cTAzO2JbVSWhFWlT4EAVtDi0e59BdFyw4a50/edit#heading=h.7k88exg8x3qs
+* Link tài liệu Sprint Backlog: https://docs.google.com/spreadsheets/d/17qa3Bt9_dYu1asdzOfXLa3PMMpEtyYv-/edit#gid=160704669
+* Link ghi nhận Daily Scrum Meeting: https://docs.google.com/document/d/1BQ5eD01wWjgif7JPypzis7ZZ8YblW8NjrlRBAzSybvs/edit
+* Link demo kết quả làm được: https://www.youtube.com/watch?v=cIIvmycsLgw
 
 
 
