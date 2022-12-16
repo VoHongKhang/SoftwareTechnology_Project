@@ -1,6 +1,6 @@
 ## Xây dựng website quản lý đề tài
 
-### Các thành viên trong nhóm
+### Các thành viên trong nhóm 10
 * Võ Hồng Khang - 20110281 - 20110281@student.hcmute.edu.vn
 * Nguyễn Đình Thiện - 20110263 - 20110609@student.hcmute.edu.vn
 * Bùi Đặng Quốc Chí - 20110614 - 20110614@student.hcmute.edu.vn
@@ -43,6 +43,16 @@
 
 
 ### Kết quả đạt được
+* Tạo hội đồng và thêm hội đồng
+* Giao đề tài cho hội đồng đánh giá
+* Tạo trang chi tiết thông báo cho web
+* Tạo mục cập nhật điểm cho admin khi giảng viên đã khoá điểm
+* Xử lý logic cho việc giảng viên và sinh viên đăng ký đề tài
+* Giảng viên xem hội đồng tham gia và trưởng hội đồng đánh giá đề tài
+* Giảng viên xem chi tiết về dề tài của mình: danh sách sinh viên đăng ký, nhóm trưởng
+* Sinh viên xem chi tiết đề tài, sinh viên đăng ký, nhóm trưởng, được phép đăng ký hay không
+* Sinh viên xem điểm của đề tài mà mình tham gia
+
 
 ### Tài liệu tham khảo
 * Những kiến thức học được từ môn Công nghệ phần mềm của GV Huỳnh Xuân Phụng
