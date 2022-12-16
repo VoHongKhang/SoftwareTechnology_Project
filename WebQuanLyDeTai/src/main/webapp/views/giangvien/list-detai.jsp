@@ -95,10 +95,7 @@
 														Chuyên ngành <label class="dropdown-menu">Chuyên
 															ngành: </label> <select id="dropdownMenuButton1"
 															name="chuyennganh" value="${chuyennganh}">
-<<<<<<< HEAD
 															<option class="dropdown-item" value="khong">Không</option>
-=======
->>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 															<option class="dropdown-item" value="cong nghe phan mem">Công
 																nghệ phần mềm</option>
 															<option class="dropdown-item" value="He thong thong tin">Hệ

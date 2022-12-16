@@ -73,6 +73,8 @@ public class DeTaiController extends HttpServlet {
 				TaiKhoan taikhoan = (TaiKhoan) session.getAttribute("acc");
 
 				BangDiem bangdiem = bangdiemservice.findbyMaSinhVien_and_detai(madetai, taikhoan.getUsername());
+				
+				
 				bangdiemservice.delete(bangdiem.getId());
 
 				String loaidetai = request.getParameter("loaidetai");
@@ -332,13 +334,10 @@ public class DeTaiController extends HttpServlet {
 
 					}
 				}
-<<<<<<< HEAD
 				SinhVien sv= sinhvienservice.findById(Integer.parseInt(taikhoan.getUsername()));
 				
-				if(detai.getChuyennganh() !="khong" && detai.getChuyennganh()!=sv.getChuyennganh())
+				if(detai.getChuyennganh() !="khong" && !detai.getChuyennganh().equals(sv.getChuyennganh()))
 					check=2;
-=======
->>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 
 				if (check == 0)
 
@@ -350,10 +349,7 @@ public class DeTaiController extends HttpServlet {
 					bangdiem1.setNamhoc(date.getYear());
 					// BeanUtils.populate(bangdiem, map);
 					bangdiemservice.insert(bangdiem1);
-<<<<<<< HEAD
 					request.setAttribute("message", "Đăng ký thành công");
-=======
->>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 				}
 
 				else if (check == 1) {
@@ -364,22 +360,14 @@ public class DeTaiController extends HttpServlet {
 					bangdiem1.setDiem(0);
 					bangdiem1.setNamhoc(2022); // BeanUtils.populate(bangdiem, map);
 					bangdiemservice.insert(bangdiem1);
-<<<<<<< HEAD
 					request.setAttribute("message", "Đăng ký thành công");
 
 				} 
 				else if(check==2)// detaiService.delete(dt);
-					request.setAttribute("message", "Chuyên ngành đăng ký không phù hợp");
+					request.setAttribute("message", detai.getChuyennganh());
 
 				// thông báo
 				
-=======
-
-				} // detaiService.delete(dt);
-
-				// thông báo
-				request.setAttribute("message", "Đăng ký thành công");
->>>>>>> 466764b38397e28cfd64a78d8eb9d63fcb429f29
 			}
 			else if(ddk==0)
 			{
