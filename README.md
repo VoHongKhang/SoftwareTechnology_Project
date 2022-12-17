@@ -1,4 +1,6 @@
-## Xây dựng website quản lý đề tài
+## Xây dựng website quản lý đề tài 
+
+Link video báo cáo tổng kết: https://www.youtube.com/watch?v=BKNBBsUCABc
 
 ### Các thành viên trong nhóm 10
 * Võ Hồng Khang - 20110281 - 20110281@student.hcmute.edu.vn
