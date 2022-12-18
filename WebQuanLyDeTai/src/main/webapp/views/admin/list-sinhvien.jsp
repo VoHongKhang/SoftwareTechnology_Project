@@ -76,12 +76,25 @@
 															class="form-control" name="khoahoc" id="khoahoc"
 															value="${sinhvien.khoahoc}" />
 													</div>
-													<div class="form-group">
-														<label for="chuyennganh">Chuyên ngành:</label> <input
-															type="text" class="form-control" name="chuyennganh"
-															id="chuyennganh" value="${sinhvien.chuyennganh}" />
-													</div>
-
+													
+													
+													<div class="dropdown">
+														Chuyên ngành <label class="dropdown-menu">Chuyên
+															ngành: </label> <select id="dropdownMenuButton1"
+															name="chuyennganh" value="${chuyennganh}">
+															<option class="dropdown-item" value="khong">Không</option>
+															<option class="dropdown-item" value="cong nghe phan mem">Công
+																nghệ phần mềm</option>
+															<option class="dropdown-item" value="He thong thong tin">Hệ
+																thống thông tin</option>
+															<option class="dropdown-item"
+																value="mang va an ninh mang">Mạng và an ninh
+																mạng</option>
+															<option class="dropdown-item" value="tri tue nhan tao">Trí
+																tuệ nhân tạo</option>
+														</select> <br> 
+														
+</div>
 													<br />
 													<hr>
 													<div class="form-group">

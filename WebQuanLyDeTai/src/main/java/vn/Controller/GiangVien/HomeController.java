@@ -35,8 +35,7 @@ public class HomeController extends HttpServlet {
 			int id= Integer.parseInt(req.getParameter("id"));
 			ThongBao thongbao= thongbaoservice.findByID(id);
 			if(thongbao!=null)
-				
-						req.setAttribute("thongbaos", thongbao);
+				req.setAttribute("thongbaos", thongbao);
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/thongbaodetail.jsp");
 			dispatcher.forward(req, resp);
 		}

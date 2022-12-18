@@ -152,9 +152,7 @@ public class DeTaiController extends HttpServlet {
 		}else if (url.contains("search-tengv")) {
 			TimKiemDeTaiBangTengv(request, response);
 		}
-		
-		
-
+				
 		// gọi hàm findAll để lấy thông tin từ entity
 		findAll(request, response);
 		request.getRequestDispatcher("/views/giangvien/list-detai.jsp").forward(request, response);

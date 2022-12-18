@@ -53,16 +53,14 @@ public class DeTaiController extends HttpServlet {
 
 			String loaidetai = request.getParameter("loaidetai");
 			List<DeTai> detais = detaiService.findByLoaiDeTai(loaidetai);
-			
+
 			request.setAttribute("loaidetai", loaidetai);
-			
-			
-			List<DeTai>listdt=detaiService.findAll();
+
+			List<DeTai> listdt = detaiService.findAll();
 			request.setAttribute("detaidk", listdt);
-			
-			
+
 			List<BangDiem> bangdiem = bangdiemservice.findAll();
-			request.setAttribute("detaidangky", bangdiem);			
+			request.setAttribute("detaidangky", bangdiem);
 			request.setAttribute("detais", detais);
 			request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
 		} else if (url.contains("xoadangky")) {
@@ -73,21 +71,20 @@ public class DeTaiController extends HttpServlet {
 				TaiKhoan taikhoan = (TaiKhoan) session.getAttribute("acc");
 
 				BangDiem bangdiem = bangdiemservice.findbyMaSinhVien_and_detai(madetai, taikhoan.getUsername());
+
 				bangdiemservice.delete(bangdiem.getId());
 
 				String loaidetai = request.getParameter("loaidetai");
 				List<DeTai> detais = detaiService.findByLoaiDeTai(loaidetai);
-				
+
 				request.setAttribute("loaidetai", loaidetai);
-				
-				
-				List<DeTai>listdt=detaiService.findAll();
+
+				List<DeTai> listdt = detaiService.findAll();
 				request.setAttribute("detaidk", listdt);
-				
-				
+
 				List<BangDiem> bangdiem123 = bangdiemservice.findAll();
 				request.setAttribute("detaidangky", bangdiem123);
-				
+
 				request.setAttribute("detais", detais);
 
 				request.setAttribute("message", "Xoá thành công ");
@@ -119,22 +116,20 @@ public class DeTaiController extends HttpServlet {
 		} else if (url.contains("loaidetai")) {
 			String loaidetai = request.getParameter("loaidetai");
 			List<DeTai> detais = detaiService.findByLoaiDeTai(loaidetai);
-			
+
 			request.setAttribute("loaidetai", loaidetai);
-			
-			
-			List<DeTai>listdt=detaiService.findAll();
+
+			List<DeTai> listdt = detaiService.findAll();
 			request.setAttribute("detaidk", listdt);
-			
-			
+
 			List<BangDiem> bangdiem = bangdiemservice.findAll();
 			request.setAttribute("detaidangky", bangdiem);
-			
+
 			request.setAttribute("detais", detais);
-			
-			List<GiangVien> listgiangvien=giangvienservice.findAll();
+
+			List<GiangVien> listgiangvien = giangvienservice.findAll();
 			request.setAttribute("giangviens", listgiangvien);
-					
+
 			request.getRequestDispatcher("/views/student/list-detai.jsp").forward(request, response);
 
 		} else if (url.contains("detail"))
@@ -168,16 +163,17 @@ public class DeTaiController extends HttpServlet {
 
 			for (BangDiem bd : bangdiem) {
 				for (SinhVien sv : sinhvien) {
-					if (Integer.parseInt(bd.getMasinhvien()) == sv.getMasinhvien() && bd.getMadetai()==detai1.getMadetai())
+					if (Integer.parseInt(bd.getMasinhvien()) == sv.getMasinhvien()
+							&& bd.getMadetai() == detai1.getMadetai())
 
 						sinhviendangky.add(sv);
 				}
 			}
-		
+
 			SinhVien sv = null;
-					
-			if(sinhviendangky.size()>0)
-				sv=sinhvienservice.findById(sinhviendangky.get(0).getMasinhvien());
+
+			if (sinhviendangky.size() > 0)
+				sv = sinhvienservice.findById(sinhviendangky.get(0).getMasinhvien());
 
 			request.setAttribute("dangky", duocdk);
 			request.setAttribute("nhomtruong", sv);
@@ -301,16 +297,15 @@ public class DeTaiController extends HttpServlet {
 			long millis = System.currentTimeMillis();
 			Date date = new Date(millis);
 			ThongBao thongbao = thongbaoservice.findbyLoaiDeTai(detai1.getLoaidetai());
-			
-			if ( thongbao.getNgayketthuc().compareTo(date) < 0
-					)
+
+			if (thongbao.getNgayketthuc().compareTo(date) < 0)
 				ddk = 0;
-			else if (thongbao.getNgaybatdau().compareTo(date) <= 0 && thongbao.getNgayketthuc().compareTo(date) >= 0 && sl==detai1.getSoluongsv())
+			else if (thongbao.getNgaybatdau().compareTo(date) <= 0 && thongbao.getNgayketthuc().compareTo(date) >= 0
+					&& sl == detai1.getSoluongsv())
 				ddk = 1;
 			else
-				ddk=2;
-			
-			
+				ddk = 2;
+
 			if (ddk == 2)
 
 			{
@@ -321,6 +316,14 @@ public class DeTaiController extends HttpServlet {
 
 				List<BangDiem> listbangdiem = bangdiemservice.findByMaSinhVien(taikhoan.getUsername());
 				BangDiem bangdiem2 = new BangDiem();
+				SinhVien sv = sinhvienservice.findById(Integer.parseInt(taikhoan.getUsername()));
+
+				if (detai.getChuyennganh() != "khong" && !detai.getChuyennganh().equals(sv.getChuyennganh())) {
+					check = 2;
+
+				}
+				if (detai.getChuyennganh().equals("khong"))
+					check = 0;
 
 				for (BangDiem i : listbangdiem) {
 					DeTai dt = detaiService.findByMaDeTai(i.getMadetai());
@@ -343,6 +346,7 @@ public class DeTaiController extends HttpServlet {
 					bangdiem1.setNamhoc(date.getYear());
 					// BeanUtils.populate(bangdiem, map);
 					bangdiemservice.insert(bangdiem1);
+					request.setAttribute("message", "Đăng ký thành công");
 				}
 
 				else if (check == 1) {
@@ -353,18 +357,16 @@ public class DeTaiController extends HttpServlet {
 					bangdiem1.setDiem(0);
 					bangdiem1.setNamhoc(2022); // BeanUtils.populate(bangdiem, map);
 					bangdiemservice.insert(bangdiem1);
+					request.setAttribute("message", "Đăng ký thành công");
 
-				} // detaiService.delete(dt);
+				} else if (check == 2)// detaiService.delete(dt);
+					request.setAttribute("message", "Chuyên đề đăng ký không phù hợp! ");
 
 				// thông báo
-				request.setAttribute("message", "Đăng ký thành công");
-			}
-			else if(ddk==0)
-			{
+
+			} else if (ddk == 0) {
 				request.setAttribute("message", "Không nằm trong thời hạn đăng ký");
-			}
-			else if(ddk==1)
-			{
+			} else if (ddk == 1) {
 				request.setAttribute("message", "Đã đử số lượng đăng ký ! Vui lòng chọn đề tài khác");
 			}
 
@@ -398,7 +400,7 @@ public class DeTaiController extends HttpServlet {
 
 		req.setAttribute("detais", detais);
 		req.setAttribute("tendetai", tendetai);
-		List<GiangVien> listgiangvien=giangvienservice.findAll();
+		List<GiangVien> listgiangvien = giangvienservice.findAll();
 		req.setAttribute("giangviens", listgiangvien);
 		try {
 			req.getRequestDispatcher("/views/student/timkiem-detai.jsp").forward(req, resp);

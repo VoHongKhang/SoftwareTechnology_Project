@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import vn.Entity.DeTai;
 import vn.Entity.SinhVien;
 import vn.JPACongfig.JpaConfig;
 
@@ -67,8 +68,10 @@ public class SinhVienDaoImpl implements ISinhVienDao{
 	@Override
 	public SinhVien findById(int masinhvien) {
 		EntityManager enma = JpaConfig.getEntityManager();
-		SinhVien sinhvien = enma.find(SinhVien.class, masinhvien);
-		return sinhvien;
+		String jpql = "SELECT c FROM SinhVien c WHERE c.masinhvien = :madetai";
+		TypedQuery<SinhVien> query = enma.createQuery(jpql, SinhVien.class);
+		query.setParameter("madetai",  masinhvien );
+		return query.getSingleResult();
 	}
 	
 	

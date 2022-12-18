@@ -94,7 +94,7 @@
 						<td>${item.mota}</td>
 					</tr>
 					<tr class="odd gradeX">
-						<td>Mô tả</td>
+						<td>Loại đề tài:  </td>
 						<td>${item.loaidetai}</td>
 					</tr>
 					<tr class="odd gradeX">
