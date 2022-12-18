@@ -71,7 +71,12 @@ public class DeTaiController extends HttpServlet {
 				TaiKhoan taikhoan = (TaiKhoan) session.getAttribute("acc");
 
 				BangDiem bangdiem = bangdiemservice.findbyMaSinhVien_and_detai(madetai, taikhoan.getUsername());
+<<<<<<< HEAD
 
+=======
+				
+				
+>>>>>>> 65e0200b2e9a602a3fb92e3d617d3d24373641db
 				bangdiemservice.delete(bangdiem.getId());
 
 				String loaidetai = request.getParameter("loaidetai");
@@ -335,6 +340,10 @@ public class DeTaiController extends HttpServlet {
 
 					}
 				}
+				SinhVien sv= sinhvienservice.findById(Integer.parseInt(taikhoan.getUsername()));
+				
+				if(detai.getChuyennganh() !="khong" && !detai.getChuyennganh().equals(sv.getChuyennganh()))
+					check=2;
 
 				if (check == 0)
 
@@ -359,12 +368,24 @@ public class DeTaiController extends HttpServlet {
 					bangdiemservice.insert(bangdiem1);
 					request.setAttribute("message", "Đăng ký thành công");
 
+<<<<<<< HEAD
 				} else if (check == 2)// detaiService.delete(dt);
 					request.setAttribute("message", "Chuyên đề đăng ký không phù hợp! ");
 
 				// thông báo
 
 			} else if (ddk == 0) {
+=======
+				} 
+				else if(check==2)// detaiService.delete(dt);
+					request.setAttribute("message", detai.getChuyennganh());
+
+				// thông báo
+				
+			}
+			else if(ddk==0)
+			{
+>>>>>>> 65e0200b2e9a602a3fb92e3d617d3d24373641db
 				request.setAttribute("message", "Không nằm trong thời hạn đăng ký");
 			} else if (ddk == 1) {
 				request.setAttribute("message", "Đã đử số lượng đăng ký ! Vui lòng chọn đề tài khác");
